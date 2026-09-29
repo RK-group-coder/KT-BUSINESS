@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KT Fitness 健身網 | 專業健身與運動營養指南</title>
+  <meta name="description" content="大家好，我是 KT 教練！您是否不知道該如何增肌還是減脂？KT Fitness 健身網提供科學化增肌減脂指南、TDEE計算機、FFMI計算機與嚴選健身保健品。">
+  <meta name="keywords" content="KT Fitness, 健身網, 增肌減脂, TDEE計算機, 基礎代謝率, 營養學, 生酮飲食, 重訓教學">
+  
+  <!-- Open Graph / SEO -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="KT Fitness 健身網 | 專業健身與運動營養指南">
+  <meta property="og:description" content="只為提供您在健身與營養這條路上，最科學權威的實用資訊與計算工具。">
+  <meta property="og:url" content="https://github.com/<您的GitHub帳號>/jenziq-web">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       TOP ANNOUNCEMENT BAR
+       ========================================================================== -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-notice">
+        <span class="badge-new">NEW</span>
+        <span>🎉 KT 嚴選高濃度深海魚油與分離乳清補給品熱銷上架中！首購享免運優惠</span>
+      </div>
+      <div class="top-bar-actions">
+        <a href="#shop" class="top-bar-link"><i class="fas fa-store"></i> 嚴選商城</a>
+        <a href="#calculators" class="top-bar-link"><i class="fas fa-calculator"></i> TDEE 計算機</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       SITE HEADER & NAVIGATION
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        
+        <!-- Brand Logo -->
+        <a href="#hero" class="brand-logo">
+          <div class="logo-badge">KT</div>
+          <div class="brand-name">
+            <span class="brand-title">KT <span>FITNESS</span></span>
+            <span class="brand-subtitle">Fitness & Nutrition</span>
+          </div>
+        </a>
+
+        <!-- Main Nav Menu -->
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a class="nav-link active" data-target="hero">首頁</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-target="story">關於我們</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-target="calculators">
+              數據計算機 <i class="fas fa-chevron-down" style="font-size: 0.75rem; margin-left: 2px;"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="#calculators" class="dropdown-link">TDEE & BMR 計算機</a></li>
+              <li><a href="#calculators" class="dropdown-link">FFMI 肌肉指數計算機</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-target="articles">健身專欄</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-target="shop">線上商城</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-target="contact">聯絡我們</a>
+          </li>
+        </ul>
+
+        <!-- Header Right Utilities -->
+        <div class="header-utils">
+          <button class="icon-btn" id="searchBtn" title="搜尋網站文章">
+            <i class="fas fa-search"></i>
+          </button>
+          
+          <button class="icon-btn" id="themeToggle" title="切換深淺色模式">
+            <i class="fas fa-moon"></i>
+          </button>
+
+          <button class="icon-btn" id="cartBtn" title="購物車">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="cart-badge" id="cartBadge">0</span>
+          </button>
+
+          <a href="#calculators" class="btn-primary" style="margin-left: 0.5rem;">
+            <i class="fas fa-fire"></i> 免費算 TDEE
+          </a>
+
+          <button class="mobile-toggle" id="mobileToggle">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==========================================================================
+         HERO SECTION
+         ========================================================================== -->
+    <section class="hero-section page-section" id="hero">
+      <div class="container">
+        <div class="hero-grid">
+          
+          <!-- Hero Text Left -->
+          <div class="hero-content">
+            <div class="hero-tag">
+              <i class="fas fa-dumbbell"></i> 知識即力量 • 科學化體態轉變
+            </div>
+            
+            <h1 class="hero-title">
+              歡迎來到 <br>
+              <span class="highlight">KT Fitness 健身網</span>
+            </h1>
+            
+            <p class="hero-subtitle">
+              打破傳統飲食迷思，提供您增肌減脂這條路上最需要的權威資訊、精準計算工具與實用訓練指南。
+            </p>
+
+            <div class="hero-actions">
+              <a href="#calculators" class="btn-primary">
+                <i class="fas fa-calculator"></i> 立即計算每日 TDEE
+              </a>
+              <a href="#articles" class="btn-outline">
+                <i class="fas fa-book-open"></i> 探索減肥攻略
+              </a>
+            </div>
+
+            <div class="hero-stats">
+              <div class="stat-item">
+                <span class="stat-num">10<span>萬+</span></span>
+                <span class="stat-label">累積服務學員</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-num">200<span>+</span></span>
+                <span class="stat-label">原創科學文章</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-num">99.2<span>%</span></span>
+                <span class="stat-label">滿意好評推薦</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Media Right -->
+          <div class="hero-media">
+            <div class="hero-card-featured">
+              <div class="hero-banner-visual">
+                <span class="hero-banner-badge"><i class="fas fa-star"></i> 熱門品牌主打</span>
+                <div class="hero-banner-content">
+                  <h3>KT 運動營養與增肌減脂大師班</h3>
+                  <p>不盲目節食、輕鬆建立可長可久的健康生活型態</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Floating Card Accent -->
+            <div class="hero-floating-badge">
+              <div class="badge-icon">
+                <i class="fas fa-heartbeat"></i>
+              </div>
+              <div class="badge-text">
+                <strong>100% 科學實證</strong>
+                <span>專為亞洲體質打造的指南</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         PROMO / FEATURED PRODUCTS BANNER
+         ========================================================================== -->
+    <section class="section" style="padding-top: 1rem;">
+      <div class="container">
+        <div class="promo-card">
+          <div class="promo-content">
+            <span class="badge-new" style="margin-bottom: 0.75rem; display: inline-block;">獨家嚴選配方</span>
+            <h3>KT 85% 高純度 rTG 深海魚油 + 專利維生素 D3</h3>
+            <p>現代人外食必備！調節生理機能、提升重訓修復效率與專注力。無重金屬殘留認證。</p>
+            <a href="#shop" class="btn-primary">
+              <i class="fas fa-shopping-cart"></i> 了解更多優惠
+            </a>
+          </div>
+          <div style="font-size: 5rem; text-align: center; color: var(--accent-light);">
+            🐟
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         FOUNDER STORY & MYTHS SECTION (Peeta Style)
+         ========================================================================== -->
+    <section class="section section-alt page-section" id="story">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-tag">OUR MISSION</span>
+          <h2 class="section-title">我為何會創建這個健身網？</h2>
+          <p class="section-desc">打破坊間錯誤偏方，推廣奠基於科學文獻的運動營養觀念</p>
+        </div>
+
+        <div class="story-grid">
+          
+          <div class="story-media">
+            <div class="story-box">
+              <div class="story-quote">
+                「在鑽研運動營養學之後，我發現網路上有太多過時甚至有害的減肥迷思。我想打造一個真正透明、權威且能幫助大家改變身材的知識庫。」
+              </div>
+              <p class="story-text">
+                大家好，我是 KT 教練！我相信每一個想要改變身材的人，都值得擁有正確且可驗證的知識。
+              </p>
+              <p class="story-text">
+                許多人在減肥這條路上繞了大遠路，經歷反覆反彈與健康受損。KT Fitness 健身網的建立，就是為了徹底終結這些困擾！
+              </p>
+            </div>
+          </div>
+
+          <!-- 4 Myths Grid -->
+          <div>
+            <h3 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 1.25rem; color: var(--text-main);">
+              ⚠️ 坊間常見的 4 大錯誤飲食觀念：
+            </h3>
+            
+            <div class="myths-grid">
+              
+              <div class="myth-card">
+                <div class="myth-num">錯誤資訊 01.</div>
+                <h4 class="myth-title">知識陳舊無知</h4>
+                <p class="myth-desc">近20年來學術界對於飲食營養有革命性新進展，但大部分人仍死守極端節食法。</p>
+              </div>
+
+              <div class="myth-card">
+                <div class="myth-num">錯誤資訊 02.</div>
+                <h4 class="myth-title">飲食型態過於單一</h4>
+                <p class="myth-desc">誤以為只有水煮餐或傳統金字塔飲食才是健康，忽視了三大營養素的平衡搭配。</p>
+              </div>
+
+              <div class="myth-card">
+                <div class="myth-num">錯誤資訊 03.</div>
+                <h4 class="myth-title">社群媒體假資訊流傳</h4>
+                <p class="myth-desc">網路人人都能發文，造成許多缺乏科學依據的「減肥偏方」隨處流散。</p>
+              </div>
+
+              <div class="myth-card">
+                <div class="myth-num">錯誤資訊 04.</div>
+                <h4 class="myth-title">個人經驗盲目複製</h4>
+                <p class="myth-desc">別人能瘦的方法不一定適合你的基因與生活型態（往往只是暫時的水分流失）。</p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         INTERACTIVE FITNESS CALCULATOR SUITE
+         ========================================================================== -->
+    <section class="section page-section" id="calculators">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-tag">SCIENCE BASED TOOLS</span>
+          <h2 class="section-title">身體數據線上計算機</h2>
+          <p class="section-desc">免費計算您的每日總熱量消耗 (TDEE)、基礎代謝率 (BMR) 與肌肉量指數 (FFMI)</p>
+        </div>
+
+        <div class="calc-wrapper">
+          
+          <!-- Calc Sub-tabs -->
+          <div class="calc-tabs">
+            <button class="calc-tab active" data-tab="tdeePanel">
+              <i class="fas fa-fire"></i> TDEE & BMR 計算機
+            </button>
+            <button class="calc-tab" data-tab="ffmiPanel">
+              <i class="fas fa-child"></i> FFMI 肌肉指數計算機
+            </button>
+          </div>
+
+          <!-- TDEE Calculator Panel -->
+          <div class="calc-body calc-panel" id="tdeePanel">
+            
+            <!-- Left Form -->
+            <div>
+              <div class="form-group">
+                <label class="form-label">生理性別</label>
+                <div class="gender-select">
+                  <button type="button" class="gender-btn active" data-gender="male">
+                    <i class="fas fa-mars"></i> 男性
+                  </button>
+                  <button type="button" class="gender-btn" data-gender="female">
+                    <i class="fas fa-venus"></i> 女性
+                  </button>
+                </div>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;">
+                <div class="form-group">
+                  <label class="form-label" for="calcAge">年齡 (歲)</label>
+                  <input type="number" id="calcAge" class="form-control" value="28" min="10" max="100">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="calcHeight">身高 (cm)</label>
+                  <input type="number" id="calcHeight" class="form-control" value="175" min="100" max="230">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="calcWeight">體重 (kg)</label>
+                  <input type="number" id="calcWeight" class="form-control" value="70" min="30" max="200">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="calcActivity">日常活動量頻率</label>
+                <select id="calcActivity" class="form-control">
+                  <option value="1.2">久坐 / 辦公室工作（幾乎不運動）</option>
+                  <option value="1.375" selected>輕度活動（每週運動 1~3 天）</option>
+                  <option value="1.55">中度活動（每週運動 3~5 天）</option>
+                  <option value="1.725">高度活動（每週高強度運動 6~7 天）</option>
+                  <option value="1.9">極高強度（運動員 / 每天體力勞動）</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="calcGoal">體態目標</label>
+                <select id="calcGoal" class="form-control">
+                  <option value="fatloss" selected>減脂（打造每日熱量赤字）</option>
+                  <option value="maintain">維持目前體重與體態</option>
+                  <option value="muscle">增肌（適度熱量盈餘）</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Right Results -->
+            <div class="calc-result-panel">
+              <div>
+                <div class="result-box">
+                  <div class="result-title">基礎代謝率 (BMR)</div>
+                  <div class="result-val"><span id="resBmr">1,650</span> <span class="result-unit">kcal/日</span></div>
+                </div>
+
+                <div class="result-box">
+                  <div class="result-title">每日總熱量消耗 (TDEE)</div>
+                  <div class="result-val" style="color: var(--secondary);"><span id="resTdee">2,268</span> <span class="result-unit">kcal/日</span></div>
+                </div>
+
+                <div style="background: var(--bg-card); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); text-align: center;">
+                  <span id="resGoalLabel" style="font-size: 0.85rem; font-weight: 700; color: var(--primary);">減脂推薦目標熱量</span>
+                  <div style="font-size: 2.2rem; font-weight: 900; color: var(--primary); font-family: var(--font-heading);" id="resTarget">
+                    1,860
+                  </div>
+                  <small style="color: var(--text-muted);">kcal / 每日建議攝取</small>
+                </div>
+              </div>
+
+              <div>
+                <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-muted); margin-bottom: 0.5rem; text-align: center;">
+                  🥗 推薦三大營養素配置
+                </div>
+                <div class="macro-split">
+                  <div class="macro-card">
+                    <span style="color: #ef4444; font-weight: 700;">蛋白質</span>
+                    <strong id="resProtein">140g</strong>
+                  </div>
+                  <div class="macro-card">
+                    <span style="color: #3b82f6; font-weight: 700;">碳水化合物</span>
+                    <strong id="resCarb">180g</strong>
+                  </div>
+                  <div class="macro-card">
+                    <span style="color: #f59e0b; font-weight: 700;">脂質</span>
+                    <strong id="resFat">52g</strong>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- FFMI Calculator Panel (Hidden by default) -->
+          <div class="calc-body calc-panel" id="ffmiPanel" style="display: none;">
+            
+            <div>
+              <div class="form-group">
+                <label class="form-label" for="ffmiHeight">身高 (cm)</label>
+                <input type="number" id="ffmiHeight" class="form-control" value="175">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="ffmiWeight">體重 (kg)</label>
+                <input type="number" id="ffmiWeight" class="form-control" value="75">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="ffmiFat">體體脂率 (%)</label>
+                <input type="number" id="ffmiFat" class="form-control" value="15" step="0.5">
+              </div>
+            </div>
+
+            <div class="calc-result-panel" style="justify-content: center; text-align: center;">
+              <div class="result-title">標準化 FFMI 指數</div>
+              <div class="result-val" id="resFfmi">20.8</div>
+              <p id="resFfmiStatus" style="font-weight: 700; color: var(--primary); font-size: 1.1rem; margin-top: 0.5rem;">
+                評估結果：極佳健身訓練者體型
+              </p>
+              <small style="color: var(--text-muted); margin-top: 1rem; display: block;">
+                註：自然健身者的極限 FFMI 通常約為 25。此指數排除體脂干擾，更能精準評估實際淨肌肉量進步幅度。
+              </small>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         ARTICLES & KNOWLEDGE HUB
+         ========================================================================== -->
+    <section class="section section-alt page-section" id="articles">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-tag">KNOWLEDGE HUB</span>
+          <h2 class="section-title">健身與營養知識專欄</h2>
+          <p class="section-desc">閱讀最新減重觀念、重訓技巧教學與科學化飲食研究</p>
+        </div>
+
+        <!-- Category Pills Filter -->
+        <div class="category-pills">
+          <button class="pill-btn active" data-category="all">全部文章</button>
+          <button class="pill-btn" data-category="fat-loss">減重知識</button>
+          <button class="pill-btn" data-category="workout">重訓教學</button>
+          <button class="pill-btn" data-category="keto">生酮飲食</button>
+          <button class="pill-btn" data-category="nutrition">營養學</button>
+          <button class="pill-btn" data-category="experience">心得分享</button>
+        </div>
+
+        <!-- Articles Grid Container -->
+        <div class="articles-grid" id="articlesGrid">
+          <!-- Dynamically populated via script.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         ONLINE STORE & SUPPLEMENT SHOWCASE
+         ========================================================================== -->
+    <section class="section page-section" id="shop">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-tag">KT STORE</span>
+          <h2 class="section-title">KT 嚴選運動補給品</h2>
+          <p class="section-desc">專為提升運動表現與促進身體恢復而生的高品質產品</p>
+        </div>
+
+        <!-- Products Grid Container -->
+        <div class="products-grid" id="productsGrid">
+          <!-- Dynamically populated via script.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         CONTACT & CONSULTATION SECTION
+         ========================================================================== -->
+    <section class="section section-alt page-section" id="contact">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-tag">GET IN TOUCH</span>
+          <h2 class="section-title">聯絡專業團隊</h2>
+          <p class="section-desc">有任何關於飲食規劃、個人訓練合作或商業合作，歡迎隨時與我們聯繫</p>
+        </div>
+
+        <div class="contact-grid">
+          
+          <!-- Contact Info -->
+          <div class="contact-info-card">
+            <h3 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 1.5rem; color: var(--text-main);">
+              KT Fitness 服務據點與資訊
+            </h3>
+
+            <div class="contact-method">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-detail">
+                <h4>工作室地點</h4>
+                <p>台北市大安區信義路四段 100 號 3 樓</p>
+              </div>
+            </div>
+
+            <div class="contact-method">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-detail">
+                <h4>電子郵件</h4>
+                <p>contact@ktfitness.tw</p>
+              </div>
+            </div>
+
+            <div class="contact-method">
+              <div class="contact-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div class="contact-detail">
+                <h4>營業與客服時間</h4>
+                <p>週一至週六 09:00 - 21:00</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="contact-form-box">
+            <h3 style="font-size: 1.3rem; font-weight: 800; margin-bottom: 1.25rem; color: var(--text-main);">
+              線上免費諮詢表單
+            </h3>
+            
+            <form id="contactForm">
+              <div class="form-group">
+                <label class="form-label" for="contactName">您的姓名 *</label>
+                <input type="text" id="contactName" class="form-control" placeholder="請輸入姓名" required>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div class="form-group">
+                  <label class="form-label" for="contactEmail">Email 信箱 *</label>
+                  <input type="email" id="contactEmail" class="form-control" placeholder="name@example.com" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="contactPhone">聯絡電話</label>
+                  <input type="tel" id="contactPhone" class="form-control" placeholder="0912-345-678">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contactMsg">諮詢需求與內容 *</label>
+                <textarea id="contactMsg" class="form-control" rows="4" placeholder="請告訴我們您的體態目標（例如：想要三個月內減脂 5%...）" required></textarea>
+              </div>
+
+              <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
+                <i class="fas fa-paper-plane"></i> 送出諮詢訊息
+              </button>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       MODALS (Search & Article Modal)
+       ========================================================================== -->
+  
+  <!-- Search Modal -->
+  <div class="modal-overlay" id="searchModal">
+    <div class="modal-container">
+      <button class="modal-close" id="closeSearch">&times;</button>
+      <h3 style="font-size: 1.3rem; font-weight: 800; margin-bottom: 1rem; color: var(--text-main);">
+        <i class="fas fa-search" style="color: var(--primary);"></i> 搜尋 KT Fitness
+      </h3>
+      <input type="text" id="searchInput" class="form-control" placeholder="輸入關鍵字（例如：減肥、蛋白質、深蹲...）" style="margin-bottom: 1.25rem;">
+      <div id="searchResults" style="max-height: 300px; overflow-y: auto;">
+        <p style="color: var(--text-muted); text-align: center;">輸入關鍵字搜尋文章或工具...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Article View Modal -->
+  <div class="modal-overlay" id="articleModal">
+    <div class="modal-container" style="max-width: 720px;">
+      <button class="modal-close" id="closeArticle">&times;</button>
+      <h2 id="modalArticleTitle" style="font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem; color: var(--text-main);"></h2>
+      <div id="modalArticleBody"></div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       FOOTER & BACK TO TOP
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <div class="footer-brand">
+          <a href="#hero" class="brand-logo">
+            <div class="logo-badge">KT</div>
+            <div class="brand-name">
+              <span class="brand-title">KT <span>FITNESS</span></span>
+            </div>
+          </a>
+          <p class="footer-desc">
+            KT Fitness 健身網致力於結合運動科學、臨床營養學與人性化飲食策略，幫助每位追求自我超越的朋友打造夢想體態。
+          </p>
+          <div class="social-links">
+            <a href="https://youtube.com" class="social-icon" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://instagram.com" class="social-icon" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com" class="social-icon" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-title">快速連結</h4>
+          <ul class="footer-links">
+            <li><a href="#hero">首頁</a></li>
+            <li><a href="#story">關於我們</a></li>
+            <li><a href="#calculators">TDEE 計算機</a></li>
+            <li><a href="#articles">健身專欄文章</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">熱門分類</h4>
+          <ul class="footer-links">
+            <li><a href="#articles">減重與減脂攻略</a></li>
+            <li><a href="#articles">重訓菜單與動作分析</a></li>
+            <li><a href="#articles">生酮與低碳飲食</a></li>
+            <li><a href="#articles">運動營養補給品</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">訂閱週報</h4>
+          <p style="font-size: 0.85rem; margin-bottom: 1rem; color: #94a3b8;">
+            每週收到最新的科學減脂文章與獨家優惠碼！
+          </p>
+          <div style="display: flex; gap: 0.5rem;">
+            <input type="email" class="form-control" placeholder="請輸入您的 Email" style="font-size: 0.85rem;">
+            <button class="btn-primary" style="padding: 0.6rem 1rem;">訂閱</button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 KT Fitness 健身網. All Rights Reserved. 網站內容僅供健康資訊參考，醫療診斷請諮詢專業醫師。</p>
+        <p>Inspired by Peeta Fitness Brand Aesthetics</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Floating Back To Top Button -->
+  <button class="back-to-top" id="backToTop" title="返回頂部">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>
