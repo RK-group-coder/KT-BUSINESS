@@ -181,10 +181,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeBtn = document.getElementById('themeToggle');
     if (!themeBtn) return;
 
+    // Dark mode is default, icon shows sun to switch to light mode
+    themeBtn.innerHTML = '<i class="fas fa-sun"></i>';
+
     themeBtn.addEventListener('click', () => {
-      document.body.classList.toggle('dark-theme');
-      const isDark = document.body.classList.contains('dark-theme');
-      themeBtn.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+      document.body.classList.toggle('light-theme');
+      const isLight = document.body.classList.contains('light-theme');
+      themeBtn.innerHTML = isLight ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
     });
   }
 
