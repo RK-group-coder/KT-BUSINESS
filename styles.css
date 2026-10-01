@@ -3,7 +3,7 @@
    Inspired by Peeta Fitness & Modern Health Influencer Web Aesthetics
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Outfit:wght@400;600;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Noto+Sans+TC:wght@300;400;500;700;900&family=Outfit:wght@400;600;800;900&family=Syne:wght@700;800&display=swap');
 
 :root {
   /* Color Palette */
@@ -183,49 +183,35 @@ button, input, select, textarea {
 
 /* Logo */
 .brand-logo {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  font-family: var(--font-heading);
-  font-weight: 900;
-  font-size: 1.6rem;
-  color: var(--text-main);
-  letter-spacing: -0.5px;
+  text-decoration: none;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease;
 }
 
-.logo-badge {
-  background: linear-gradient(135deg, var(--primary), #b91c1c);
-  color: #fff;
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.3rem;
-  box-shadow: 0 4px 10px rgba(230, 57, 70, 0.3);
-}
-
-.brand-name {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.1;
+.brand-logo:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
 }
 
 .brand-title {
+  font-family: 'Montserrat', 'Outfit', sans-serif;
+  font-size: 1.7rem;
   font-weight: 900;
-  color: var(--text-main);
+  color: #ffffff !important;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .brand-title span {
-  color: var(--primary);
+  color: #ffffff !important;
 }
 
+.logo-badge,
 .brand-subtitle {
-  font-size: 0.7rem;
-  color: var(--text-muted);
-  letter-spacing: 1px;
-  text-transform: uppercase;
+  display: none !important;
 }
 
 /* Nav Menu */
@@ -434,6 +420,7 @@ button, input, select, textarea {
 .hero-title .highlight {
   background: linear-gradient(135deg, var(--primary), #e63946, #f1faee);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
