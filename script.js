@@ -508,6 +508,15 @@ document.addEventListener('DOMContentLoaded', () => {
         contactForm.reset();
       });
     }
+
+    // FAQ Accordion Handler
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    faqQuestions.forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.parentElement;
+        item.classList.toggle('active');
+      });
+    });
   }
 
   /* ==========================================================================

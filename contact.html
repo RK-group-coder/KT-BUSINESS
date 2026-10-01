@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>聯絡我們與線上諮詢 | KT Fitness 健身網</title>
+  <meta name="description" content="預約一對一體態轉變諮詢、飲食規劃課程與商業合作洽詢。KT Fitness 專業團隊竭誠為您服務。">
+  <meta name="keywords" content="聯絡 KT Fitness, 線上健身諮詢, KT 教練一對一, 飲食規劃諮詢, 健身客服">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       SITE HEADER & NAVIGATION
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        
+        <a href="index.html" class="brand-logo">
+          <span class="brand-title">KT FITNESS</span>
+        </a>
+
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">首頁</a>
+          </li>
+          <li class="nav-item">
+            <a href="about.html" class="nav-link">關於我們</a>
+          </li>
+          <li class="nav-item">
+            <a href="articles.html" class="nav-link">健身專欄</a>
+          </li>
+          <li class="nav-item">
+            <a href="shop.html" class="nav-link">線上商城</a>
+          </li>
+          <li class="nav-item">
+            <a href="contact.html" class="nav-link active">聯絡我們</a>
+          </li>
+        </ul>
+
+        <div class="header-utils">
+          <button class="icon-btn" id="searchBtn" title="搜尋網站文章">
+            <i class="fas fa-search"></i>
+          </button>
+          
+          <button class="icon-btn" id="themeToggle" title="切換深淺色模式">
+            <i class="fas fa-moon"></i>
+          </button>
+
+          <button class="icon-btn" id="cartBtn" title="購物車">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="cart-badge" id="cartBadge">0</span>
+          </button>
+
+          <button class="mobile-toggle" id="mobileToggle">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==========================================================================
+         SUBPAGE HERO HEADER
+         ========================================================================== -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="page-hero-tag"><i class="fas fa-headset"></i> GET IN TOUCH</span>
+        <h1 class="page-hero-title">聯絡專業團隊</h1>
+        <p class="page-hero-desc">
+          有任何關於飲食規劃、個人訓練合作或商業合作，歡迎隨時與我們聯繫！專業教練團隊將盡快回覆。
+        </p>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         CONTACT INFO & CONSULTATION FORM
+         ========================================================================== -->
+    <section class="section">
+      <div class="container">
+        
+        <div class="contact-grid">
+          
+          <!-- Contact Info -->
+          <div class="contact-info-card">
+            <h3 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 1.5rem; color: var(--text-main);">
+              KT Fitness 服務據點與資訊
+            </h3>
+
+            <div class="contact-method">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-detail">
+                <h4>工作室地點</h4>
+                <p>台北市大安區信義路四段 100 號 3 樓</p>
+              </div>
+            </div>
+
+            <div class="contact-method">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-detail">
+                <h4>電子郵件</h4>
+                <p>contact@ktfitness.tw</p>
+              </div>
+            </div>
+
+            <div class="contact-method">
+              <div class="contact-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div class="contact-detail">
+                <h4>營業與客服時間</h4>
+                <p>週一至週六 09:00 - 21:00</p>
+              </div>
+            </div>
+
+            <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color);">
+              <h4 style="font-size: 0.95rem; font-weight: 700; color: #ffffff; margin-bottom: 0.75rem;">追蹤 KT 教練官方社群</h4>
+              <div class="social-links">
+                <a href="https://youtube.com" class="social-icon" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://instagram.com" class="social-icon" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://facebook.com" class="social-icon" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="contact-form-box">
+            <h3 style="font-size: 1.3rem; font-weight: 800; margin-bottom: 1.25rem; color: var(--text-main);">
+              線上免費諮詢表單
+            </h3>
+            
+            <form id="contactForm">
+              <div class="form-group">
+                <label class="form-label" for="contactName">您的姓名 *</label>
+                <input type="text" id="contactName" class="form-control" placeholder="請輸入姓名" required>
+              </div>
+
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                <div class="form-group">
+                  <label class="form-label" for="contactEmail">Email 信箱 *</label>
+                  <input type="email" id="contactEmail" class="form-control" placeholder="name@example.com" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="contactPhone">聯絡電話</label>
+                  <input type="tel" id="contactPhone" class="form-control" placeholder="0912-345-678">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contactMsg">諮詢需求與內容 *</label>
+                <textarea id="contactMsg" class="form-control" rows="4" placeholder="請告訴我們您的體態目標（例如：想要三個月內減脂 5%...）" required></textarea>
+              </div>
+
+              <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
+                <i class="fas fa-paper-plane"></i> 送出諮詢訊息
+              </button>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         FREQUENTLY ASKED QUESTIONS (FAQ Accordion)
+         ========================================================================== -->
+    <section class="section section-alt">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-tag">FAQ</span>
+          <h2 class="section-title">常見問題解答</h2>
+          <p class="section-desc">關於體態轉變計畫、線上計算機與補給品訂購常見疑問</p>
+        </div>
+
+        <div class="faq-list">
+          
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Q1. 線上 TDEE 計算機計算出來的數據一定精準嗎？</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              計算機使用的 Mifflin-St Jeor 公式是目前臨床實證最精準的理論估算值。但每個人的基因、腸道菌群與實際每日活動量略有不同，建議以此數值作為起步基準，執行 2~3 週後觀察體重進展進行適度調整。
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Q2. 報名 KT 教練一對一體態指導課程包含哪些內容？</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              包含完整的體能發力檢測、個人專屬熱量與三大營養素配置、每週重訓動作影片監修審核，以及外食/自煮靈活菜單隨時線上諮詢。
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Q3. 在商城購買商品後多久可以收到貨？</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              工作日每日中午 12:00 前完成付費之訂單，將於當日安排寄出。超商取貨約 2~3 天送達指定門市，宅配到府約 1~2 工作日即可收到。
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>Q4. 初學者訓練建議補充哪些健身補給品？</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+              基礎日常飲食最為重要！若外食蛋白質攝取不足，建議首選「分離乳清蛋白粉」；若想調節日常身體機能與運動修復效率，建議優先補給「高純度 rTG 深海魚油」。
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Modals -->
+  <div class="modal-overlay" id="searchModal">
+    <div class="modal-container">
+      <button class="modal-close" id="closeSearch">&times;</button>
+      <h3 style="font-size: 1.3rem; font-weight: 800; margin-bottom: 1rem; color: var(--text-main);">
+        <i class="fas fa-search" style="color: var(--primary);"></i> 搜尋 KT Fitness
+      </h3>
+      <input type="text" id="searchInput" class="form-control" placeholder="輸入關鍵字..." style="margin-bottom: 1.25rem;">
+      <div id="searchResults" style="max-height: 300px; overflow-y: auto;">
+        <p style="color: var(--text-muted); text-align: center;">輸入關鍵字搜尋文章或工具...</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="articleModal">
+    <div class="modal-container" style="max-width: 720px;">
+      <button class="modal-close" id="closeArticle">&times;</button>
+      <h2 id="modalArticleTitle" style="font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem; color: var(--text-main);"></h2>
+      <div id="modalArticleBody"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <span class="brand-title">KT FITNESS</span>
+          </a>
+          <p class="footer-desc">
+            KT Fitness 健身網致力於結合運動科學、臨床營養學與人性化飲食策略，幫助每位追求自我超越的朋友打造夢想體態。
+          </p>
+          <div class="social-links">
+            <a href="https://youtube.com" class="social-icon" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://instagram.com" class="social-icon" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com" class="social-icon" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-title">獨立頁面導覽</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">首頁</a></li>
+            <li><a href="about.html">關於我們</a></li>
+            <li><a href="articles.html">健身專欄</a></li>
+            <li><a href="shop.html">線上商城</a></li>
+            <li><a href="contact.html">聯絡我們</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">熱門文章主題</h4>
+          <ul class="footer-links">
+            <li><a href="articles.html">減重與減脂攻略</a></li>
+            <li><a href="articles.html">重訓菜單與動作分析</a></li>
+            <li><a href="articles.html">生酮與低碳飲食</a></li>
+            <li><a href="articles.html">運動營養補給品</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">訂閱電子週報</h4>
+          <p style="font-size: 0.85rem; margin-bottom: 1rem; color: #94a3b8;">
+            每週收到最新的科學減脂文章與獨家優惠碼！
+          </p>
+          <div style="display: flex; gap: 0.5rem;">
+            <input type="email" class="form-control" placeholder="請輸入您的 Email" style="font-size: 0.85rem;">
+            <button class="btn-primary" style="padding: 0.6rem 1rem;">訂閱</button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 KT Fitness 健身網. All Rights Reserved.</p>
+        <p>Inspired by Modern Health & Fitness Aesthetics</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" title="返回頂部">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>

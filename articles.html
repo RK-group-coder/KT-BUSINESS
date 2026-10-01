@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>健身與營養知識專欄 | KT Fitness 健身網</title>
+  <meta name="description" content="瀏覽最新科學化減脂指南、重訓動作教學、生酮低碳飲食分析與運動補給品選購建議。">
+  <meta name="keywords" content="健身專欄, 減重知識, 重訓教學, 生酮飲食, 運動營養學, 增肌減脂技巧">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       SITE HEADER & NAVIGATION
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        
+        <a href="index.html" class="brand-logo">
+          <span class="brand-title">KT FITNESS</span>
+        </a>
+
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">首頁</a>
+          </li>
+          <li class="nav-item">
+            <a href="about.html" class="nav-link">關於我們</a>
+          </li>
+          <li class="nav-item">
+            <a href="articles.html" class="nav-link active">健身專欄</a>
+          </li>
+          <li class="nav-item">
+            <a href="shop.html" class="nav-link">線上商城</a>
+          </li>
+          <li class="nav-item">
+            <a href="contact.html" class="nav-link">聯絡我們</a>
+          </li>
+        </ul>
+
+        <div class="header-utils">
+          <button class="icon-btn" id="searchBtn" title="搜尋網站文章">
+            <i class="fas fa-search"></i>
+          </button>
+          
+          <button class="icon-btn" id="themeToggle" title="切換深淺色模式">
+            <i class="fas fa-moon"></i>
+          </button>
+
+          <button class="icon-btn" id="cartBtn" title="購物車">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="cart-badge" id="cartBadge">0</span>
+          </button>
+
+          <button class="mobile-toggle" id="mobileToggle">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==========================================================================
+         SUBPAGE HERO HEADER
+         ========================================================================== -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="page-hero-tag"><i class="fas fa-book-open"></i> KNOWLEDGE HUB</span>
+        <h1 class="page-hero-title">健身與營養知識專欄</h1>
+        <p class="page-hero-desc">
+          閱讀最新減重觀念、重訓技巧教學與科學化飲食研究，打破無效迷思，用知識武裝體態！
+        </p>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         ARTICLES HUB WITH CATEGORY FILTERS
+         ========================================================================== -->
+    <section class="section">
+      <div class="container">
+        
+        <!-- Category Pills Filter -->
+        <div class="category-pills">
+          <button class="pill-btn active" data-category="all">全部文章</button>
+          <button class="pill-btn" data-category="fat-loss">減重知識</button>
+          <button class="pill-btn" data-category="workout">重訓教學</button>
+          <button class="pill-btn" data-category="keto">生酮飲食</button>
+          <button class="pill-btn" data-category="nutrition">營養學</button>
+          <button class="pill-btn" data-category="experience">心得分享</button>
+        </div>
+
+        <!-- Articles Grid Container -->
+        <div class="articles-grid" id="articlesGrid">
+          <!-- Dynamically populated via script.js -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         WEEKLY NEWSLETTER SUBSCRIBE BANNER
+         ========================================================================== -->
+    <section class="section section-alt">
+      <div class="container">
+        <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 3rem; text-align: center; max-width: 800px; margin: 0 auto;">
+          <i class="fas fa-envelope-open-text" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;"></i>
+          <h3 style="font-size: 1.6rem; font-weight: 800; margin-bottom: 0.5rem; color: #ffffff;">
+            訂閱 KT 週報，第一時間獲得科學知識
+          </h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
+            每週一次，絕不安騷擾郵件！獲得獨家飲食研究摘要、最新優惠折扣與線上工具新功能通知。
+          </p>
+          <div style="display: flex; gap: 0.75rem; max-width: 500px; margin: 0 auto; flex-wrap: wrap;">
+            <input type="email" class="form-control" placeholder="請輸入您的 Email 信箱..." style="flex: 1; padding: 0.8rem 1rem;">
+            <button class="btn-primary" style="padding: 0.8rem 1.75rem;">立即訂閱</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modals -->
+  <div class="modal-overlay" id="searchModal">
+    <div class="modal-container">
+      <button class="modal-close" id="closeSearch">&times;</button>
+      <h3 style="font-size: 1.3rem; font-weight: 800; margin-bottom: 1rem; color: var(--text-main);">
+        <i class="fas fa-search" style="color: var(--primary);"></i> 搜尋 KT Fitness 文章
+      </h3>
+      <input type="text" id="searchInput" class="form-control" placeholder="輸入關鍵字（例如：減肥、蛋白質、深蹲...）" style="margin-bottom: 1.25rem;">
+      <div id="searchResults" style="max-height: 300px; overflow-y: auto;">
+        <p style="color: var(--text-muted); text-align: center;">輸入關鍵字搜尋文章或工具...</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="articleModal">
+    <div class="modal-container" style="max-width: 720px;">
+      <button class="modal-close" id="closeArticle">&times;</button>
+      <h2 id="modalArticleTitle" style="font-size: 1.5rem; font-weight: 800; margin-bottom: 1rem; color: var(--text-main);"></h2>
+      <div id="modalArticleBody"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <span class="brand-title">KT FITNESS</span>
+          </a>
+          <p class="footer-desc">
+            KT Fitness 健身網致力於結合運動科學、臨床營養學與人性化飲食策略，幫助每位追求自我超越的朋友打造夢想體態。
+          </p>
+          <div class="social-links">
+            <a href="https://youtube.com" class="social-icon" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://instagram.com" class="social-icon" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://facebook.com" class="social-icon" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-title">獨立頁面導覽</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">首頁</a></li>
+            <li><a href="about.html">關於我們</a></li>
+            <li><a href="articles.html">健身專欄</a></li>
+            <li><a href="shop.html">線上商城</a></li>
+            <li><a href="contact.html">聯絡我們</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">熱門文章主題</h4>
+          <ul class="footer-links">
+            <li><a href="articles.html">減重與減脂攻略</a></li>
+            <li><a href="articles.html">重訓菜單與動作分析</a></li>
+            <li><a href="articles.html">生酮與低碳飲食</a></li>
+            <li><a href="articles.html">運動營養補給品</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">訂閱電子週報</h4>
+          <p style="font-size: 0.85rem; margin-bottom: 1rem; color: #94a3b8;">
+            每週收到最新的科學減脂文章與獨家優惠碼！
+          </p>
+          <div style="display: flex; gap: 0.5rem;">
+            <input type="email" class="form-control" placeholder="請輸入您的 Email" style="font-size: 0.85rem;">
+            <button class="btn-primary" style="padding: 0.6rem 1rem;">訂閱</button>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 KT Fitness 健身網. All Rights Reserved.</p>
+        <p>Inspired by Modern Health & Fitness Aesthetics</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" title="返回頂部">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
