@@ -1559,3 +1559,25 @@ button, input, select, textarea {
   display: block;
   object-fit: cover;
 }
+
+/* Name Title Styling */
+.name-title {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+}
+
+.name-title .kt-text {
+  font-family: 'Montserrat', var(--font-heading);
+  font-size: 1.35em;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: #ffffff;
+}
+
+.name-title .cn-name {
+  font-size: 1em;
+  font-weight: 900;
+  color: #ffffff;
+}
