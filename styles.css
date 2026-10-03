@@ -1549,7 +1549,7 @@ button, input, select, textarea {
   border: 1px solid var(--border-color);
   box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6);
   max-width: 400px;
-  height: 440px;
+  height: 330px;
   width: 100%;
   margin: 0 auto;
 }
