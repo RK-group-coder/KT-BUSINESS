@@ -1542,3 +1542,20 @@ button, input, select, textarea {
   font-size: 4.5rem;
   margin-bottom: 1rem;
 }
+
+.coach-photo-box {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6);
+  max-width: 420px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.coach-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
