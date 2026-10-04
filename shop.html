@@ -8,10 +8,10 @@
   <meta name="keywords" content="KT 商城, 健身補給品, 乳清蛋白粉, 深海魚油, 肌酸, 健身搖搖杯, 運動保健品">
   
   <!-- FontAwesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
   <!-- Custom Styles -->
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=7">
 </head>
 <body>
 
@@ -60,42 +60,84 @@
   </header>
 
   <main>
+    <h1 style="position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0);">KT 嚴選運動補給品</h1>
+
     <!-- ==========================================================================
-         SUBPAGE HERO HEADER
+         FULL-WIDTH PROMO CAROUSEL (3 BANNER SLIDES)
          ========================================================================== -->
-    <section class="page-hero">
-      <div class="container">
-        <span class="page-hero-tag"><i class="fas fa-shopping-bag"></i> KT OFFICIAL STORE</span>
-        <h1 class="page-hero-title">KT 嚴選運動補給品</h1>
-        <p class="page-hero-desc">
-          專為提升運動表現與促進身體恢復而生的高品質產品。成分透明公開、無冗餘添加物！
-        </p>
+    <section class="hero-carousel" id="heroCarousel" aria-roledescription="carousel" aria-label="KT 廣告輪播">
+      <div class="carousel-track" id="carouselTrack">
+
+        <!-- Slide 1: DUBBY Shaker Bottle -->
+        <div class="carousel-slide" role="group" aria-label="第 1 頁，共 3 頁">
+          <img src="banner-1.jpg?v=1" alt="DUBBY Shaker Bottle - POWDER-TO-PERFORMANCE" class="carousel-img">
+        </div>
+
+        <!-- Slide 2: DUBBY Energy Blend -->
+        <div class="carousel-slide" role="group" aria-label="第 2 頁，共 3 頁">
+          <img src="banner-2.jpg?v=1" alt="DUBBY Jitterless Energy Blend - UNREAL TASTE UNLEASHED!" class="carousel-img">
+        </div>
+
+        <!-- Slide 3: DUBBY Hydro Collection -->
+        <div class="carousel-slide" role="group" aria-label="第 3 頁，共 3 頁">
+          <img src="banner-3.jpg?v=1" alt="DUBBY Hydro Collection - ZERO CAFFEINE HYDRATION BLEND" class="carousel-img">
+        </div>
+
+      </div>
+
+      <button class="carousel-arrow prev" id="carouselPrev" aria-label="上一頁"><i class="fas fa-chevron-left"></i></button>
+      <button class="carousel-arrow next" id="carouselNext" aria-label="下一頁"><i class="fas fa-chevron-right"></i></button>
+
+      <div class="carousel-dots" id="carouselDots">
+        <button class="carousel-dot active" aria-label="第 1 頁"></button>
+        <button class="carousel-dot" aria-label="第 2 頁"></button>
+        <button class="carousel-dot" aria-label="第 3 頁"></button>
       </div>
     </section>
 
-    <!-- ==========================================================================
-         PROMO FEATURED PRODUCT BANNER
-         ========================================================================== -->
-    <section class="section" style="padding-top: 2rem;">
-      <div class="container">
-        <div class="promo-card">
-          <div class="promo-content">
-            <span class="badge-new" style="margin-bottom: 0.75rem; display: inline-block;">熱銷爆款標竿</span>
-            <h3>KT 85% 高純度 rTG 深海魚油 + 專利維生素 D3</h3>
-            <p>每份提供最高吸收率 rTG 劑型，幫助調節生理機能、提升重訓修復效率與專注力。通過第三方國際重金屬檢驗合格。</p>
-            <div style="font-size: 1.5rem; font-weight: 900; margin: 1rem 0; color: #ffffff;">
-              優惠價 NT$ 880 <small style="font-size: 0.9rem; text-decoration: line-through; color: rgba(255,255,255,0.6);">NT$ 1,200</small>
-            </div>
-            <button class="btn-primary add-to-cart-btn" data-id="1" data-name="KT 85% 高純度 rTG 深海魚油">
-              <i class="fas fa-cart-plus"></i> 加入購物車
-            </button>
-          </div>
-          <div style="font-size: 5.5rem; text-align: center; color: var(--accent-light);">
-            💊
-          </div>
-        </div>
-      </div>
-    </section>
+    <script>
+      (function () {
+        const root = document.getElementById('heroCarousel');
+        const track = document.getElementById('carouselTrack');
+        const slides = track.children;
+        const dots = document.querySelectorAll('#carouselDots .carousel-dot');
+        const total = slides.length;
+        let index = 0, startX = 0, dx = 0, dragging = false, timer;
+
+        function go(i) {
+          index = (i + total) % total;
+          track.style.transition = 'transform 0.6s cubic-bezier(0.65, 0, 0.35, 1)';
+          track.style.transform = `translateX(-${index * 100}%)`;
+          dots.forEach((d, n) => d.classList.toggle('active', n === index));
+          restart();
+        }
+        function restart() { clearInterval(timer); timer = setInterval(() => go(index + 1), 5000); }
+
+        document.getElementById('carouselPrev').onclick = () => go(index - 1);
+        document.getElementById('carouselNext').onclick = () => go(index + 1);
+        dots.forEach((d, n) => d.onclick = () => go(n));
+
+        // Touch & mouse swipe drag support
+        root.addEventListener('pointerdown', e => {
+          if (e.target.closest('button')) return;
+          dragging = true; startX = e.clientX; dx = 0;
+          track.style.transition = 'none';
+          clearInterval(timer);
+        });
+        window.addEventListener('pointermove', e => {
+          if (!dragging) return;
+          dx = e.clientX - startX;
+          track.style.transform = `translateX(calc(-${index * 100}% + ${dx}px))`;
+        });
+        window.addEventListener('pointerup', () => {
+          if (!dragging) return;
+          dragging = false;
+          if (Math.abs(dx) > 50) go(index + (dx < 0 ? 1 : -1)); else go(index);
+        });
+
+        restart();
+      })();
+    </script>
 
     <!-- ==========================================================================
          STORE PRODUCTS GRID
@@ -181,10 +223,12 @@
             KT Fitness 健身網致力於結合運動科學、臨床營養學與人性化飲食策略，幫助每位追求自我超越的朋友打造夢想體態。
           </p>
           <div class="social-links">
-            <a href="https://youtube.com" class="social-icon" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
             <a href="https://instagram.com" class="social-icon" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://facebook.com" class="social-icon" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.threads.net" class="social-icon" target="_blank" title="Threads"><i class="fab fa-threads"></i></a>
+            <a href="https://www.tiktok.com" class="social-icon" target="_blank" title="抖音 TikTok"><i class="fab fa-tiktok"></i></a>
           </div>
+          <p class="footer-founder" style="margin-top: 1.25rem; font-size: 0.9rem; color: #ffffff; text-shadow: 0 0 8px rgba(255,255,255,0.6);">KT品牌創辦人 / KT商務代理人：楊柏諺</p>
+          <p class="footer-email" style="margin-top: 0.5rem; font-size: 0.9rem; color: #ffffff; text-shadow: 0 0 8px rgba(255,255,255,0.6);">商業信箱：<a href="mailto:kt_business@ktwithjz.work" style="color: #ffffff;">kt_business@ktwithjz.work</a></p>
         </div>
 
         <div>

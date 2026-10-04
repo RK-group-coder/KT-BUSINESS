@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
@@ -8,10 +8,10 @@
   <meta name="keywords" content="KT Fitness 關於我們, KT 教練, 運動科學, 增肌減脂品牌">
   
   <!-- FontAwesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
   <!-- Custom Styles -->
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
 
@@ -75,32 +75,36 @@
     <section class="section">
       <div class="container">
         
-        <div class="section-header" style="margin-bottom: 2.5rem;">
-          <h2 class="section-title name-title">
-            <span class="kt-text">KT</span>
-            <span class="cn-name">賴彥瑋</span>
-          </h2>
-        </div>
-
         <div class="coach-grid">
-          <div class="coach-photo-box">
-            <img src="kt-profile.jpg" alt="KT 賴彥瑋" class="coach-photo">
+          <div class="coach-photo-box" style="height:auto; aspect-ratio:auto; overflow:visible; border-radius:0; border:none; box-shadow:none;">
+            <img src="kt-profile.jpg?v=4" alt="KT 賴彥瑋" class="coach-photo" style="width:100%; height:auto; object-fit:contain; border-radius:0;">
           </div>
 
           <div>
-            <h3 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 1rem; color: #ffffff;">
-              專業認證
-            </h3>
-            
-            <ul style="list-style: none; padding: 0; line-height: 2; color: var(--text-muted);">
-              <li><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 0.5rem;"></i> NSCA-CPT 美國國家體能協會認證私人教練</li>
-              <li><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 0.5rem;"></i> Precision Nutrition (PN) 國際運動營養專家認證</li>
-              <li><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 0.5rem;"></i> 累計指導超過 10,000+ 人次成功增肌減脂轉變</li>
-              <li><i class="fas fa-check-circle" style="color: var(--primary); margin-right: 0.5rem;"></i> 專長：靈活飲食法 (IIFYM)、TDEE熱量赤字計算、自然健體重訓菜單規劃</li>
+            <h2 class="name-title" style="margin-bottom: 1.25rem; flex-wrap: wrap;">
+              <span style="font-size: 1.5rem; font-weight: 800; color: #ffffff;">KT FITNESS 首席教練｜</span>
+              <span class="kt-text">KT</span>
+              <span class="cn-name">賴彥瑋</span>
+            </h2>
+
+            <div class="coach-bio" style="font-size: 1.05rem; line-height: 1.85; color: var(--text-muted); margin-bottom: 1.75rem;">
+              <p style="margin-bottom: 1.25rem;">
+                賴彥瑋，目前就讀於國立體育大學適應體育學系，長期投入自然健美訓練，透過系統化訓練及自主學習，累積運動科學、肌力訓練與運動營養等相關知識，並將理論應用於自身訓練與實務經驗中。
+              </p>
+              <p>
+                未來希望成為專業健身教練與自然健美選手，以挑戰 WNBF Pro Card 為目標，同時經營各大短影音平台，分享健身相關內容。
+              </p>
+            </div>
+
+            <h3 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 0.75rem; color: #ffffff;">專業證照</h3>
+            <ul style="list-style: none; padding: 0; line-height: 2; color: var(--text-muted); margin-bottom: 2rem;">
+              <li><i class="fas fa-check-circle" style="color: #ffffff; text-shadow: 0 0 8px rgba(255,255,255,0.9), 0 0 16px rgba(255,255,255,0.5); margin-right: 0.5rem;"></i>中華民國健身教練 C 級</li>
+              <li><i class="fas fa-check-circle" style="color: #ffffff; text-shadow: 0 0 8px rgba(255,255,255,0.9), 0 0 16px rgba(255,255,255,0.5); margin-right: 0.5rem;"></i>IOC Athlete365 Sports Psychology</li>
+              <li><i class="fas fa-check-circle" style="color: #ffffff; text-shadow: 0 0 8px rgba(255,255,255,0.9), 0 0 16px rgba(255,255,255,0.5); margin-right: 0.5rem;"></i>IOC Athlete365 Sports Coaching</li>
             </ul>
 
-            <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
-              <a href="mailto:kt_business@ktwithjz.work" class="btn-primary" style="padding: 0.85rem 2.2rem;">
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+              <a href="mailto:kt_business@ktwithjz.work" class="btn-primary" style="padding: 0.85rem 2.2rem; background: #000000; color: #ffffff; border: 2px solid #ffffff; text-shadow: 0 0 8px rgba(255,255,255,0.9), 0 0 16px rgba(255,255,255,0.5); box-shadow: 0 0 12px rgba(255,255,255,0.7), 0 0 24px rgba(255,255,255,0.35), inset 0 0 10px rgba(255,255,255,0.2);">
                 <i class="fas fa-envelope"></i> 商業合作信箱
               </a>
             </div>
@@ -146,10 +150,12 @@
             KT Fitness 健身網致力於結合運動科學、臨床營養學與人性化飲食策略，幫助每位追求自我超越的朋友打造夢想體態。
           </p>
           <div class="social-links">
-            <a href="https://youtube.com" class="social-icon" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
             <a href="https://instagram.com" class="social-icon" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://facebook.com" class="social-icon" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.threads.net" class="social-icon" target="_blank" title="Threads"><i class="fab fa-threads"></i></a>
+            <a href="https://www.tiktok.com" class="social-icon" target="_blank" title="抖音 TikTok"><i class="fab fa-tiktok"></i></a>
           </div>
+          <p class="footer-founder" style="margin-top: 1.25rem; font-size: 0.9rem; color: #ffffff; text-shadow: 0 0 8px rgba(255,255,255,0.6);">KT品牌創辦人 / KT商務代理人：楊柏諺</p>
+          <p class="footer-email" style="margin-top: 0.5rem; font-size: 0.9rem; color: #ffffff; text-shadow: 0 0 8px rgba(255,255,255,0.6);">商業信箱：<a href="mailto:kt_business@ktwithjz.work" style="color: #ffffff;">kt_business@ktwithjz.work</a></p>
         </div>
 
         <div>

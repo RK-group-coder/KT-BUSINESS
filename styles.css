@@ -7,9 +7,9 @@
 
 :root {
   /* Color Palette */
-  --primary: #e63946;
-  --primary-hover: #d62839;
-  --primary-light: rgba(230, 57, 70, 0.15);
+  --primary: #ffffff;
+  --primary-hover: #e5e5e5;
+  --primary-light: rgba(255, 255, 255, 0.12);
   --secondary: #1d3557;
   --accent: #457b9d;
   --accent-light: #a8dadc;
@@ -134,7 +134,9 @@ button, input, select, textarea {
 }
 
 .badge-new {
-  background-color: var(--primary);
+  background: #000000;
+  border: 1px solid #ffffff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.3);
   color: #fff;
   font-size: 0.7rem;
   padding: 0.15rem 0.5rem;
@@ -315,7 +317,9 @@ button, input, select, textarea {
 }
 
 .icon-btn:hover {
-  background-color: var(--primary);
+  background: #000000;
+  border: 1px solid #ffffff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.3);
   color: #ffffff;
   border-color: var(--primary);
 }
@@ -324,7 +328,9 @@ button, input, select, textarea {
   position: absolute;
   top: -4px;
   right: -4px;
-  background-color: var(--primary);
+  background: #000000;
+  border: 1px solid #ffffff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.3);
   color: #fff;
   font-size: 0.7rem;
   font-weight: 700;
@@ -337,23 +343,26 @@ button, input, select, textarea {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--primary), #c52233);
+  background: #000000;
+  border: 1px solid #ffffff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.3);
   color: #ffffff;
+  white-space: nowrap;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
   font-weight: 700;
   padding: 0.65rem 1.4rem;
   border-radius: var(--radius-full);
-  border: none;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  box-shadow: 0 4px 14px rgba(230, 57, 70, 0.35);
+  box-shadow: 0 4px 14px rgba(255, 255, 255, 0.45);
   transition: var(--transition);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(230, 57, 70, 0.5);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.65);
   color: #ffffff;
 }
 
@@ -416,7 +425,7 @@ button, input, select, textarea {
   font-weight: 700;
   font-size: 0.85rem;
   margin-bottom: 1.25rem;
-  border: 1px solid rgba(230, 57, 70, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.35);
 }
 
 .hero-title {
@@ -429,7 +438,7 @@ button, input, select, textarea {
 }
 
 .hero-title .highlight {
-  background: linear-gradient(135deg, var(--primary), #e63946, #f1faee);
+  background: linear-gradient(135deg, #ffffff, #d4d4d8, #ffffff);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -516,7 +525,7 @@ button, input, select, textarea {
   right: -50px;
   width: 200px;
   height: 200px;
-  background: var(--primary);
+  background: #ffffff;
   opacity: 0.3;
   filter: blur(50px);
   border-radius: 50%;
@@ -526,7 +535,8 @@ button, input, select, textarea {
   position: absolute;
   top: 1rem;
   left: 1rem;
-  background: rgba(230, 57, 70, 0.9);
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid #ffffff;
   color: #fff;
   padding: 0.3rem 0.8rem;
   border-radius: var(--radius-full);
@@ -647,7 +657,9 @@ button, input, select, textarea {
   top: -100px;
   width: 300px;
   height: 300px;
-  background: var(--primary);
+  background: #000000;
+  border: 1px solid #ffffff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.3);
   opacity: 0.15;
   filter: blur(60px);
   border-radius: 50%;
@@ -996,7 +1008,9 @@ button, input, select, textarea {
   position: absolute;
   top: 1rem;
   left: 1rem;
-  background: var(--primary);
+  background: #000000;
+  border: 1px solid #ffffff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.3);
   color: #fff;
   font-size: 0.75rem;
   font-weight: 700;
@@ -1147,7 +1161,9 @@ button, input, select, textarea {
 }
 
 .btn-add-cart:hover {
-  background: var(--primary);
+  background: #000000;
+  border: 1px solid #ffffff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.3);
   color: #fff;
   border-color: var(--primary);
 }
@@ -1308,7 +1324,9 @@ button, input, select, textarea {
 }
 
 .social-icon:hover {
-  background: var(--primary);
+  background: #000000;
+  border: 1px solid #ffffff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.3);
   transform: translateY(-3px);
 }
 
@@ -1350,7 +1368,9 @@ button, input, select, textarea {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  background: var(--primary);
+  background: #000000;
+  border: 1px solid #ffffff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.3);
   color: #fff;
   width: 46px;
   height: 46px;
@@ -1426,7 +1446,7 @@ button, input, select, textarea {
   transform: translateX(-50%);
   width: 400px;
   height: 200px;
-  background: var(--primary);
+  background: #ffffff;
   opacity: 0.12;
   filter: blur(80px);
   border-radius: 50%;
@@ -1444,7 +1464,7 @@ button, input, select, textarea {
   font-weight: 700;
   font-size: 0.825rem;
   margin-bottom: 1rem;
-  border: 1px solid rgba(230, 57, 70, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -1526,8 +1546,8 @@ button, input, select, textarea {
   display: grid;
   grid-template-columns: 1fr 1.5fr;
   gap: 3rem;
-  align-items: center;
-  margin-top: 2.5rem;
+  align-items: flex-start;
+  margin-top: 1.5rem;
 }
 
 .coach-avatar-box {
@@ -1544,42 +1564,158 @@ button, input, select, textarea {
 }
 
 .coach-photo-box {
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  border: 1px solid var(--border-color);
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6);
-  max-width: 400px;
-  height: 330px;
   width: 100%;
+  max-width: 420px;
   margin: 0 auto;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  overflow: visible;
 }
 
 .coach-photo {
   width: 100%;
-  height: 100%;
+  height: auto;
   display: block;
-  object-fit: cover;
-  object-position: center 30%;
+  object-fit: contain;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
 }
 
 /* Name Title Styling */
 .name-title {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2.5rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
 }
 
 .name-title .kt-text {
   font-family: 'Montserrat', var(--font-heading);
-  font-size: 1.85em;
+  font-size: 2.6rem;
   font-weight: 900;
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   color: #ffffff;
+  line-height: 1;
 }
 
 .name-title .cn-name {
-  font-size: 1.1em;
+  font-size: 1.85rem;
   font-weight: 900;
   color: #ffffff;
+  line-height: 1;
+}
+
+/* ==========================================================================
+   FULL-WIDTH HERO CAROUSEL (shop page)
+   ========================================================================== */
+.hero-carousel {
+  position: relative;
+  width: 100%;
+  max-width: 1240px;
+  margin: 1.5rem auto;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #000000;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 255, 255, 0.15);
+  border: 1px solid var(--border-color);
+  touch-action: pan-y;
+  user-select: none;
+  cursor: grab;
+}
+.hero-carousel:active { cursor: grabbing; }
+
+.carousel-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.carousel-slide {
+  flex: 0 0 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000000;
+}
+
+.carousel-img {
+  width: 100%;
+  height: auto;
+  max-height: 600px;
+  display: block;
+  object-fit: cover;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.7);
+  background: rgba(0,0,0,0.65);
+  color: #fff;
+  cursor: pointer;
+  z-index: 5;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  backdrop-filter: blur(4px);
+}
+.carousel-arrow:hover { 
+  box-shadow: 0 0 16px rgba(255,255,255,0.9); 
+  border-color: #fff;
+  background: #000000;
+  transform: translateY(-50%) scale(1.08);
+}
+.carousel-arrow.prev { left: 1.25rem; }
+.carousel-arrow.next { right: 1.25rem; }
+
+.carousel-dots {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.75rem;
+  z-index: 5;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius-full);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+  border: none;
+  background: rgba(255,255,255,0.4);
+  cursor: pointer;
+  transition: all 0.35s ease;
+}
+.carousel-dot.active {
+  width: 32px;
+  background: #ffffff;
+  box-shadow: 0 0 10px rgba(255,255,255,0.9);
+}
+
+@media (max-width: 768px) {
+  .hero-carousel {
+    border-radius: 0;
+    margin: 0;
+    border-left: none;
+    border-right: none;
+  }
+  .carousel-arrow { width: 38px; height: 38px; font-size: 0.9rem; }
+  .carousel-arrow.prev { left: 0.5rem; }
+  .carousel-arrow.next { right: 0.5rem; }
 }
