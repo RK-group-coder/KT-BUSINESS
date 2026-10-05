@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
   <!-- Custom Styles -->
-  <link rel="stylesheet" href="styles.css?v=7">
+  <link rel="stylesheet" href="styles.css?v=10">
 </head>
 <body>
 
@@ -63,10 +63,15 @@
     <h1 style="position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0);">KT 嚴選運動補給品</h1>
 
     <!-- ==========================================================================
-         FULL-WIDTH PROMO CAROUSEL (3 BANNER SLIDES)
+         FULL-WIDTH PROMO CAROUSEL (INFINITE LOOP / SWIPE / ARROWS / DOTS)
          ========================================================================== -->
     <section class="hero-carousel" id="heroCarousel" aria-roledescription="carousel" aria-label="KT 廣告輪播">
       <div class="carousel-track" id="carouselTrack">
+
+        <!-- Clone of Slide 3 (for seamless backward loop) -->
+        <div class="carousel-slide clone" aria-hidden="true">
+          <img src="banner-3.jpg?v=1" alt="" class="carousel-img">
+        </div>
 
         <!-- Slide 1: DUBBY Shaker Bottle -->
         <div class="carousel-slide" role="group" aria-label="第 1 頁，共 3 頁">
@@ -81,6 +86,11 @@
         <!-- Slide 3: DUBBY Hydro Collection -->
         <div class="carousel-slide" role="group" aria-label="第 3 頁，共 3 頁">
           <img src="banner-3.jpg?v=1" alt="DUBBY Hydro Collection - ZERO CAFFEINE HYDRATION BLEND" class="carousel-img">
+        </div>
+
+        <!-- Clone of Slide 1 (for seamless forward loop) -->
+        <div class="carousel-slide clone" aria-hidden="true">
+          <img src="banner-1.jpg?v=1" alt="" class="carousel-img">
         </div>
 
       </div>
@@ -99,64 +109,232 @@
       (function () {
         const root = document.getElementById('heroCarousel');
         const track = document.getElementById('carouselTrack');
-        const slides = track.children;
         const dots = document.querySelectorAll('#carouselDots .carousel-dot');
-        const total = slides.length;
-        let index = 0, startX = 0, dx = 0, dragging = false, timer;
+        const realCount = 3;
+        let currentIndex = 1;
+        let startX = 0, dx = 0, dragging = false, isTransitioning = false, timer = null;
 
-        function go(i) {
-          index = (i + total) % total;
-          track.style.transition = 'transform 0.6s cubic-bezier(0.65, 0, 0.35, 1)';
-          track.style.transform = `translateX(-${index * 100}%)`;
-          dots.forEach((d, n) => d.classList.toggle('active', n === index));
-          restart();
+        // Set initial position at real Slide 1 (index 1)
+        track.style.transition = 'none';
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+        function updateDots() {
+          let dotIndex = (currentIndex - 1 + realCount) % realCount;
+          dots.forEach((d, n) => d.classList.toggle('active', n === dotIndex));
         }
-        function restart() { clearInterval(timer); timer = setInterval(() => go(index + 1), 5000); }
 
-        document.getElementById('carouselPrev').onclick = () => go(index - 1);
-        document.getElementById('carouselNext').onclick = () => go(index + 1);
-        dots.forEach((d, n) => d.onclick = () => go(n));
+        function moveTo(index, animate = true) {
+          currentIndex = index;
+          if (animate) {
+            isTransitioning = true;
+            track.style.transition = 'transform 0.6s cubic-bezier(0.65, 0, 0.35, 1)';
+          } else {
+            track.style.transition = 'none';
+          }
+          track.style.transform = `translateX(-${currentIndex * 100}%)`;
+          updateDots();
+        }
+
+        function nextSlide() {
+          if (isTransitioning) return;
+          moveTo(currentIndex + 1, true);
+          restartTimer();
+        }
+
+        function prevSlide() {
+          if (isTransitioning) return;
+          moveTo(currentIndex - 1, true);
+          restartTimer();
+        }
+
+        track.addEventListener('transitionend', () => {
+          isTransitioning = false;
+          // Jump seamlessly from Clone of Slide 1 to Real Slide 1
+          if (currentIndex === realCount + 1) {
+            moveTo(1, false);
+          }
+          // Jump seamlessly from Clone of Slide 3 to Real Slide 3
+          else if (currentIndex === 0) {
+            moveTo(realCount, false);
+          }
+        });
+
+        function restartTimer() {
+          clearInterval(timer);
+          timer = setInterval(() => {
+            if (!dragging && !isTransitioning) {
+              nextSlide();
+            }
+          }, 5000);
+        }
+
+        document.getElementById('carouselPrev').onclick = () => prevSlide();
+        document.getElementById('carouselNext').onclick = () => nextSlide();
+        dots.forEach((d, n) => {
+          d.onclick = () => {
+            if (isTransitioning) return;
+            moveTo(n + 1, true);
+            restartTimer();
+          };
+        });
 
         // Touch & mouse swipe drag support
         root.addEventListener('pointerdown', e => {
           if (e.target.closest('button')) return;
-          dragging = true; startX = e.clientX; dx = 0;
+          if (isTransitioning) return;
+          dragging = true;
+          startX = e.clientX;
+          dx = 0;
           track.style.transition = 'none';
           clearInterval(timer);
         });
+
         window.addEventListener('pointermove', e => {
           if (!dragging) return;
           dx = e.clientX - startX;
-          track.style.transform = `translateX(calc(-${index * 100}% + ${dx}px))`;
+          track.style.transform = `translateX(calc(-${currentIndex * 100}% + ${dx}px))`;
         });
+
         window.addEventListener('pointerup', () => {
           if (!dragging) return;
           dragging = false;
-          if (Math.abs(dx) > 50) go(index + (dx < 0 ? 1 : -1)); else go(index);
+          if (Math.abs(dx) > 50) {
+            if (dx < 0) {
+              nextSlide();
+            } else {
+              prevSlide();
+            }
+          } else {
+            moveTo(currentIndex, true);
+            restartTimer();
+          }
         });
 
-        restart();
+        restartTimer();
       })();
     </script>
 
     <!-- ==========================================================================
-         STORE PRODUCTS GRID
+         STORE: SIDEBAR CATEGORIES + PRODUCT GRID
          ========================================================================== -->
-    <section class="section section-alt">
-      <div class="container">
-        
-        <div class="section-header">
-          <span class="section-tag">ALL PRODUCTS</span>
-          <h2 class="section-title">熱門商品列表</h2>
-          <p class="section-desc">嚴選高品質保健補给品與原創周邊配件</p>
-        </div>
+    <section class="store-section">
+      <div class="container store-layout">
 
-        <div class="products-grid" id="productsGrid">
-          <!-- Dynamically populated via script.js -->
+        <!-- Left: category sidebar -->
+        <aside class="store-sidebar" id="storeSidebar">
+          <ul class="cat-list">
+            <li class="cat-group open">
+              <a class="cat-link cat-toggle" data-cat="deal">優惠專區 <i class="fas fa-chevron-up"></i></a>
+              <ul class="cat-sub"><li><a class="cat-link" data-cat="bundle">暢銷組合</a></li></ul>
+            </li>
+            <li><a class="cat-link" data-cat="sport">運動補給</a></li>
+            <li class="cat-group open">
+              <a class="cat-link cat-toggle" data-cat="protein">蛋白系列 <i class="fas fa-chevron-up"></i></a>
+              <ul class="cat-sub">
+                <li><a class="cat-link" data-cat="whey">乳清蛋白</a></li>
+                <li><a class="cat-link" data-cat="plant">植物蛋白</a></li>
+              </ul>
+            </li>
+            <li class="cat-group open">
+              <a class="cat-link cat-toggle active" data-cat="health">保健食品 <i class="fas fa-chevron-up"></i></a>
+              <ul class="cat-sub">
+                <li><a class="cat-link" data-cat="health-basic">一般保健</a></li>
+                <li><a class="cat-link" data-cat="health-pro">專業保健</a></li>
+              </ul>
+            </li>
+            <li><a class="cat-link" data-cat="vegan">素食系列</a></li>
+            <li class="cat-group open">
+              <a class="cat-link cat-toggle" data-cat="gear">運動用品 <i class="fas fa-chevron-up"></i></a>
+              <ul class="cat-sub"><li><a class="cat-link" data-cat="bottle">Blender Bottle <i class="fas fa-chevron-right"></i></a></li></ul>
+            </li>
+          </ul>
+        </aside>
+
+        <!-- Right: toolbar + grid -->
+        <div class="store-main">
+          <div class="store-toolbar">
+            <h2 class="store-title"><span id="storeCatName">保健食品</span> <small id="storeCount">0 件商品</small></h2>
+            <div class="store-controls">
+              <label class="store-select"><i class="fas fa-sort-amount-down"></i>
+                <select id="storeSort" aria-label="商品排序">
+                  <option value="default">商品排序</option>
+                  <option value="price-asc">價格：低到高</option>
+                  <option value="price-desc">價格：高到低</option>
+                </select>
+              </label>
+            </div>
+          </div>
+
+          <div class="store-grid" id="storeGrid"></div>
         </div>
 
       </div>
     </section>
+
+    <script>
+      (function () {
+        // tags: which categories each product belongs to
+        const PRODUCTS = [
+          { name: '十倍瑪卡濃縮粉包 Maca Complex（30入/盒）', price: 1799, was: 3000, icon: '🌿', tags: ['health','health-pro','featured'] },
+          { name: '送禮自用推薦｜運動大補給 超值禮盒', price: 3599, was: 5699, icon: '🎁', tag: '限時限量 多慧禮盒', tags: ['health','gift','hot','bundle','deal'] },
+          { name: '複方益生菌 Probiotics（60入/盒）', price: 1099, was: 1600, icon: '🦠', tag: '台灣在地專研・貼近亞洲人體質', tags: ['health','health-basic','hot'] },
+          { name: 'KT 85% rTG 深海魚油 + 維生素 D3', price: 880, was: 1200, icon: '💊', tag: '熱銷爆款', tags: ['health','health-pro','hot','featured'] },
+          { name: '高單位葉黃素 Lutein（60粒/瓶）', price: 990, was: 1380, icon: '👁️', tag: '足量配方，守護視界', tags: ['health','health-basic'] },
+          { name: '專利膠原蛋白胜肽粉（30包/盒）', price: 1280, was: 1880, icon: '✨', tag: '榮獲世界品質評鑑金獎', tags: ['health','health-basic','exclusive'] },
+          { name: '一水肌酸 Creatine Monohydrate 300g', price: 690, was: 990, icon: '⚡', tags: ['sport','featured','hot'] },
+          { name: 'BCAA 支鏈胺基酸 檸檬風味', price: 850, was: 1150, icon: '🍋', tags: ['sport'] },
+          { name: 'KT 分離乳清蛋白 WPI 2lb', price: 1580, was: 1980, icon: '🥤', tag: '新品上市', tags: ['protein','whey','featured','exclusive'] },
+          { name: '濃縮乳清蛋白 WPC 巧克力 5lb', price: 2280, was: 2880, icon: '🍫', tags: ['protein','whey','hot'] },
+          { name: '豌豆植物蛋白 Plant Protein', price: 1380, was: 1680, icon: '🌱', tags: ['protein','plant','vegan'] },
+          { name: '純素綜合維他命（90錠）', price: 790, was: 1090, icon: '🥬', tags: ['vegan','health','health-basic'] },
+          { name: '乳清 + 肌酸 增肌組合包', price: 2099, was: 2670, icon: '💪', tag: '暢銷組合', tags: ['deal','bundle','protein'] },
+          { name: 'Blender Bottle Classic 搖搖杯 28oz', price: 590, was: 790, icon: '🧴', tags: ['gear','bottle','exclusive'] },
+          { name: 'Blender Bottle Pro 不鏽鋼保溫杯', price: 1190, was: 1490, icon: '🥛', tags: ['gear','bottle'] },
+        ];
+
+        const grid = document.getElementById('storeGrid');
+        const nameEl = document.getElementById('storeCatName');
+        const countEl = document.getElementById('storeCount');
+        const sortEl = document.getElementById('storeSort');
+        let current = 'health';
+        const fmt = n => 'NT$' + n.toLocaleString();
+
+        function render() {
+          let list = PRODUCTS.filter(p => p.tags.includes(current));
+          if (sortEl.value === 'price-asc') list.sort((a, b) => a.price - b.price);
+          if (sortEl.value === 'price-desc') list.sort((a, b) => b.price - a.price);
+          countEl.textContent = list.length + ' 件商品';
+          grid.innerHTML = list.length ? list.map(p => `
+            <div class="store-card">
+              <div class="store-thumb">
+                ${p.tag ? `<span class="store-tag">${p.tag}</span>` : ''}
+                <span class="store-icon">${p.icon}</span>
+                <button class="store-cart-btn" onclick="addToCart('${p.name.replace(/'/g, "\\'")}')" aria-label="加入購物車"><i class="fas fa-cart-plus"></i></button>
+              </div>
+              <h3 class="store-name">${p.name}</h3>
+              <div class="store-price">${fmt(p.price)}</div>
+              <div class="store-was">${fmt(p.was)}</div>
+            </div>`).join('') : '<p class="store-empty">此分類尚無商品</p>';
+        }
+
+        document.querySelectorAll('#storeSidebar .cat-link').forEach(a => {
+          a.addEventListener('click', e => {
+            // clicking the chevron area of a group toggles its sub-list
+            if (a.classList.contains('cat-toggle') && e.target.tagName === 'I') {
+              a.parentElement.classList.toggle('open');
+              return;
+            }
+            document.querySelectorAll('#storeSidebar .cat-link').forEach(x => x.classList.remove('active'));
+            a.classList.add('active');
+            current = a.dataset.cat;
+            nameEl.textContent = a.childNodes[0].textContent.trim();
+            render();
+          });
+        });
+        sortEl.onchange = render;
+        render();
+      })();
+    </script>
 
     <!-- ==========================================================================
          STORE GUARANTEES
