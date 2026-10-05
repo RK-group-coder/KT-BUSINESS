@@ -1946,6 +1946,13 @@ button, input, select, textarea {
   height: 100%;
 }
 
+.brand-founder-img-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .brand-founder-img {
   max-width: 420px;
   width: 100%;
@@ -1954,12 +1961,25 @@ button, input, select, textarea {
   filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.95));
   -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
   mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
-  transition: transform 0.4s ease, filter 0.4s ease;
 }
 
-.brand-founder-img:hover {
-  transform: scale(1.05);
-  filter: drop-shadow(0 20px 45px rgba(255, 85, 0, 0.3));
+.brand-founder-signature {
+  position: absolute;
+  left: -25px;
+  bottom: 30px;
+  width: 180px;
+  height: auto;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.9));
+  z-index: 5;
+}
+
+@media (max-width: 992px) {
+  .brand-founder-signature {
+    width: 130px;
+    left: -10px;
+    bottom: 15px;
+  }
 }
 
 @media (max-width: 992px) {
