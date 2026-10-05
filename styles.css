@@ -1870,3 +1870,111 @@ button, input, select, textarea {
   .cat-link i { display: none; }
   .store-cart-btn { opacity: 1; transform: none; }
 }
+
+/* ==========================================================================
+   BRAND FOUNDER INTRO SECTION (UNDER CAROUSEL BANNER)
+   ========================================================================== */
+.brand-founder-section {
+  background-color: #000000;
+  padding: 4.5rem 0 3rem 0;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.brand-founder-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 3.5rem;
+}
+
+.brand-founder-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+}
+
+.founder-paragraph {
+  font-size: 1.35rem;
+  line-height: 1.75;
+  color: #ffffff;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+.founder-paragraph-sub {
+  font-size: 1.15rem;
+  line-height: 1.75;
+  color: #cbd5e1;
+  font-weight: 400;
+}
+
+.founder-highlight-orange {
+  color: #ff5500;
+  font-weight: 800;
+}
+
+.founder-title-block {
+  margin-top: 0.5rem;
+}
+
+.founder-title-block h2 {
+  font-size: 2.6rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.5px;
+}
+
+.founder-quote {
+  font-size: 1.25rem;
+  line-height: 1.75;
+  color: #e2e8f0;
+}
+
+.brand-founder-media {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+}
+
+.brand-founder-img {
+  max-width: 440px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.95));
+  transform: scale(1.05);
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.brand-founder-img:hover {
+  transform: scale(1.08);
+  filter: drop-shadow(0 20px 45px rgba(255, 85, 0, 0.25));
+}
+
+@media (max-width: 992px) {
+  .brand-founder-section {
+    padding: 3.5rem 0 2rem 0;
+  }
+  .brand-founder-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    text-align: left;
+  }
+  .founder-paragraph {
+    font-size: 1.2rem;
+  }
+  .founder-paragraph-sub, .founder-quote {
+    font-size: 1.05rem;
+  }
+  .founder-title-block h2 {
+    font-size: 2.1rem;
+  }
+  .brand-founder-img {
+    max-width: 340px;
+  }
+}
+
