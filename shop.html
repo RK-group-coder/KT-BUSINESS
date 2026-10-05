@@ -118,24 +118,7 @@
 
     <script>
       (function () {
-        // tags: which categories each product belongs to
-        const PRODUCTS = [
-          { name: '十倍瑪卡濃縮粉包 Maca Complex（30入/盒）', price: 1799, was: 3000, icon: '🌿', tags: ['health','health-pro','featured'] },
-          { name: '送禮自用推薦｜運動大補給 超值禮盒', price: 3599, was: 5699, icon: '🎁', tag: '限時限量 多慧禮盒', tags: ['health','gift','hot','bundle','deal'] },
-          { name: '複方益生菌 Probiotics（60入/盒）', price: 1099, was: 1600, icon: '🦠', tag: '台灣在地專研・貼近亞洲人體質', tags: ['health','health-basic','hot'] },
-          { name: 'KT 85% rTG 深海魚油 + 維生素 D3', price: 880, was: 1200, icon: '💊', tag: '熱銷爆款', tags: ['health','health-pro','hot','featured'] },
-          { name: '高單位葉黃素 Lutein（60粒/瓶）', price: 990, was: 1380, icon: '👁️', tag: '足量配方，守護視界', tags: ['health','health-basic'] },
-          { name: '專利膠原蛋白胜肽粉（30包/盒）', price: 1280, was: 1880, icon: '✨', tag: '榮獲世界品質評鑑金獎', tags: ['health','health-basic','exclusive'] },
-          { name: '一水肌酸 Creatine Monohydrate 300g', price: 690, was: 990, icon: '⚡', tags: ['sport','featured','hot'] },
-          { name: 'BCAA 支鏈胺基酸 檸檬風味', price: 850, was: 1150, icon: '🍋', tags: ['sport'] },
-          { name: 'KT 分離乳清蛋白 WPI 2lb', price: 1580, was: 1980, icon: '🥤', tag: '新品上市', tags: ['protein','whey','featured','exclusive'] },
-          { name: '濃縮乳清蛋白 WPC 巧克力 5lb', price: 2280, was: 2880, icon: '🍫', tags: ['protein','whey','hot'] },
-          { name: '豌豆植物蛋白 Plant Protein', price: 1380, was: 1680, icon: '🌱', tags: ['protein','plant','vegan'] },
-          { name: '純素綜合維他命（90錠）', price: 790, was: 1090, icon: '🥬', tags: ['vegan','health','health-basic'] },
-          { name: '乳清 + 肌酸 增肌組合包', price: 2099, was: 2670, icon: '💪', tag: '暢銷組合', tags: ['deal','bundle','protein'] },
-          { name: 'Blender Bottle Classic 搖搖杯 28oz', price: 590, was: 790, icon: '🧴', tags: ['gear','bottle','exclusive'] },
-          { name: 'Blender Bottle Pro 不鏽鋼保溫杯', price: 1190, was: 1490, icon: '🥛', tags: ['gear','bottle'] },
-        ];
+        const PRODUCTS = [];
 
         const grid = document.getElementById('storeGrid');
         const nameEl = document.getElementById('storeCatName');
@@ -159,7 +142,7 @@
               <h3 class="store-name">${p.name}</h3>
               <div class="store-price">${fmt(p.price)}</div>
               <div class="store-was">${fmt(p.was)}</div>
-            </div>`).join('') : '<p class="store-empty">此分類尚無商品</p>';
+            </div>`).join('') : '<div class="store-empty" style="grid-column: 1 / -1; text-align: center; color: var(--text-muted); padding: 5rem 1rem; font-size: 1.25rem; font-weight: 500;"><i class="fas fa-box-open" style="font-size: 3.5rem; margin-bottom: 1.25rem; color: #475569; display: block;"></i>尚無商品</div>';
         }
 
         document.querySelectorAll('#storeSidebar .cat-link').forEach(a => {

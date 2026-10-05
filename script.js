@@ -9,111 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentGender = 'male';
   let activeCategory = 'all';
 
-  // Sample Articles Data
-  const articlesData = [
-    {
-      id: 1,
-      title: '【減肥攻略】為什麼少吃多運動反而瘦不下來？解析代謝適應機制',
-      category: 'fat-loss',
-      categoryName: '減重知識',
-      author: 'KT 教練',
-      date: '2026-09-20',
-      readTime: '6 分鐘',
-      excerpt: '許多人在減肥初期成效顯著，但過了一段時間後體重卻卡住停滯。本文帶你深度拆解熱量赤字與基礎代謝的關鍵關係！',
-      icon: '🔥'
-    },
-    {
-      id: 2,
-      title: '新手增肌必看：三大黃金複合動作（深蹲、硬舉、臥推）操作全圖解',
-      category: 'workout',
-      categoryName: '重訓教學',
-      author: 'KT 教練',
-      date: '2026-09-18',
-      readTime: '8 分鐘',
-      excerpt: '想有效建立肌肉量與力量基礎？學會發力與動作軌跡是核心關鍵，避免運動傷害的避坑指南。',
-      icon: '🏋️‍♂️'
-    },
-    {
-      id: 3,
-      title: '生酮飲食 vs 低碳水飲食：哪種飲食法更適合你的身體？',
-      category: 'keto',
-      categoryName: '生酮飲食',
-      author: 'KT 營養師團隊',
-      date: '2026-09-12',
-      readTime: '5 分鐘',
-      excerpt: '生酮飲食讓你快速入酮燃脂，但並非人人適用！帶你比較兩種熱門飲食方針的優缺點與實施要領。',
-      icon: '🥑'
-    },
-    {
-      id: 4,
-      title: '每日蛋白質該吃多少？增肌減脂黃金比例與補給品挑選原則',
-      category: 'nutrition',
-      categoryName: '營養學',
-      author: 'KT 營養師團隊',
-      date: '2026-09-05',
-      readTime: '7 分鐘',
-      excerpt: '體重每公斤需要 1.6~2.2 克蛋白質？乳清蛋白質、分離乳清與大豆蛋白的吸收效率權威分析。',
-      icon: '🥩'
-    },
-    {
-      id: 5,
-      title: '從體脂 32% 降到 12%：學員真實轉變經驗與心路歷程分享',
-      category: 'experience',
-      categoryName: '心得分享',
-      author: 'KT 團隊',
-      date: '2026-08-28',
-      readTime: '10 分鐘',
-      excerpt: '不靠極端節食，透過規律重訓與靈活飲食法，在 6 個月中打造永不反彈的健康體態！',
-      icon: '🏆'
-    },
-    {
-      id: 6,
-      title: '魚油補充到底有什麼好處？Omega-3 濃度與EPA/DHA完美比例挑選指南',
-      category: 'nutrition',
-      categoryName: '營養學',
-      author: 'KT 營養師團隊',
-      date: '2026-08-15',
-      readTime: '6 分鐘',
-      excerpt: '市面上魚油百百款，如何選出最高純度、無重鹹污染且高吸收率的深海魚油？看這篇就夠！',
-      icon: '🐟'
-    }
-  ];
-
-  // Sample Products Data
-  const productsData = [
-    {
-      id: 1,
-      title: 'KT 嚴選頂級 rTG 高濃度深海魚油',
-      desc: '85% 高純度 Omega-3，顆粒小好吞食，提升修復力與心血管健康。',
-      price: 880,
-      badge: '熱銷爆款',
-      icon: '💊'
-    },
-    {
-      id: 2,
-      title: 'KT Pure Whey 純淨分離乳清蛋白粉 (巧克力口味)',
-      desc: '每份提供 26g 優質蛋白質，乳糖不耐症首選，極致順口無腥味。',
-      price: 1280,
-      badge: '健身必備',
-      icon: '🥤'
-    },
-    {
-      id: 3,
-      title: 'KT 專業肌酸與複合電解質粉',
-      desc: '高純度一水肌酸，提升肌耐力與最大爆發力，健身房訓練好夥伴。',
-      price: 650,
-      badge: '專利配方',
-      icon: '⚡'
-    },
-    {
-      id: 4,
-      title: 'KT 質感金屬防漏搖搖杯 (750ml)',
-      desc: '雙層不鏽鋼保溫保冷，附專利攪拌球，不卡粉好清潔。',
-      price: 490,
-      badge: '周邊商品',
-      icon: '🍶'
-    }
-  ];
+  // Articles & Products Data (Cleared)
+  const articlesData = [];
+  const productsData = [];
 
   // Initialize UI Features
   initNavigation();
@@ -342,12 +240,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('articlesGrid');
     if (!container) return;
 
-    if (list.length === 0) {
+    if (!list || list.length === 0) {
       container.innerHTML = `
-        <div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: var(--text-muted);">
-          <i class="fas fa-search" style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--border-color);">
-          </i>
-          <p>沒有找到相關的文章內容。</p>
+        <div style="grid-column: 1/-1; text-align: center; padding: 4rem 1rem; color: var(--text-muted);">
+          <i class="fas fa-newspaper" style="font-size: 3rem; margin-bottom: 1rem; color: #475569; display: block;"></i>
+          <p style="font-size: 1.25rem; font-weight: 500; color: #cbd5e1;">尚無文章</p>
         </div>
       `;
       return;
@@ -383,6 +280,16 @@ document.addEventListener('DOMContentLoaded', () => {
   function renderProducts(products) {
     const container = document.getElementById('productsGrid');
     if (!container) return;
+
+    if (!products || products.length === 0) {
+      container.innerHTML = `
+        <div style="grid-column: 1/-1; text-align: center; padding: 4rem 1rem; color: var(--text-muted);">
+          <i class="fas fa-box-open" style="font-size: 3rem; margin-bottom: 1rem; color: #475569; display: block;"></i>
+          <p style="font-size: 1.25rem; font-weight: 500; color: #cbd5e1;">尚無商品</p>
+        </div>
+      `;
+      return;
+    }
 
     container.innerHTML = products.map(prod => `
       <div class="product-card">
