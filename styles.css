@@ -1984,20 +1984,20 @@ button, input, select, textarea {
     max-width: 320px;
   }
   .founder-slogan-handwritten {
-    font-size: 1.45rem;
+    font-size: 2.1rem;
   }
 }
 
 .founder-slogan-handwritten {
   font-family: 'Zhi Mang Xing', 'Ma Shan Zheng', 'Caveat', cursive, sans-serif;
-  font-size: 1.85rem;
-  line-height: 1.5;
+  font-size: 2.75rem;
+  line-height: 1.4;
   color: #ffffff;
-  letter-spacing: 1.5px;
+  letter-spacing: 2px;
   margin-top: 0.75rem;
   padding-top: 1rem;
-  border-top: 1px dashed rgba(255, 255, 255, 0.2);
-  text-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+  border-top: 1px dashed rgba(255, 255, 255, 0.25);
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
   font-weight: 400;
 }
 
