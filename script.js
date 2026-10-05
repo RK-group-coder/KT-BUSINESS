@@ -195,6 +195,8 @@ document.addEventListener('DOMContentLoaded', () => {
      CALCULATOR LOGIC (TDEE / BMR & FFMI)
      ========================================================================== */
   function initCalculators() {
+    if (!document.getElementById('calculators')) return;
+
     // Calculator Sub-tabs
     const calcTabs = document.querySelectorAll('.calc-tab');
     const calcPanels = document.querySelectorAll('.calc-panel');
