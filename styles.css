@@ -3,7 +3,7 @@
    Inspired by Peeta Fitness & Modern Health Influencer Web Aesthetics
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Noto+Sans+TC:wght@300;400;500;700;900&family=Outfit:wght@400;600;800;900&family=Syne:wght@700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Ma+Shan+Zheng&family=Zhi+Mang+Xing&family=Montserrat:wght@700;800;900&family=Noto+Sans+TC:wght@300;400;500;700;900&family=Outfit:wght@400;600;800;900&family=Syne:wght@700;800&display=swap');
 
 :root {
   /* Color Palette */
@@ -1983,5 +1983,21 @@ button, input, select, textarea {
   .brand-founder-img {
     max-width: 320px;
   }
+  .founder-slogan-handwritten {
+    font-size: 1.45rem;
+  }
+}
+
+.founder-slogan-handwritten {
+  font-family: 'Zhi Mang Xing', 'Ma Shan Zheng', 'Caveat', cursive, sans-serif;
+  font-size: 1.85rem;
+  line-height: 1.5;
+  color: #ffffff;
+  letter-spacing: 1.5px;
+  margin-top: 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px dashed rgba(255, 255, 255, 0.2);
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+  font-weight: 400;
 }
 
