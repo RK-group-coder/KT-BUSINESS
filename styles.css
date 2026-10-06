@@ -985,6 +985,7 @@ button, input, select, textarea {
   display: flex;
   flex-direction: column;
   transition: var(--transition);
+  cursor: pointer;
 }
 
 .article-card:hover {

@@ -461,7 +461,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     container.innerHTML = list.map(art => `
-      <div class="article-card">
+      <div class="article-card" onclick="openArticleModal('${art.id}')">
         <div class="article-img-wrap" style="background-image: url('${art.image}');">
           <div class="article-img-overlay"></div>
           <span class="article-category-badge">${art.categoryName}</span>
@@ -475,9 +475,9 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
           <p class="article-excerpt">${art.excerpt}</p>
           <div class="article-footer">
-            <a href="javascript:void(0)" class="read-more-link" onclick="openArticleModal('${art.id}')">
+            <span class="read-more-link">
               閱讀全文 <i class="fas fa-arrow-right"></i>
-            </a>
+            </span>
           </div>
         </div>
       </div>
