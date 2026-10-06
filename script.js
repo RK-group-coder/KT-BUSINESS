@@ -461,7 +461,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     container.innerHTML = list.map(art => `
-      <div class="article-card" onclick="openArticleModal('${art.id}')">
+      <div class="article-card" onclick="openArticlePage('${art.id}')">
         <div class="article-img-wrap" style="background-image: url('${art.image}');">
           <div class="article-img-overlay"></div>
           <span class="article-category-badge">${art.categoryName}</span>
@@ -526,49 +526,122 @@ document.addEventListener('DOMContentLoaded', () => {
     showToast(`已將「${title}」加入購物車！`);
   };
 
-  window.openArticleModal = function(identifier) {
+    window.openArticlePage = function(identifier) {
     const article = articlesData.find(a => a.id === identifier || a.title === identifier);
-    const modal = document.getElementById('articleModal');
-    const titleEl = document.getElementById('modalArticleTitle');
-    const bodyEl = document.getElementById('modalArticleBody');
+    
+    // Check if on articles.html page
+    const isArticlesPage = window.location.pathname.includes('articles.html');
+    if (!isArticlesPage && article) {
+      window.location.href = 'articles.html#' + article.id;
+      return;
+    }
 
-    if (modal && titleEl && bodyEl) {
-      if (article) {
-        titleEl.textContent = article.title;
-        bodyEl.innerHTML = `
-          <div style="margin-bottom: 1rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.75rem;">
-            <div style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.5rem;">
-              <span class="article-category-badge" style="position: static; font-size: 0.8rem;">${article.categoryName}</span>
-            </div>
-            <div style="font-size: 0.85rem; color: var(--text-muted); display: flex; gap: 1.25rem; flex-wrap: wrap; margin-top: 0.5rem;">
-              <span><i class="far fa-user" style="color: var(--primary);"></i> 作者：<strong>${article.author}</strong></span>
-              <span><i class="far fa-calendar"></i> ${article.date}</span>
-              <span><i class="far fa-clock"></i> ${article.readTime}</span>
-            </div>
-          </div>
+    const heroEl = document.getElementById('articlesHero');
+    const gridSecEl = document.getElementById('articlesGridSection');
+    const pageSecEl = document.getElementById('articlePageSection');
 
-          <div class="article-toc-box">
-            <div class="article-toc-title">
-              <i class="fas fa-list-ul"></i> 目錄 (Table of Contents)
-            </div>
-            <ul class="article-toc-list">
-              ${article.toc.map((item, idx) => `<li><i class="fas fa-chevron-right"></i> ${idx + 1}. ${item}</li>`).join('')}
-            </ul>
-          </div>
+    if (article && pageSecEl) {
+      // Update Title & Banner
+      const titleEl = document.getElementById('artPageTitle');
+      const bannerTextEl = document.getElementById('artPageBannerText');
+      const coverImgEl = document.getElementById('artPageCoverImg');
+      
+      if (titleEl) titleEl.textContent = article.title;
+      if (bannerTextEl) bannerTextEl.textContent = article.title;
+      if (coverImgEl) coverImgEl.src = article.image;
 
-          <div class="article-content-body">
-            ${article.content}
-          </div>
+      // Update Meta
+      const metaEl = document.getElementById('artPageMeta');
+      if (metaEl) {
+        metaEl.innerHTML = `
+          <span><i class="far fa-user" style="color: var(--primary);"></i> 作者：<strong>${article.author}</strong></span>
+          <span><i class="far fa-calendar"></i> ${article.date}</span>
+          <span><i class="far fa-clock"></i> ${article.readTime}</span>
         `;
-      } else {
-        titleEl.textContent = identifier;
-        bodyEl.innerHTML = `<p style="color: var(--text-muted);">文章內容載入中...</p>`;
       }
-      modal.classList.add('active');
+
+      // Update Tags
+      const tagsEl = document.getElementById('artPageTags');
+      if (tagsEl) {
+        tagsEl.innerHTML = `
+          <span class="badge-tag">${article.categoryName}</span>
+          <span class="badge-tag">官網出品</span>
+          <span class="badge-tag">科學化知識</span>
+        `;
+      }
+
+      // Update Table of Contents (目錄)
+      const tocEl = document.getElementById('artPageToc');
+      if (tocEl) {
+        tocEl.innerHTML = `
+          <div class="article-toc-title">
+            <i class="fas fa-list-ul"></i> 目錄 (Table of Contents)
+          </div>
+          <ul class="article-toc-list">
+            ${article.toc.map((item, idx) => `<li><i class="fas fa-chevron-right"></i> ${idx + 1}. ${item}</li>`).join('')}
+          </ul>
+        `;
+      }
+
+      // Update Main Body
+      const bodyEl = document.getElementById('artPageBody');
+      if (bodyEl) {
+        bodyEl.innerHTML = article.content;
+      }
+
+      // Update Sidebar Recent Articles List (近期文章)
+      const recentListEl = document.getElementById('artPageRecentList');
+      if (recentListEl) {
+        const otherArticles = articlesData.filter(a => a.id !== article.id).slice(0, 4);
+        recentListEl.innerHTML = otherArticles.map(a => `
+          <div class="sidebar-article-item" onclick="openArticlePage('${a.id}')">
+            <img src="${a.image}" alt="${a.title}" class="sidebar-art-thumb">
+            <div class="sidebar-art-info">
+              <span class="sidebar-art-cat">${a.categoryName}</span>
+              <h4 class="sidebar-art-title">${a.title}</h4>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      // Toggle Section Views
+      if (heroEl) heroEl.style.display = 'none';
+      if (gridSecEl) gridSecEl.style.display = 'none';
+      pageSecEl.style.display = 'block';
+
+      // Update URL hash & scroll to top smoothly
+      window.history.replaceState(null, null, '#' + article.id);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
-  /* ==========================================================================
+  window.closeArticlePage = function() {
+    const heroEl = document.getElementById('articlesHero');
+    const gridSecEl = document.getElementById('articlesGridSection');
+    const pageSecEl = document.getElementById('articlePageSection');
+
+    if (pageSecEl) pageSecEl.style.display = 'none';
+    if (heroEl) heroEl.style.display = 'block';
+    if (gridSecEl) gridSecEl.style.display = 'block';
+
+    // Clear hash without jump
+    window.history.replaceState(null, null, window.location.pathname);
+    if (gridSecEl) {
+      gridSecEl.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  // Backwards compatibility for openArticleModal -> openArticlePage
+  window.openArticleModal = window.openArticlePage;
+
+  // Auto-route on load if hash exists
+  if (window.location.hash && window.location.hash.startsWith('#art-')) {
+    const hashId = window.location.hash.replace('#', '');
+    setTimeout(() => {
+      openArticlePage(hashId);
+    }, 100);
+  }
+/* ==========================================================================
      MODALS & SEARCH
      ========================================================================== */
   function initModals() {
