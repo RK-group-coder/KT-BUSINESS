@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const articlesData = [
   {
     "id": "art-sleep-1",
+    "image": "art-cover-1.jpg",
     "title": "熬夜不是補眠就能解決：長期晚睡如何悄悄破壞免疫力與代謝平衡？",
     "category": "sleep",
     "categoryName": "睡眠作息",
@@ -31,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
   },
   {
     "id": "art-sleep-2",
+    "image": "art-cover-2.jpg",
     "title": "為什麼睡滿 8 小時還是累？拆解「睡眠週期」找回深層睡眠",
     "category": "sleep",
     "categoryName": "睡眠作息",
@@ -49,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
   },
   {
     "id": "art-sleep-3",
+    "image": "art-cover-3.jpg",
     "title": "晚睡與肥胖的隱形連結：缺乏睡眠如何讓飢餓素暴增、瘦素失靈？",
     "category": "sleep",
     "categoryName": "睡眠作息",
@@ -67,6 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
   },
   {
     "id": "art-hydration-1",
+    "image": "art-cover-4.jpg",
     "title": "不渴不代表水分充足！從尿液顏色看懂身體的缺水訊號",
     "category": "hydration",
     "categoryName": "喝水體液",
@@ -85,6 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
   },
   {
     "id": "art-hydration-2",
+    "image": "art-cover-5.jpg",
     "title": "喝水喝對時間才有效：提升專注力、助消化與避免夜尿的「全日補水時刻表」",
     "category": "hydration",
     "categoryName": "喝水體液",
@@ -103,6 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
   },
   {
     "id": "art-nutrition-1",
+    "image": "art-cover-6.jpg",
     "title": "碳水化合物真的是減重敵人？低碳飲食與複合碳水的聰明吃法",
     "category": "nutrition",
     "categoryName": "飲食營養",
@@ -121,6 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
   },
   {
     "id": "art-nutrition-2",
+    "image": "art-cover-7.jpg",
     "title": "吃對蛋白質才長肌不長油：動物性 vs. 植物性蛋白質的吸收率與黃金補充時機",
     "category": "nutrition",
     "categoryName": "飲食營養",
@@ -139,6 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
   },
   {
     "id": "art-nutrition-3",
+    "image": "art-cover-8.jpg",
     "title": "油脂不等於肥胖：Omega-3 與飽和脂肪酸的健康平衡術",
     "category": "nutrition",
     "categoryName": "飲食營養",
@@ -157,6 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
   },
   {
     "id": "art-nutrition-4",
+    "image": "art-cover-9.jpg",
     "title": "微量元素大功臣：常常抽筋、疲勞？你可能忽略了鎂、鉀、鈉的平衡",
     "category": "nutrition",
     "categoryName": "飲食營養",
@@ -175,6 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
   },
   {
     "id": "art-nutrition-5",
+    "image": "art-cover-10.jpg",
     "title": "擺脫飯後昏睡（Food Coma）：控糖飲食法維持整天穩定精力的秘密",
     "category": "nutrition",
     "categoryName": "飲食營養",
@@ -193,6 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
   },
   {
     "id": "art-workout-1",
+    "image": "art-cover-11.jpg",
     "title": "肌肉是在睡覺時長出來的！睡眠深度如何決定生長激素釋放與力量恢復",
     "category": "workout",
     "categoryName": "訓練恢復",
@@ -211,6 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
   },
   {
     "id": "art-workout-2",
+    "image": "art-cover-12.jpg",
     "title": "晚上運動會失眠嗎？訓練強度與入睡時間的黃金間隔守則",
     "category": "workout",
     "categoryName": "訓練恢復",
@@ -229,6 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
   },
   {
     "id": "art-workout-3",
+    "image": "art-cover-13.jpg",
     "title": "過度訓練還是睡眠不足？判斷神經疲勞的 4 個指標與主動恢復技巧",
     "category": "workout",
     "categoryName": "訓練恢復",
@@ -247,6 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
   },
   {
     "id": "art-habits-1",
+    "image": "art-cover-14.jpg",
     "title": "戒掉睡前滑手機很難？用「行為設計學」打造零阻力的睡前儀式",
     "category": "habits",
     "categoryName": "習慣建立",
@@ -265,6 +279,7 @@ document.addEventListener('DOMContentLoaded', () => {
   },
   {
     "id": "art-habits-2",
+    "image": "art-cover-15.jpg",
     "title": "吃早餐到底重不重要？斷食法 vs. 規律早餐的荷爾蒙運作分析",
     "category": "habits",
     "categoryName": "習慣建立",
@@ -523,9 +538,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     container.innerHTML = list.map(art => `
       <div class="article-card">
-        <div class="article-img-wrap">
+        <div class="article-img-wrap" style="background-image: url('${art.image}');">
+          <div class="article-img-overlay"></div>
           <span class="article-category-badge">${art.categoryName}</span>
-          <div style="font-size: 3.5rem; text-shadow: 0 4px 10px rgba(0,0,0,0.3);">${art.icon}</div>
+          <h3 class="article-cover-title">${art.title}</h3>
         </div>
         <div class="article-body">
           <div class="article-meta">
@@ -533,7 +549,6 @@ document.addEventListener('DOMContentLoaded', () => {
             <span><i class="far fa-calendar"></i> ${art.date}</span>
             <span><i class="far fa-clock"></i> ${art.readTime}</span>
           </div>
-          <h3 class="article-title">${art.title}</h3>
           <p class="article-excerpt">${art.excerpt}</p>
           <div class="article-footer">
             <a href="javascript:void(0)" class="read-more-link" onclick="openArticleModal('${art.id}')">
