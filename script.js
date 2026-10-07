@@ -228,7 +228,13 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavigation();
   initThemeToggle();
   initCalculators();
-  renderArticles(articlesData);
+  // Initial Articles Render (Limit to 6 on Home Page)
+  const isHomePage = !window.location.pathname.includes('articles.html') && !window.location.pathname.includes('shop.html') && !window.location.pathname.includes('about.html') && !window.location.pathname.includes('contact.html');
+  if (isHomePage) {
+    renderArticles(articlesData.slice(0, 6));
+  } else {
+    renderArticles(articlesData);
+  }
   renderProducts(productsData);
   initModals();
   initBackToTop();
