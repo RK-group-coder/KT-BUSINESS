@@ -567,16 +567,6 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
       }
 
-      // Update Tags
-      const tagsEl = document.getElementById('artPageTags');
-      if (tagsEl) {
-        tagsEl.innerHTML = `
-          <span class="badge-tag">${article.categoryName}</span>
-          <span class="badge-tag">官網出品</span>
-          <span class="badge-tag">科學化知識</span>
-        `;
-      }
-
       // Update Table of Contents (目錄)
       const tocEl = document.getElementById('artPageToc');
       if (tocEl) {
