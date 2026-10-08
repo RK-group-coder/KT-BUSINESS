@@ -62,9 +62,6 @@
     <section class="page-hero" id="articlesHero">
       <div class="container">
         <h1 class="page-hero-title">健身與營養知識專欄</h1>
-        <p class="page-hero-desc">
-          閱讀最新減重觀念、重訓技巧教學與科學化飲食研究，打破無效迷思，用知識武裝體態！
-        </p>
       </div>
     </section>
 
@@ -91,6 +88,15 @@
       </div>
     </section>
 
+    <!-- Article Page Transition Overlay -->
+    <div id="articleTransitionOverlay" class="article-transition-overlay">
+      <div class="article-transition-loader">
+        <div class="transition-spinner"></div>
+        <span class="transition-brand">KT FITNESS</span>
+        <p class="transition-text"><i class="fas fa-book-open"></i> 文章載入中...</p>
+      </div>
+    </div>
+
     <!-- ==========================================================================
          FULL-PAGE ARTICLE READING SECTION (STEPV STYLE)
          ========================================================================== -->
@@ -111,8 +117,7 @@
             <h1 class="article-page-title" id="artPageTitle">【 文章標題 】</h1>
             <div class="article-page-meta" id="artPageMeta">
               <span><i class="far fa-user"></i> 作者：官網出品</span>
-              <span><i class="far fa-calendar"></i> 2024-12-03</span>
-              <span><i class="far fa-clock"></i> 5 分鐘</span>
+              <span><i class="far fa-calendar"></i> 2026-10-08</span>
             </div>
           </div>
 
@@ -134,6 +139,11 @@
         <div class="article-main-grid" style="margin-top: 2.5rem;">
           <!-- Left Main Body Column (70%) -->
           <div class="article-main-content">
+            <!-- Table of Contents (目錄) -->
+            <div class="article-toc-box" id="artPageToc">
+              <!-- Dynamically populated TOC -->
+            </div>
+
             <!-- Rich Body Text -->
             <div class="article-content-body" id="artPageBody">
               <!-- Dynamically populated body -->
@@ -142,13 +152,6 @@
 
           <!-- Right Sidebar Column (30%) -->
           <div class="article-sidebar">
-            <!-- Table of Contents (目錄) Widget -->
-            <div class="sidebar-widget" style="margin-bottom: 1.5rem;">
-              <div class="article-toc-box" id="artPageToc" style="margin: 0; border: none; padding: 0; background: transparent; box-shadow: none;">
-                <!-- Dynamically populated TOC -->
-              </div>
-            </div>
-
             <!-- Recent Articles Widget -->
             <div class="sidebar-widget">
               <h3 class="sidebar-widget-title">
@@ -173,10 +176,10 @@
         <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 3rem; text-align: center; max-width: 800px; margin: 0 auto;">
           <i class="fas fa-envelope-open-text" style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;"></i>
           <h3 style="font-size: 1.6rem; font-weight: 800; margin-bottom: 0.5rem; color: #ffffff;">
-            訂閱 KT 週報，第一時間獲得科學知識
+            訂閱 KT 週報，第一時間獲得健身知識
           </h3>
           <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
-            每週一次，絕不安騷擾郵件！獲得獨家飲食研究摘要、最新優惠折扣與線上工具新功能通知。
+            每週一次，絕不發送垃圾郵件！第一時間獲得最新增肌減脂指南、科學化訓練技巧與獨家優惠通知。
           </p>
           <div style="display: flex; gap: 0.75rem; max-width: 500px; margin: 0 auto; flex-wrap: wrap;">
             <input type="email" class="form-control" placeholder="請輸入您的 Email 信箱..." style="flex: 1; padding: 0.8rem 1rem;">
@@ -222,9 +225,9 @@
             KT Fitness 健身網致力於結合運動科學、臨床營養學與人性化飲食策略，幫助每位追求自我超越的朋友打造夢想體態。
           </p>
           <div class="social-links">
-            <a href="https://instagram.com" class="social-icon" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.threads.net" class="social-icon" target="_blank" title="Threads"><i class="fab fa-threads"></i></a>
-            <a href="https://www.tiktok.com" class="social-icon" target="_blank" title="抖音 TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.instagram.com/g_y_m777/" class="social-icon" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.threads.net/@g_y_m777" class="social-icon" target="_blank" title="Threads"><i class="fab fa-threads"></i></a>
+            <a href="https://www.tiktok.com/@kurtlai945" class="social-icon" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
           </div>
           <p class="footer-founder" style="margin-top: 1.25rem; font-size: 0.9rem; color: #ffffff; text-shadow: 0 0 8px rgba(255,255,255,0.6);">KT品牌創辦人 / KT商務代理人：楊柏諺</p>
           <p class="footer-email" style="margin-top: 0.5rem; font-size: 0.9rem; color: #ffffff; text-shadow: 0 0 8px rgba(255,255,255,0.6);">商業信箱：<a href="mailto:kt_business@ktwithjz.work" style="color: #ffffff;">kt_business@ktwithjz.work</a></p>
@@ -244,9 +247,10 @@
         <div>
           <h4 class="footer-title">熱門文章主題</h4>
           <ul class="footer-links">
-            <li><a href="articles.html">減重與減脂攻略</a></li>
-            <li><a href="articles.html">重訓菜單與動作分析</a></li>
-            <li><a href="articles.html">學員真實轉變與心得</a></li>
+            <li><a href="articles.html?cat=sleep">睡眠作息</a></li>
+            <li><a href="articles.html?cat=nutrition">飲食營養</a></li>
+            <li><a href="articles.html?cat=workout">訓練與恢復</a></li>
+            <li><a href="articles.html?cat=other">其他觀念</a></li>
           </ul>
         </div>
 
