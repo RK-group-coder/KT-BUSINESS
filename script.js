@@ -1133,6 +1133,34 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
+    // Google Sheets Webhook URL (Paste your Google Apps Script Web App URL here)
+    window.GOOGLE_SHEET_WEBHOOK_URL = window.GOOGLE_SHEET_WEBHOOK_URL || '';
+
+    // Newsletter Form Handler
+    const newsletterForms = document.querySelectorAll('.newsletter-form');
+    newsletterForms.forEach(form => {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const emailInput = form.querySelector('.newsletter-email');
+        const email = emailInput ? emailInput.value.trim() : '';
+
+        if (!email) return;
+
+        if (window.GOOGLE_SHEET_WEBHOOK_URL) {
+          const formData = new FormData();
+          formData.append('email', email);
+          fetch(window.GOOGLE_SHEET_WEBHOOK_URL, {
+            method: 'POST',
+            body: formData,
+            mode: 'no-cors'
+          }).catch(err => console.log('Sheet post err:', err));
+        }
+
+        showToast('🎉 訂閱成功！最新的科學減脂週報與獨家優惠將定期發送給您！');
+        if (emailInput) emailInput.value = '';
+      });
+    });
+
     // Contact Form Handler
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
@@ -1146,6 +1174,23 @@ document.addEventListener('DOMContentLoaded', () => {
         const activity = document.getElementById('contactActivity')?.value || '';
         const goal = document.getElementById('contactGoal')?.value || '';
         const note = document.getElementById('contactNote')?.value || '無';
+
+        if (window.GOOGLE_SHEET_WEBHOOK_URL) {
+          const formData = new FormData();
+          formData.append('name', name);
+          formData.append('email', email);
+          formData.append('age', age);
+          formData.append('height', height);
+          formData.append('weight', weight);
+          formData.append('activity', activity);
+          formData.append('goal', goal);
+          formData.append('note', note);
+          fetch(window.GOOGLE_SHEET_WEBHOOK_URL, {
+            method: 'POST',
+            body: formData,
+            mode: 'no-cors'
+          }).catch(err => console.log('Sheet post err:', err));
+        }
 
         const subject = encodeURIComponent(`【KT Fitness 線上諮詢】${name} 的個人諮詢表單`);
         const body = encodeURIComponent(
