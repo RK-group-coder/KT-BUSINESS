@@ -1140,6 +1140,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
         const name = document.getElementById('contactName')?.value || '';
         const email = document.getElementById('contactEmail')?.value || '';
+        const age = document.getElementById('contactAge')?.value || '';
         const height = document.getElementById('contactHeight')?.value || '';
         const weight = document.getElementById('contactWeight')?.value || '';
         const activity = document.getElementById('contactActivity')?.value || '';
@@ -1151,6 +1152,7 @@ document.addEventListener('DOMContentLoaded', () => {
           `您好，我是 ${name}，以下是我的線上諮詢資料：\n\n` +
           `• 姓名：${name}\n` +
           `• Gmail 信箱：${email}\n` +
+          `• 年齡：${age} 歲\n` +
           `• 身高：${height} cm\n` +
           `• 體重：${weight} kg\n` +
           `• 日常運動與活動度：${activity}\n` +

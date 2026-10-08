@@ -134,7 +134,11 @@
                 <input type="email" id="contactEmail" name="Gmail信箱" class="form-control" placeholder="example@gmail.com" required>
               </div>
 
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 1rem;">
+                <div class="form-group">
+                  <label class="form-label" for="contactAge">年齡 *</label>
+                  <input type="number" id="contactAge" name="年齡" class="form-control" placeholder="例如：25" min="10" max="100" required>
+                </div>
                 <div class="form-group">
                   <label class="form-label" for="contactHeight">身高 (cm) *</label>
                   <input type="number" id="contactHeight" name="身高cm" class="form-control" placeholder="例如：175" min="100" max="230" required>
@@ -148,19 +152,19 @@
               <div class="form-group">
                 <label class="form-label" for="contactActivity">日常運動/活動度 *</label>
                 <select id="contactActivity" name="日常運動與活動度" class="form-control" required>
-                  <option value="" disabled selected>請選擇日常運動/活動度...</option>
-                  <option value="沒在運動">沒在運動...</option>
-                  <option value="一個星期運動1-3天">一個星期運動 1-3 天 &gt;&lt;</option>
-                  <option value="一個星期運動3-5天">一個星期運動 3-5 天</option>
-                  <option value="一個星期運動6-7天">一個星期運動 6-7 天</option>
-                  <option value="無時無刻都在動">無時無刻都在動 XD</option>
+                  <option value="" disabled selected>請選擇日常運動/活動度</option>
+                  <option value="沒在運動">沒在運動</option>
+                  <option value="一個星期運動 1-3 天">一個星期運動 1-3 天</option>
+                  <option value="一個星期運動 3-5 天">一個星期運動 3-5 天</option>
+                  <option value="一個星期運動 6-7 天">一個星期運動 6-7 天</option>
+                  <option value="無時無刻都在動">無時無刻都在動</option>
                 </select>
               </div>
 
               <div class="form-group">
                 <label class="form-label" for="contactGoal">諮詢目的 *</label>
                 <select id="contactGoal" name="諮詢目的" class="form-control" required>
-                  <option value="" disabled selected>請選擇諮詢目的...</option>
+                  <option value="" disabled selected>請選擇諮詢目的</option>
                   <option value="增肌">增肌</option>
                   <option value="減重">減重</option>
                   <option value="陪伴式運動">陪伴式運動</option>
