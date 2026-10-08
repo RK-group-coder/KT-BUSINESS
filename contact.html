@@ -116,34 +116,65 @@
 
           <!-- Contact Form -->
           <div class="contact-form-box">
-            <h3 style="font-size: 1.3rem; font-weight: 800; margin-bottom: 1.25rem; color: var(--text-main);">
-              線上免費諮詢表單
+            <h3 style="font-size: 1.4rem; font-weight: 800; margin-bottom: 0.4rem; color: var(--text-main);">
+              線上諮詢表單
             </h3>
+            <p style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 1.25rem; line-height: 1.5;">
+              📍 提醒：實體一對一教課僅限 <strong>中壢、林口</strong> 線下授課，場地私聊。
+            </p>
             
-            <form id="contactForm">
+            <form id="contactForm" action="mailto:kt_business@ktwithjz.work" method="POST" enctype="text/plain">
               <div class="form-group">
                 <label class="form-label" for="contactName">您的姓名 *</label>
-                <input type="text" id="contactName" class="form-control" placeholder="請輸入姓名" required>
+                <input type="text" id="contactName" name="姓名" class="form-control" placeholder="請輸入您的姓名" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contactEmail">Gmail 信箱 *</label>
+                <input type="email" id="contactEmail" name="Gmail信箱" class="form-control" placeholder="example@gmail.com" required>
               </div>
 
               <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
                 <div class="form-group">
-                  <label class="form-label" for="contactEmail">Email 信箱 *</label>
-                  <input type="email" id="contactEmail" class="form-control" placeholder="name@example.com" required>
+                  <label class="form-label" for="contactHeight">身高 (cm) *</label>
+                  <input type="number" id="contactHeight" name="身高cm" class="form-control" placeholder="例如：175" min="100" max="230" required>
                 </div>
                 <div class="form-group">
-                  <label class="form-label" for="contactPhone">聯絡電話</label>
-                  <input type="tel" id="contactPhone" class="form-control" placeholder="0912-345-678">
+                  <label class="form-label" for="contactWeight">體重 (kg) *</label>
+                  <input type="number" id="contactWeight" name="體重kg" class="form-control" placeholder="例如：70" min="30" max="200" required>
                 </div>
               </div>
 
               <div class="form-group">
-                <label class="form-label" for="contactMsg">諮詢需求與內容 *</label>
-                <textarea id="contactMsg" class="form-control" rows="4" placeholder="請告訴我們您的體態目標（例如：想要三個月內減脂 5%...）" required></textarea>
+                <label class="form-label" for="contactActivity">日常運動/活動度 *</label>
+                <select id="contactActivity" name="日常運動與活動度" class="form-control" required>
+                  <option value="" disabled selected>請選擇日常運動/活動度...</option>
+                  <option value="沒在運動">沒在運動...</option>
+                  <option value="一個星期運動1-3天">一個星期運動 1-3 天 &gt;&lt;</option>
+                  <option value="一個星期運動3-5天">一個星期運動 3-5 天</option>
+                  <option value="一個星期運動6-7天">一個星期運動 6-7 天</option>
+                  <option value="無時無刻都在動">無時無刻都在動 XD</option>
+                </select>
               </div>
 
-              <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
-                <i class="fas fa-paper-plane"></i> 送出諮詢訊息
+              <div class="form-group">
+                <label class="form-label" for="contactGoal">諮詢目的 *</label>
+                <select id="contactGoal" name="諮詢目的" class="form-control" required>
+                  <option value="" disabled selected>請選擇諮詢目的...</option>
+                  <option value="增肌">增肌</option>
+                  <option value="減重">減重</option>
+                  <option value="陪伴式運動">陪伴式運動</option>
+                  <option value="新手動作教學">新手動作教學</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contactNote">備註 <span style="font-weight: 400; opacity: 0.6; font-size: 0.85rem;">（選填）</span></label>
+                <textarea id="contactNote" name="備註" class="form-control" rows="5" placeholder="有任何想補充說明的情況或特別目標，歡迎填寫於此（選填）..."></textarea>
+              </div>
+
+              <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; font-size: 1.05rem; padding: 0.9rem; margin-top: 0.5rem;">
+                <i class="fas fa-paper-plane"></i> 發送諮詢訊息至 kt_business@ktwithjz.work
               </button>
             </form>
           </div>

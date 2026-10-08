@@ -1138,7 +1138,29 @@ document.addEventListener('DOMContentLoaded', () => {
     if (contactForm) {
       contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        showToast('諮詢表單已成功送出！我們的專業團隊將於 24 小時內與您聯繫。');
+        const name = document.getElementById('contactName')?.value || '';
+        const email = document.getElementById('contactEmail')?.value || '';
+        const height = document.getElementById('contactHeight')?.value || '';
+        const weight = document.getElementById('contactWeight')?.value || '';
+        const activity = document.getElementById('contactActivity')?.value || '';
+        const goal = document.getElementById('contactGoal')?.value || '';
+        const note = document.getElementById('contactNote')?.value || '無';
+
+        const subject = encodeURIComponent(`【KT Fitness 線上諮詢】${name} 的個人諮詢表單`);
+        const body = encodeURIComponent(
+          `您好，我是 ${name}，以下是我的線上諮詢資料：\n\n` +
+          `• 姓名：${name}\n` +
+          `• Gmail 信箱：${email}\n` +
+          `• 身高：${height} cm\n` +
+          `• 體重：${weight} kg\n` +
+          `• 日常運動與活動度：${activity}\n` +
+          `• 諮詢目的：${goal}\n` +
+          `• 備註需求說明：\n${note}\n\n` +
+          `發送時間：${new Date().toLocaleString('zh-TW')}`
+        );
+
+        window.location.href = `mailto:kt_business@ktwithjz.work?subject=${subject}&body=${body}`;
+        showToast('諮詢表單已成功填寫！正為您開啟郵件系統發送至 kt_business@ktwithjz.work');
         contactForm.reset();
       });
     }
