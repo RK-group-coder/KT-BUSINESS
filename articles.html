@@ -181,10 +181,10 @@
           <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem;">
             每週一次，絕不發送垃圾郵件！第一時間獲得最新增肌減脂指南、科學化訓練技巧與獨家優惠通知。
           </p>
-          <div style="display: flex; gap: 0.75rem; max-width: 500px; margin: 0 auto; flex-wrap: wrap;">
-            <input type="email" class="form-control" placeholder="請輸入您的 Email 信箱..." style="flex: 1; padding: 0.8rem 1rem;">
-            <button class="btn-primary" style="padding: 0.8rem 1.75rem;">立即訂閱</button>
-          </div>
+          <form class="newsletter-form" style="display: flex; gap: 0.75rem; max-width: 500px; margin: 0 auto; flex-wrap: wrap;">
+            <input type="email" class="form-control newsletter-email" placeholder="請輸入您的 Email 信箱..." style="flex: 1; padding: 0.8rem 1rem;" required>
+            <button type="submit" class="btn-primary" style="padding: 0.8rem 1.75rem;">立即訂閱</button>
+          </form>
         </div>
       </div>
     </section>

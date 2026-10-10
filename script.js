@@ -10,27 +10,27 @@ document.addEventListener('DOMContentLoaded', () => {
   let activeCategory = 'all';
 
   // Articles & Products Data (Cleared)
-    const articlesData = [
-  {
-    "id": "art-sleep-1",
-    "image": "art-cover-1.jpg",
-    "title": "熬夜不是補眠就能解決：長期晚睡如何悄悄破壞免疫力與代謝平衡？",
-    "category": "sleep",
-    "categoryName": "睡眠作息",
-    "author": "官網出品",
-    "date": "2026-10-07",
-    "readTime": "6 分鐘",
-    "icon": "🌙",
-    "excerpt": "探討晝夜節律失調、皮質醇異常與發炎反應，破解「週末補眠」的迷思並重建神經代謝平衡。",
-    "toc": [
-      "晝夜節律失調與內分泌紊亂",
-      "皮質醇過高引發慢性發炎與代謝障礙",
-      "免疫細胞功能受損與自律神經失調",
-      "為什麼「週末一次補眠」無法修復神經與代謝損傷？",
-      "社交時差（Social Jetlag）對胰島素敏感度的持續衝擊",
-      "KT 專家建議：打造規律生理時鐘修復藍圖"
-    ],
-    "content": `
+  const articlesData = [
+    {
+      "id": "art-sleep-1",
+      "image": "art-cover-1.jpg",
+      "title": "熬夜不是補眠就能解決：長期晚睡如何悄悄破壞免疫力與代謝平衡？",
+      "category": "sleep",
+      "categoryName": "睡眠作息",
+      "author": "官網出品",
+      "date": "2026-10-07",
+      "readTime": "6 分鐘",
+      "icon": "🌙",
+      "excerpt": "探討晝夜節律失調、皮質醇異常與發炎反應，破解「週末補眠」的迷思並重建神經代謝平衡。",
+      "toc": [
+        "晝夜節律失調與內分泌紊亂",
+        "皮質醇過高引發慢性發炎與代謝障礙",
+        "免疫細胞功能受損與自律神經失調",
+        "為什麼「週末一次補眠」無法修復神經與代謝損傷？",
+        "社交時差（Social Jetlag）對胰島素敏感度的持續衝擊",
+        "KT 專家建議：打造規律生理時鐘修復藍圖"
+      ],
+      "content": `
         <p>許多現代人習慣平日熬夜加班或追劇，寄望於週末一覺睡到中午來「補回睡眠」。然而，臨床神經學與內分泌學研究指出：睡眠並不是隨意儲存與提領的銀行帳戶。長期晚睡與晝夜節律失調會引發一連串深層的生理連鎖反應，從免疫系統崩解到內分泌紊亂，絕非單次長時間睡眠所能逆轉。</p>
 
         <h3>一、晝夜節律失調與內分泌紊亂</h3>
@@ -66,26 +66,26 @@ document.addEventListener('DOMContentLoaded', () => {
           </ul>
         </div>
       `
-  },
+    },
     {
-    "id": "art-sleep-3",
-    "image": "art-cover-3.jpg",
-    "title": "晚睡與肥胖的隱形連結：缺乏睡眠如何讓飢餓素暴增、瘦素失靈？",
-    "category": "sleep",
-    "categoryName": "睡眠作息",
-    "author": "官網出品",
-    "date": "2026-10-08",
-    "readTime": "5 分鐘",
-    "icon": "🍔",
-    "excerpt": "現代人常將減重視為純粹的「卡路里加減法」，認為只要少吃、多動就能甩掉脂肪。然而內分泌研究證實：睡眠並非被動休息，而是身體調控荷爾蒙、重整食慾與代謝的關鍵週期。",
-    "toc": [
-      "睡眠、食慾與大腦的生理連結",
-      "飢餓素（Ghrelin）：熬夜引爆食慾的引擎",
-      "瘦素（Leptin）：飽足訊號失靈的關鍵機制",
-      "皮質醇與胰島素：脂肪囤積的雙重催化劑",
-      "打破惡性循環：重建代謝與睡眠的實踐方案"
-    ],
-    "content": `
+      "id": "art-sleep-3",
+      "image": "art-cover-3.jpg",
+      "title": "晚睡與肥胖的隱形連結：缺乏睡眠如何讓飢餓素暴增、瘦素失靈？",
+      "category": "sleep",
+      "categoryName": "睡眠作息",
+      "author": "官網出品",
+      "date": "2026-10-08",
+      "readTime": "5 分鐘",
+      "icon": "🍔",
+      "excerpt": "現代人常將減重視為純粹的「卡路里加減法」，認為只要少吃、多動就能甩掉脂肪。然而內分泌研究證實：睡眠並非被動休息，而是身體調控荷爾蒙、重整食慾與代謝的關鍵週期。",
+      "toc": [
+        "睡眠、食慾與大腦的生理連結",
+        "飢餓素（Ghrelin）：熬夜引爆食慾的引擎",
+        "瘦素（Leptin）：飽足訊號失靈的關鍵機制",
+        "皮質醇與胰島素：脂肪囤積的雙重催化劑",
+        "打破惡性循環：重建代謝與睡眠的實踐方案"
+      ],
+      "content": `
         <p>現代人常將減重視為純粹的「卡路里加減法」，認為只要少吃、多動就能甩掉脂肪。然而，許多嚴格控制飲食、規律運動的人，卻往往敗在夜復一夜的熬夜習慣。內分泌與代謝醫學研究已證實：睡眠並非被動的休息，而是身體調控荷爾蒙、重整食慾與代謝的關鍵週期。當睡眠時間被剝奪或晝夜節律紊亂，大腦會誤以為身體處於能量匱乏的生存危機，進而開啟一連串強烈的「渴望進食」訊號。</p>
 
         <h3>一、 睡眠、食慾與大腦的生理連結</h3>
@@ -112,27 +112,27 @@ document.addEventListener('DOMContentLoaded', () => {
         <p><strong>優化晚餐宏量營養素配置：</strong>晚餐以優質蛋白質（如鮭魚、雞胸肉、豆腐）與複合碳水化合物為主，避免精緻高糖飲食造成睡前血糖驟降（Reactive Hypoglycemia），降低深夜誘發飢餓素激增的機率。</p>
         <p><strong>切斷睡前藍光刺激：</strong>睡前 60 分鐘關閉平板、電腦與手機螢幕，或改採暖色低光源，保護褪黑激素自然分泌，確保身體能順利進入深層慢波睡眠（Slow-wave Sleep），讓荷爾蒙重置程序完整執行。</p>
       `
-  },
-  {
-    "id": "art-hydration-1",
-    "image": "art-cover-4.jpg",
-    "title": "不渴不代表水分充足！從尿液顏色看懂身體的缺水訊號",
-    "category": "other",
-    "categoryName": "其他",
-    "author": "官網出品",
-    "date": "2026-10-04",
-    "readTime": "6 分鐘",
-    "icon": "💧",
-    "excerpt": "脫水對認知功能、血液黏稠度與運動表現的深遠衝擊，掌握每日飲水量黃金公式與評估指標。",
-    "toc": [
-      "「口渴」是身體細胞嚴重脫水後的末端警訊",
-      "尿液顏色與比重觀察指南：從透亮黃到深琥珀色的生理訊號",
-      "脫水對大腦專注力、認知功能與神經傳導的衝擊",
-      "肌力與爆發力衰退：體水流失對重訓表現的物理破壞",
-      "血液黏稠度上升與心臟泵血負擔加重的生理機制",
-      "KT 專家建議：精準計算個人化每日黃金補水量與補水法則"
-    ],
-    "content": `
+    },
+    {
+      "id": "art-hydration-1",
+      "image": "art-cover-4.jpg",
+      "title": "不渴不代表水分充足！從尿液顏色看懂身體的缺水訊號",
+      "category": "other",
+      "categoryName": "其他",
+      "author": "官網出品",
+      "date": "2026-10-04",
+      "readTime": "6 分鐘",
+      "icon": "💧",
+      "excerpt": "脫水對認知功能、血液黏稠度與運動表現的深遠衝擊，掌握每日飲水量黃金公式與評估指標。",
+      "toc": [
+        "「口渴」是身體細胞嚴重脫水後的末端警訊",
+        "尿液顏色與比重觀察指南：從透亮黃到深琥珀色的生理訊號",
+        "脫水對大腦專注力、認知功能與神經傳導的衝擊",
+        "肌力與爆發力衰退：體水流失對重訓表現的物理破壞",
+        "血液黏稠度上升與心臟泵血負擔加重的生理機制",
+        "KT 專家建議：精準計算個人化每日黃金補水量與補水法則"
+      ],
+      "content": `
         <p>在日常健身與健康管理中，水常常是被最忽視卻也最關鍵的營養素。許多人習慣「等口渴了才喝水」，然而在運動生理學中，口渴並不是缺水的預警，而是身體細胞已經陷入嚴重脫水危機後的末端求救訊號。了解水分在體內的作用機制，是邁向科學化健康管理的第一步。</p>
 
         <h3>一、「口渴」是身體細胞嚴重脫水後的末端警訊</h3>
@@ -167,27 +167,27 @@ document.addEventListener('DOMContentLoaded', () => {
           </ul>
         </div>
       `
-  },
-  {
-    "id": "art-hydration-2",
-    "image": "art-cover-5.jpg",
-    "title": "喝水喝對時間才有效：提升專注力、助消化與避免夜尿的「全日補水時刻表」",
-    "category": "other",
-    "categoryName": "其他",
-    "author": "官網出品",
-    "date": "2026-10-05",
-    "readTime": "6 分鐘",
-    "icon": "🥤",
-    "excerpt": "飯前飯後喝水的生理時間差、運動電解質補充原則與避免夜尿干擾睡眠的全日補水攻略。",
-    "toc": [
-      "晨起第一杯水：喚醒消化道、稀釋血液與啟動基礎代謝",
-      "飯前與飯後飲水的最佳時間間隔：保護胃酸與消化酵素",
-      "運動前中後的高效電解質與水分分配原則",
-      "辦公專注期與午後疲勞期的細胞補水機制",
-      "睡前補水策略：如何維持夜間血流順暢並完全避免夜尿干擾",
-      "KT 專家建議：全日 24 小時黃金補水時間表與執行策略"
-    ],
-    "content": `
+    },
+    {
+      "id": "art-hydration-2",
+      "image": "art-cover-5.jpg",
+      "title": "喝水喝對時間才有效：提升專注力、助消化與避免夜尿的「全日補水時刻表」",
+      "category": "other",
+      "categoryName": "其他",
+      "author": "官網出品",
+      "date": "2026-10-05",
+      "readTime": "6 分鐘",
+      "icon": "🥤",
+      "excerpt": "飯前飯後喝水的生理時間差、運動電解質補充原則與避免夜尿干擾睡眠的全日補水攻略。",
+      "toc": [
+        "晨起第一杯水：喚醒消化道、稀釋血液與啟動基礎代謝",
+        "飯前與飯後飲水的最佳時間間隔：保護胃酸與消化酵素",
+        "運動前中後的高效電解質與水分分配原則",
+        "辦公專注期與午後疲勞期的細胞補水機制",
+        "睡前補水策略：如何維持夜間血流順暢並完全避免夜尿干擾",
+        "KT 專家建議：全日 24 小時黃金補水時間表與執行策略"
+      ],
+      "content": `
         <p>知道了每日總喝水量還不夠，「什麼時間喝水」直接決定了身體對水分的吸收利用效率與消化系統的健康。盲目灌水不僅無法有效充盈細胞，還可能引發胃脹、消化不良甚至夜間頻尿中斷睡眠。</p>
 
         <h3>一、晨起第一杯水：喚醒消化道、稀釋血液與啟動基礎代謝</h3>
@@ -224,27 +224,27 @@ document.addEventListener('DOMContentLoaded', () => {
           </ul>
         </div>
       `
-  },
-  {
-    "id": "art-nutrition-1",
-    "image": "art-cover-6.jpg",
-    "title": "碳水化合物真的是減重敵人？低碳飲食與複合碳水的聰明吃法",
-    "category": "nutrition",
-    "categoryName": "飲食營養",
-    "author": "官網出品",
-    "date": "2026-10-05",
-    "readTime": "6 分鐘",
-    "icon": "🍚",
-    "excerpt": "破解碳水妖魔化迷思，深入分析單醣與複合碳水對升糖指數、肌醣原與甲狀腺素的影響。",
-    "toc": [
-      "破解碳水污名化：單醣、精緻澱粉 vs 複合碳水化合物",
-      "升糖指數（GI值）與升糖負荷（GL值）對脂肪合成的威脅",
-      "肌肉與肝臟肌醣原（Glycogen）的儲存機制與能量代謝",
-      "運動員與健身者為何絕對不能完全戒除碳水？",
-      "長期極端無碳水飲食對甲狀腺素（T3）與基代的副作用",
-      "KT 專家建議：低碳週期、碳水循環與複合碳水黃金補充時機"
-    ],
-    "content": `
+    },
+    {
+      "id": "art-nutrition-1",
+      "image": "art-cover-6.jpg",
+      "title": "碳水化合物真的是減重敵人？低碳飲食與複合碳水的聰明吃法",
+      "category": "nutrition",
+      "categoryName": "飲食營養",
+      "author": "官網出品",
+      "date": "2026-10-05",
+      "readTime": "6 分鐘",
+      "icon": "🍚",
+      "excerpt": "破解碳水妖魔化迷思，深入分析單醣與複合碳水對升糖指數、肌醣原與甲狀腺素的影響。",
+      "toc": [
+        "破解碳水污名化：單醣、精緻澱粉 vs 複合碳水化合物",
+        "升糖指數（GI值）與升糖負荷（GL值）對脂肪合成的威脅",
+        "肌肉與肝臟肌醣原（Glycogen）的儲存機制與能量代謝",
+        "運動員與健身者為何絕對不能完全戒除碳水？",
+        "長期極端無碳水飲食對甲狀腺素（T3）與基代的副作用",
+        "KT 專家建議：低碳週期、碳水循環與複合碳水黃金補充時機"
+      ],
+      "content": `
         <p>在過去幾年的生酮飲食與極端低碳熱潮下，碳水化合物常被貼上「發胖元凶」的標籤。然而在運動營養學與內分泌學中，碳水化合物是肌肉大重量訓練與高強度能量輸出的首選燃料，盲目切斷碳水往往只會引發代謝下降、荷爾蒙失調與肌肉嚴重流失。</p>
 
         <h3>一、破解碳水污名化：單醣、精緻澱粉 vs 複合碳水化合物</h3>
@@ -278,27 +278,27 @@ document.addEventListener('DOMContentLoaded', () => {
           </ul>
         </div>
       `
-  },
-  {
-    "id": "art-nutrition-2",
-    "image": "art-cover-7.jpg",
-    "title": "吃對蛋白質才長肌不長油：動物性 vs. 植物性蛋白質的吸收率與黃金補充時機",
-    "category": "nutrition",
-    "categoryName": "飲食營養",
-    "author": "官網出品",
-    "date": "2026-10-06",
-    "readTime": "6 分鐘",
-    "icon": "🥩",
-    "excerpt": "評估 PDCAAS 評分、亮胺酸觸發門檻、每餐吸收上限與蛋白質熱效應（TEF）的完全指南。",
-    "toc": [
-      "蛋白質消化率校正胺基酸評分（PDCAAS與DIAAS）解析",
-      "動物性蛋白質 vs 植物性蛋白質的必需胺基酸完整度比對",
-      "驅動肌肉蛋白質合成（MPS）的核心：亮胺酸（Leucine）門檻",
-      "單餐蛋白質吸收上限與多餐均勻分配的生理學優勢",
-      "活用蛋白質熱效應（TEF）提升每日能量消耗與飽足感",
-      "KT 專家建議：個人化蛋白質每日需求克數與黃金補充指南"
-    ],
-    "content": `
+    },
+    {
+      "id": "art-nutrition-2",
+      "image": "art-cover-7.jpg",
+      "title": "吃對蛋白質才長肌不長油：動物性 vs. 植物性蛋白質的吸收率與黃金補充時機",
+      "category": "nutrition",
+      "categoryName": "飲食營養",
+      "author": "官網出品",
+      "date": "2026-10-06",
+      "readTime": "6 分鐘",
+      "icon": "🥩",
+      "excerpt": "評估 PDCAAS 評分、亮胺酸觸發門檻、每餐吸收上限與蛋白質熱效應（TEF）的完全指南。",
+      "toc": [
+        "蛋白質消化率校正胺基酸評分（PDCAAS與DIAAS）解析",
+        "動物性蛋白質 vs 植物性蛋白質的必需胺基酸完整度比對",
+        "驅動肌肉蛋白質合成（MPS）的核心：亮胺酸（Leucine）門檻",
+        "單餐蛋白質吸收上限與多餐均勻分配的生理學優勢",
+        "活用蛋白質熱效應（TEF）提升每日能量消耗與飽足感",
+        "KT 專家建議：個人化蛋白質每日需求克數與黃金補充指南"
+      ],
+      "content": `
         <p>蛋白質是建造肌肉、修復組織與維持免疫器官功能不可或缺的核心大量營養素。然而「吃足蛋白質」並不等於「成功增肌」，蛋白質的來源品質、胺基酸完整度、單餐分配克數與腸道吸收率直接決定了補充的最終成效。</p>
 
         <h3>一、蛋白質消化率校正胺基酸評分（PDCAAS與DIAAS）解析</h3>
@@ -332,27 +332,27 @@ document.addEventListener('DOMContentLoaded', () => {
           </ul>
         </div>
       `
-  },
-  {
-    "id": "art-nutrition-3",
-    "image": "art-cover-8.jpg",
-    "title": "油脂不等於肥胖：Omega-3 與飽和脂肪酸的健康平衡術",
-    "category": "nutrition",
-    "categoryName": "飲食營養",
-    "author": "官網出品",
-    "date": "2026-10-07",
-    "readTime": "6 分鐘",
-    "icon": "🥑",
-    "excerpt": "區分好油與壞油、油脂對性荷爾蒙合成的作用，以及矯正外食族高發炎 Omega-6 比例的實踐指南。",
-    "toc": [
-      "脂肪是合成睪固酮、雌激素與細胞膜的關鍵原料",
-      "好油（Omega-3/9）抗發炎 vs 壞油（反式脂肪/高溫氧化油）的傷害",
-      "外食族常見的高發炎 Omega-6 比例失衡危機",
-      "飽和脂肪酸與膽固醇在體內的正確認知與攝取上限",
-      "深海魚油（EPA/DHA）對心血管與肌肉修復的臨床效益",
-      "KT 專家建議：廚房烹飪用油挑選與保健補充品劑量指南"
-    ],
-    "content": `
+    },
+    {
+      "id": "art-nutrition-3",
+      "image": "art-cover-8.jpg",
+      "title": "油脂不等於肥胖：Omega-3 與飽和脂肪酸的健康平衡術",
+      "category": "nutrition",
+      "categoryName": "飲食營養",
+      "author": "官網出品",
+      "date": "2026-10-07",
+      "readTime": "6 分鐘",
+      "icon": "🥑",
+      "excerpt": "區分好油與壞油、油脂對性荷爾蒙合成的作用，以及矯正外食族高發炎 Omega-6 比例的實踐指南。",
+      "toc": [
+        "脂肪是合成睪固酮、雌激素與細胞膜的關鍵原料",
+        "好油（Omega-3/9）抗發炎 vs 壞油（反式脂肪/高溫氧化油）的傷害",
+        "外食族常見的高發炎 Omega-6 比例失衡危機",
+        "飽和脂肪酸與膽固醇在體內的正確認知與攝取上限",
+        "深海魚油（EPA/DHA）對心血管與肌肉修復的臨床效益",
+        "KT 專家建議：廚房烹飪用油挑選與保健補充品劑量指南"
+      ],
+      "content": `
         <p>在健身與減重圈中，脂肪長期以來飽受誤解。許多人採取極端的無油飲食，結果導致皮膚乾裂、情緒暴躁甚至停經與睪固酮驟降。事實上，選擇優質脂肪不僅不會讓你發胖，更是維持內分泌與細胞健康不可或缺的關鍵。</p>
 
         <h3>一、脂肪是合成睪固酮、雌激素與細胞膜的關鍵原料</h3>
@@ -386,27 +386,27 @@ document.addEventListener('DOMContentLoaded', () => {
           </ul>
         </div>
       `
-  },
-  {
-    "id": "art-nutrition-4",
-    "image": "art-cover-9.jpg",
-    "title": "微量元素大功臣：常常抽筋、疲勞？你可能忽略了鎂、鉀、鈉的平衡",
-    "category": "nutrition",
-    "categoryName": "飲食營養",
-    "author": "官網出品",
-    "date": "2026-10-07",
-    "readTime": "6 分鐘",
-    "icon": "🍌",
-    "excerpt": "離子幫浦生理學、鎂與鉀缺乏引發的慢性疲勞與抽筋，以及高強度訓練下的電解質精準補充。",
-    "toc": [
-      "鈉鉀幫浦（Na+/K+-ATPase）與神經肌肉傳導的生理學基石",
-      "頻繁抽筋與慢性疲勞的隱形殺手：鎂（Magnesium）缺乏",
-      "鉀（Potassium）離子對體液平衡、血壓與細胞水合的作用",
-      "高強度訓練與低碳飲食者的鈉離子（Sodium）劇烈流失危機",
-      "鈣鎂比例失衡如何引發血管痙攣與睡眠障礙",
-      "KT 專家建議：原型食物攝取來源與高強度運動電解質補充法"
-    ],
-    "content": `
+    },
+    {
+      "id": "art-nutrition-4",
+      "image": "art-cover-9.jpg",
+      "title": "微量元素大功臣：常常抽筋、疲勞？你可能忽略了鎂、鉀、鈉的平衡",
+      "category": "nutrition",
+      "categoryName": "飲食營養",
+      "author": "官網出品",
+      "date": "2026-10-07",
+      "readTime": "6 分鐘",
+      "icon": "🍌",
+      "excerpt": "離子幫浦生理學、鎂與鉀缺乏引發的慢性疲勞與抽筋，以及高強度訓練下的電解質精準補充。",
+      "toc": [
+        "鈉鉀幫浦（Na+/K+-ATPase）與神經肌肉傳導的生理學基石",
+        "頻繁抽筋與慢性疲勞的隱形殺手：鎂（Magnesium）缺乏",
+        "鉀（Potassium）離子對體液平衡、血壓與細胞水合的作用",
+        "高強度訓練與低碳飲食者的鈉離子（Sodium）劇烈流失危機",
+        "鈣鎂比例失衡如何引發血管痙攣與睡眠障礙",
+        "KT 專家建議：原型食物攝取來源與高強度運動電解質補充法"
+      ],
+      "content": `
         <p>許多健身愛好者把所有的注意力都放在計算碳水化合物與蛋白質克數上，卻常常忽視了維持細胞正常運作的微量礦物質電解質。如果你經常感到莫名疲勞、夜間小腿抽筋或訓練時肌肉泵感微弱，問題極可能出在鈉、鉀、鎂的失衡。</p>
 
         <h3>一、鈉鉀幫浦（Na+/K+-ATPase）與神經肌肉傳導的生理學基石</h3>
@@ -440,27 +440,27 @@ document.addEventListener('DOMContentLoaded', () => {
           </ul>
         </div>
       `
-  },
-  {
-    "id": "art-workout-1",
-    "image": "art-cover-11.jpg",
-    "title": "肌肉是在睡覺時長出來的！睡眠深度如何決定生長激素釋放與力量恢復",
-    "category": "workout",
-    "categoryName": "訓練恢復",
-    "author": "官網出品",
-    "date": "2026-10-02",
-    "readTime": "6 分鐘",
-    "icon": "🏋️",
-    "excerpt": "生長激素（HGH）夜間分泌機制、肌纖維超補償修復與中樞神經疲勞的恢復法則。",
-    "toc": [
-      "人體生長激素（HGH）在深層慢波睡眠的分泌高峰",
-      "重訓造成的肌纖維微創修復與超補償（Supercompensation）機制",
-      "睡眠剝奪導致臥推、硬舉力量下降與受傷率飆升的數據",
-      "中樞神經系統（CNS）疲勞累積對神經驅動力的破壞",
-      "睡前補充優質蛋白質（如酪蛋白）對夜間肌蛋白合成的效益",
-      "KT 專家建議：將睡眠納入增肌減脂訓練菜單的關鍵法規"
-    ],
-    "content": `
+    },
+    {
+      "id": "art-workout-1",
+      "image": "art-cover-11.jpg",
+      "title": "肌肉是在睡覺時長出來的！睡眠深度如何決定生長激素釋放與力量恢復",
+      "category": "workout",
+      "categoryName": "訓練恢復",
+      "author": "官網出品",
+      "date": "2026-10-02",
+      "readTime": "6 分鐘",
+      "icon": "🏋️",
+      "excerpt": "生長激素（HGH）夜間分泌機制、肌纖維超補償修復與中樞神經疲勞的恢復法則。",
+      "toc": [
+        "人體生長激素（HGH）在深層慢波睡眠的分泌高峰",
+        "重訓造成的肌纖維微創修復與超補償（Supercompensation）機制",
+        "睡眠剝奪導致臥推、硬舉力量下降與受傷率飆升的數據",
+        "中樞神經系統（CNS）疲勞累積對神經驅動力的破壞",
+        "睡前補充優質蛋白質（如酪蛋白）對夜間肌蛋白合成的效益",
+        "KT 專家建議：將睡眠納入增肌減脂訓練菜單的關鍵法規"
+      ],
+      "content": `
         <p>健身界名言：「健身三分練、七分吃，還有十分靠睡。」重量訓練本質上是打破肌肉組織的過程，真正的肌肉體積增長與力量突破，完全發生在睡覺時的深層修復階段。忽略睡眠只顧猛練，只會讓你陷入過度訓練的死胡同。</p>
 
         <h3>一、人體生長激素（HGH）在深層慢波睡眠的分泌高峰</h3>
@@ -494,27 +494,27 @@ document.addEventListener('DOMContentLoaded', () => {
           </ul>
         </div>
       `
-  },
-  {
-    "id": "art-workout-2",
-    "image": "art-cover-12.jpg",
-    "title": "晚上運動會失眠嗎？訓練強度與入睡時間的黃金間隔守則",
-    "category": "workout",
-    "categoryName": "訓練恢復",
-    "author": "官網出品",
-    "date": "2026-10-08",
-    "readTime": "6 分鐘",
-    "icon": "🌛",
-    "excerpt": "交感神經亢奮、核心體溫散熱機制、晚間訓練強度分配與睡前降溫儀式。",
-    "toc": [
-      "高強度訓練引起的神經興奮與交感神經優位",
-      "核心體溫與入睡臨界點的物理散熱關係",
-      "運動後皮質醇與腎上腺素降解的時間生理學",
-      "睡前 2-3 小時緩衝期的重要性與訓練強度分配",
-      "晚間運動後的碳水化合物與蛋白質補充對睡眠的正面引導",
-      "KT 專家建議：夜間訓練後的降溫放訟儀式與睡眠準備"
-    ],
-    "content": `
+    },
+    {
+      "id": "art-workout-2",
+      "image": "art-cover-12.jpg",
+      "title": "晚上運動會失眠嗎？訓練強度與入睡時間的黃金間隔守則",
+      "category": "workout",
+      "categoryName": "訓練恢復",
+      "author": "官網出品",
+      "date": "2026-10-08",
+      "readTime": "6 分鐘",
+      "icon": "🌛",
+      "excerpt": "交感神經亢奮、核心體溫散熱機制、晚間訓練強度分配與睡前降溫儀式。",
+      "toc": [
+        "高強度訓練引起的神經興奮與交感神經優位",
+        "核心體溫與入睡臨界點的物理散熱關係",
+        "運動後皮質醇與腎上腺素降解的時間生理學",
+        "睡前 2-3 小時緩衝期的重要性與訓練強度分配",
+        "晚間運動後的碳水化合物與蛋白質補充對睡眠的正面引導",
+        "KT 專家建議：夜間訓練後的降溫放訟儀式與睡眠準備"
+      ],
+      "content": `
         <p>對於許多上班族來說，下班後的夜晚是唯一能抽空健身的時間。然而許多人在晚上完成一場高強度的重訓或 HIIT 後，躺在床上卻大腦異常興奮、輾轉反側無法入睡。如何平衡夜間訓練與高質量的睡眠，關鍵在於理解運動生理學的緩衝時間。</p>
 
         <h3>一、高強度訓練引起的神經興奮與交感神經優位</h3>
@@ -548,27 +548,27 @@ document.addEventListener('DOMContentLoaded', () => {
           </ul>
         </div>
       `
-  },
-  {
-    "id": "art-habits-2",
-    "image": "art-cover-15.jpg",
-    "title": "吃早餐到底重不重要？斷食法 vs. 規律早餐的荷爾蒙運作分析",
-    "category": "other",
-    "categoryName": "其他",
-    "author": "官網出品",
-    "date": "2026-10-08",
-    "readTime": "6 分鐘",
-    "icon": "🍳",
-    "excerpt": "評估晨起皮質醇反應、16/8 間歇性斷食與規律早餐對甲狀腺、肌肉合成與食慾控制的差異。",
-    "toc": [
-      "晨起皮質醇甦醒反應（CAR）與血糖代謝調節",
-      "16/8 間歇性斷食 vs 規律三餐的荷爾蒙與自噬作用運作差異",
-      "跳過早餐對甲狀腺素（T3）與基礎代謝率的潛在風險",
-      "早餐宏量營養素（高蛋白 vs 高碳水）對全天食慾的控制效果",
-      "運動族群晨練前後的營養補充與肌肉合成保護",
-      "KT 專家建議：如何評估自己適合斷食還是規律早餐？"
-    ],
-    "content": `
+    },
+    {
+      "id": "art-habits-2",
+      "image": "art-cover-15.jpg",
+      "title": "吃早餐到底重不重要？斷食法 vs. 規律早餐的荷爾蒙運作分析",
+      "category": "other",
+      "categoryName": "其他",
+      "author": "官網出品",
+      "date": "2026-10-08",
+      "readTime": "6 分鐘",
+      "icon": "🍳",
+      "excerpt": "評估晨起皮質醇反應、16/8 間歇性斷食與規律早餐對甲狀腺、肌肉合成與食慾控制的差異。",
+      "toc": [
+        "晨起皮質醇甦醒反應（CAR）與血糖代謝調節",
+        "16/8 間歇性斷食 vs 規律三餐的荷爾蒙與自噬作用運作差異",
+        "跳過早餐對甲狀腺素（T3）與基礎代謝率的潛在風險",
+        "早餐宏量營養素（高蛋白 vs 高碳水）對全天食慾的控制效果",
+        "運動族群晨練前後的營養補充與肌肉合成保護",
+        "KT 專家建議：如何評估自己適合斷食還是規律早餐？"
+      ],
+      "content": `
         <p>「吃早餐是健康之本」與「跳過早餐能加速減脂」這兩種說法在網路上各有支持者。究竟該不該吃早餐，不能只憑感覺，必須深入了解個人的生理作息、壓力水準、訓練時間以及荷爾蒙分泌特性。</p>
 
         <h3>一、晨起皮質醇甦醒反應（CAR）與血糖代謝調節</h3>
@@ -602,8 +602,8 @@ document.addEventListener('DOMContentLoaded', () => {
           </ul>
         </div>
       `
-  }
-];
+    }
+  ];
   const productsData = [];
 
   // Initialize UI Features
@@ -631,10 +631,10 @@ document.addEventListener('DOMContentLoaded', () => {
     navLinks.forEach(link => {
       link.addEventListener('click', (e) => {
         const targetId = link.getAttribute('data-target');
-        
+
         if (targetId && document.getElementById(targetId)) {
           e.preventDefault();
-          
+
           // Update Active Nav Link
           navLinks.forEach(l => l.classList.remove('active'));
           link.classList.add('active');
@@ -916,7 +916,7 @@ document.addEventListener('DOMContentLoaded', () => {
     `).join('');
   }
 
-  window.addToCart = function(title) {
+  window.addToCart = function (title) {
     cartCount++;
     const badge = document.getElementById('cartBadge');
     if (badge) {
@@ -925,9 +925,9 @@ document.addEventListener('DOMContentLoaded', () => {
     showToast(`已將「${title}」加入購物車！`);
   };
 
-    window.openArticlePage = function(identifier) {
+  window.openArticlePage = function (identifier) {
     const article = articlesData.find(a => a.id === identifier || a.title === identifier);
-    
+
     // Check if on articles.html page
     const isArticlesPage = window.location.pathname.includes('articles.html');
     if (!isArticlesPage && article) {
@@ -946,7 +946,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const titleEl = document.getElementById('artPageTitle');
         const bannerTextEl = document.getElementById('artPageBannerText');
         const coverImgEl = document.getElementById('artPageCoverImg');
-        
+
         if (titleEl) titleEl.textContent = article.title;
         if (bannerTextEl) bannerTextEl.textContent = article.title;
         if (coverImgEl) coverImgEl.src = article.image;
@@ -1024,7 +1024,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  window.closeArticlePage = function() {
+  window.closeArticlePage = function () {
     const heroEl = document.getElementById('articlesHero');
     const gridSecEl = document.getElementById('articlesGridSection');
     const pageSecEl = document.getElementById('articlePageSection');
@@ -1065,9 +1065,9 @@ document.addEventListener('DOMContentLoaded', () => {
       openArticlePage(hashId);
     }, 100);
   }
-/* ==========================================================================
-     MODALS & SEARCH
-     ========================================================================== */
+  /* ==========================================================================
+       MODALS & SEARCH
+       ========================================================================== */
   function initModals() {
     // Search Modal
     const searchBtn = document.getElementById('searchBtn');
@@ -1097,8 +1097,8 @@ document.addEventListener('DOMContentLoaded', () => {
           return;
         }
 
-        const matched = articlesData.filter(a => 
-          a.title.toLowerCase().includes(query) || 
+        const matched = articlesData.filter(a =>
+          a.title.toLowerCase().includes(query) ||
           a.excerpt.toLowerCase().includes(query)
         );
 
@@ -1133,82 +1133,126 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // Google Sheets Webhook URL (Paste your Google Apps Script Web App URL here)
-    window.GOOGLE_SHEET_WEBHOOK_URL = window.GOOGLE_SHEET_WEBHOOK_URL || '';
+    // Google Sheets Webhook URL
+    window.GOOGLE_SHEET_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbzTf1qmIIled5S7hHvRmFd_ZSmpU582EzrfYa0qrDiwhHnKSADAi6STp9AScTHtCive/exec';
 
-    // Newsletter Form Handler
+    // Newsletter Form Handler (電子週報訂閱)
     const newsletterForms = document.querySelectorAll('.newsletter-form');
     newsletterForms.forEach(form => {
-      form.addEventListener('submit', (e) => {
+      form.addEventListener('submit', async (e) => {
         e.preventDefault();
         const emailInput = form.querySelector('.newsletter-email');
+        const submitBtn = form.querySelector('button[type="submit"]');
         const email = emailInput ? emailInput.value.trim() : '';
 
         if (!email) return;
 
+        const originalBtnText = submitBtn ? submitBtn.innerHTML : '';
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 處理中...';
+        }
+
         if (window.GOOGLE_SHEET_WEBHOOK_URL) {
-          const formData = new FormData();
-          formData.append('email', email);
-          fetch(window.GOOGLE_SHEET_WEBHOOK_URL, {
-            method: 'POST',
-            body: formData,
-            mode: 'no-cors'
-          }).catch(err => console.log('Sheet post err:', err));
+          try {
+            const formData = new URLSearchParams();
+            formData.append('formType', 'newsletter');
+            formData.append('email', email);
+
+            await fetch(window.GOOGLE_SHEET_WEBHOOK_URL, {
+              method: 'POST',
+              body: formData,
+              mode: 'no-cors'
+            });
+          } catch (err) {
+            console.error('Newsletter post error:', err);
+          }
         }
 
         showToast('🎉 訂閱成功！最新的科學減脂週報與獨家優惠將定期發送給您！');
         if (emailInput) emailInput.value = '';
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnText;
+        }
       });
     });
 
-    // Contact Form Handler
+    // Contact Form Handler (諮詢表單)
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
-      contactForm.addEventListener('submit', (e) => {
+      contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        const name = document.getElementById('contactName')?.value || '';
-        const email = document.getElementById('contactEmail')?.value || '';
-        const age = document.getElementById('contactAge')?.value || '';
-        const height = document.getElementById('contactHeight')?.value || '';
-        const weight = document.getElementById('contactWeight')?.value || '';
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const name = document.getElementById('contactName')?.value.trim() || '';
+        const email = document.getElementById('contactEmail')?.value.trim() || '';
+        const age = document.getElementById('contactAge')?.value.trim() || '';
+        const height = document.getElementById('contactHeight')?.value.trim() || '';
+        const weight = document.getElementById('contactWeight')?.value.trim() || '';
         const activity = document.getElementById('contactActivity')?.value || '';
         const goal = document.getElementById('contactGoal')?.value || '';
-        const note = document.getElementById('contactNote')?.value || '無';
+        const note = document.getElementById('contactNote')?.value.trim() || '無';
 
-        if (window.GOOGLE_SHEET_WEBHOOK_URL) {
-          const formData = new FormData();
-          formData.append('name', name);
-          formData.append('email', email);
-          formData.append('age', age);
-          formData.append('height', height);
-          formData.append('weight', weight);
-          formData.append('activity', activity);
-          formData.append('goal', goal);
-          formData.append('note', note);
-          fetch(window.GOOGLE_SHEET_WEBHOOK_URL, {
-            method: 'POST',
-            body: formData,
-            mode: 'no-cors'
-          }).catch(err => console.log('Sheet post err:', err));
+        const originalBtnText = submitBtn ? submitBtn.innerHTML : '';
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 資料送出中...';
         }
 
-        const subject = encodeURIComponent(`【KT Fitness 線上諮詢】${name} 的個人諮詢表單`);
-        const body = encodeURIComponent(
-          `您好，我是 ${name}，以下是我的線上諮詢資料：\n\n` +
-          `• 姓名：${name}\n` +
-          `• Gmail 信箱：${email}\n` +
-          `• 年齡：${age} 歲\n` +
-          `• 身高：${height} cm\n` +
-          `• 體重：${weight} kg\n` +
-          `• 日常運動與活動度：${activity}\n` +
-          `• 諮詢目的：${goal}\n` +
-          `• 備註需求說明：\n${note}\n\n` +
-          `發送時間：${new Date().toLocaleString('zh-TW')}`
-        );
+        if (window.GOOGLE_SHEET_WEBHOOK_URL) {
+          try {
+            const formData = new URLSearchParams();
+            formData.append('formType', 'consultation');
+            formData.append('name', name);
+            formData.append('email', email);
+            formData.append('age', age);
+            formData.append('height', height);
+            formData.append('weight', weight);
+            formData.append('activity', activity);
+            formData.append('goal', goal);
+            formData.append('note', note);
 
-        window.location.href = `mailto:kt_business@ktwithjz.work?subject=${subject}&body=${body}`;
-        showToast('諮詢表單已成功填寫！正為您開啟郵件系統發送至 kt_business@ktwithjz.work');
-        contactForm.reset();
+            await fetch(window.GOOGLE_SHEET_WEBHOOK_URL, {
+              method: 'POST',
+              body: formData,
+              mode: 'no-cors'
+            });
+
+            showToast('🎉 諮詢表單已成功送出！教練團隊將盡快與您聯繫。');
+            contactForm.reset();
+          } catch (err) {
+            console.error('Contact post error:', err);
+            showToast('⚠️ 資料送出發生異常，請稍後再試或直接寄信至官方信箱。');
+          } finally {
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.innerHTML = originalBtnText;
+            }
+          }
+        } else {
+          // 若尚未填入 Google Sheets 網址，備用為開啟郵件客戶端
+          const subject = encodeURIComponent(`【KT Fitness 線上諮詢】${name} 的個人諮詢表單`);
+          const body = encodeURIComponent(
+            `您好，我是 ${name}，以下是我的線上諮詢資料：\n\n` +
+            `• 姓名：${name}\n` +
+            `• Gmail 信箱：${email}\n` +
+            `• 年齡：${age} 歲\n` +
+            `• 身高：${height} cm\n` +
+            `• 體重：${weight} kg\n` +
+            `• 日常運動與活動度：${activity}\n` +
+            `• 諮詢目的：${goal}\n` +
+            `• 備註需求說明：\n${note}\n\n` +
+            `發送時間：${new Date().toLocaleString('zh-TW')}`
+          );
+
+          window.location.href = `mailto:kt_business@ktwithjz.work?subject=${subject}&body=${body}`;
+          showToast('諮詢表單已填寫完成！正為您開啟郵件客戶端發送...');
+          contactForm.reset();
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnText;
+          }
+        }
       });
     }
 
