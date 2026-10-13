@@ -212,6 +212,73 @@
     </script>
 
 
+    <!-- ==========================================================================
+         FEATURED PRODUCTS (RANDOM 4) - UNDER CAROUSEL
+         ========================================================================== -->
+    <section class="section" id="featuredProducts" style="padding-top: 3rem; padding-bottom: 2.5rem;">
+      <div class="container">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.75rem; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <h2 style="font-size: 1.6rem; font-weight: 800; color: #ffffff; margin: 0 0 0.3rem;">
+              <i class="fas fa-fire" style="color: #ff6b35; margin-right: 0.5rem; text-shadow: 0 0 12px rgba(255,107,53,0.8);"></i>推薦商品
+            </h2>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin: 0;">KT 嚴選優質健身補給，每次重新整理隨機推薦</p>
+          </div>
+          <a href="shop.html" class="btn-primary" style="padding: 0.65rem 1.6rem; font-size: 0.9rem; background: #000; border: 2px solid #ffffff; color: #fff; text-shadow: 0 0 8px rgba(255,255,255,0.9); box-shadow: 0 0 12px rgba(255,255,255,0.5), inset 0 0 8px rgba(255,255,255,0.1); white-space: nowrap;">
+            <i class="fas fa-store"></i> 查看全部商品
+          </a>
+        </div>
+        <div class="store-grid featured-grid" id="featuredGrid"></div>
+      </div>
+    </section>
+    <script>
+      (function () {
+        const ALL_PRODUCTS = [
+          { code: 'R001', name: '【紅牛】聰勁iD纖美蛋白奶昔-地瓜穀物風味 (45g/包)', brand: '紅牛 RED COW', price: 119, img: 'r001.jpg', link: 'https://afflnk.site/track/clicks/5300/c627c2bc9b0425dcfe83ec23d62e9e44256f4cc163b2a0f90263b20571401de3c021e7e5593c99616c?t=https%253A%252F%252Fbuy.healthing.com.tw%252Fproducts%252F%25E3%2580%2590%25E7%25B4%2585%25E7%2589%259B%25E3%2580%2591%25E8%2581%25B0%25E5%258B%2581id%25E7%25BA%2596%25E7%25BE%258E%25E8%259B%258B%25E7%2599%25BD%25E5%25A5%25B6%25E6%2598%2594-%25E5%259C%25B0%25E7%2593%259C%25E7%25A9%2580%25E7%2589%25A9%25E9%25A2%25A8%25E5%2591%25B3' },
+          { code: 'R002', name: '【紅牛】聰勁iD纖美蛋白奶昔-芝麻歐蕾風味 (45g/包)', brand: '紅牛 RED COW', price: 119, img: 'r002.jpg', link: 'https://afftkr.site/track/clicks/5300/c627c2bc9b0425dcfe83ec23d62e9e44256f4cc163b2a0f90263b20571401de3c021e7e5593c99616c?t=https%253A%252F%252Fbuy.healthing.com.tw%252Fproducts%252F%25E3%2580%2590%25E7%25B4%2585%25E7%2589%259B%25E3%2580%2591%25E8%2581%25B0%25E5%258B%2581id%25E7%25BA%2596%25E7%25BE%258E%25E8%259B%258B%25E7%2599%25BD%25E5%25A5%25B6%25E6%2598%2594-%25E8%258A%259D%25E9%25BA%25BB%25E6%25AD%2590%25E8%2595%25BE%25E9%25A2%25A8%25E5%2591%25B3' },
+          { code: 'R003', name: '【紅牛】聰勁iD纖美蛋白奶昔-咖啡那堤風味 (45g/包)', brand: '紅牛 RED COW', price: 119, img: 'r003.jpg', link: 'https://aftck.com/track/clicks/5300/c627c2bc9b0425dcfe83ec23d62e9e44256f4cc163b2a0f90263b20571401de3c021e7e5593c99616c?t=https%253A%252F%252Fbuy.healthing.com.tw%252Fproducts%252F%25E3%2580%2590%25E7%25B4%2585%25E7%2589%259B%25E3%2580%2591%25E8%2581%25B0%25E5%258B%2581id%25E7%25BA%2596%25E7%25BE%258E%25E8%259B%258B%25E7%2599%25BD%25E5%25A5%25B6%25E6%2598%2594-%25E5%2592%2596%25E5%2595%25A1%25E9%2582%25A3%25E5%25A0%25A4%25E9%25A2%25A8%25E5%2591%25B3' },
+          { code: 'R004', name: '【紅牛】聰勁iD纖美蛋白奶昔-珍珠奶茶風味 (45g/包)', brand: '紅牛 RED COW', price: 119, img: 'r004.jpg', link: 'https://afftck.site/track/clicks/5300/c627c2bc9b0425dcfe83ec23d62e9e44256f4cc163b2a0f90263b20571401de3c021e7e5593c99616c?t=https%253A%252F%252Fbuy.healthing.com.tw%252Fproducts%252F%25E3%2580%2590%25E7%25B4%2585%25E7%2589%259B%25E3%2580%2591%25E8%2581%25B0%25E5%258B%2581id%25E7%25BA%2596%25E7%25BE%258E%25E8%259B%258B%25E7%2599%25BD%25E5%25A5%25B6%25E6%2598%2594-%25E7%258F%258D%25E7%258F%25A0%25E5%25A5%25B6%25E8%258C%25B6%25E9%25A2%25A8%25E5%2591%25B3' },
+          { code: 'R005', name: '【紅牛】聰勁iD纖美蛋白奶昔-莓果牛奶風味 (45g/包)', brand: '紅牛 RED COW', price: 119, img: 'r005.jpg', link: 'https://affclkr.online/track/clicks/5300/c627c2bc9b0425dcfe83ec23d62e9e44256f4cc163b2a0f90263b20571401de3c021e7e5593c99616c?t=https%253A%252F%252Fbuy.healthing.com.tw%252Fproducts%252F%25E3%2580%2590%25E7%25B4%2585%25E7%2589%259B%25E3%2580%2591%25E8%2581%25B0%25E5%258B%2581id%25E7%25BA%2596%25E7%25BE%258E%25E8%259B%258B%25E7%2599%25BD%25E5%25A5%25B6%25E6%2598%2594-%25E8%258E%2593%25E6%259E%259C%25E7%2589%259B%25E5%25A5%25B6%25E9%25A2%25A8%25E5%2591%25B3' },
+          { code: 'R006', name: '【紅牛】聰勁iD纖美蛋白奶昔-巧克力布朗尼風味 (45g/包)', brand: '紅牛 RED COW', price: 119, img: 'r006.jpg', link: 'https://twshop4coupon.com/track/clicks/5300/c627c2bc9b0425dcfe83ec23d62e9e44256f4cc163b2a0f90263b20571401de3c021e7e5593c99616c?t=https%253A%252F%252Fbuy.healthing.com.tw%252Fproducts%252F%25E8%2581%25B0%25E5%258B%2581id%25E7%25BA%2596%25E7%25BE%258E%25E8%259B%258B%25E7%2599%25BD%25E5%25A5%25B6%25E6%2598%2594-%25E5%25B7%25A7%25E5%2585%258B%25E5%258A%259B%25E5%25B8%2583%25E6%259C%2597%25E5%25B0%25BC%25E9%25A2%25A8%25E5%2591%25B3' },
+          { code: 'R007', name: '【紅牛】聰勁蛋白威化餅 (23.5gx8包/盒)', brand: '紅牛 RED COW', price: 259, img: 'r007.jpg', link: 'https://afftck.site/track/clicks/5300/c627c2bc9b0425dcfe83ec23d62e9e44256f4cc163b2a0f90263b20571401de3c021e7e5593c99616c?t=https%253A%252F%252Fbuy.healthing.com.tw%252Fproducts%252F%25E3%2580%2590%25E7%25B4%2585%25E7%2589%259B%25E3%2580%2591%25E8%2581%25B0%25E5%258B%2581%25E8%259B%258B%25E7%2599%25BD%25E5%25A8%2581%25E5%258C%2596%25E9%25A4%258523g' },
+          { code: 'R008', name: '【紅牛】聰勁蛋白穀脆粒 (20g/10入)可可', brand: '紅牛 RED COW', price: 290, img: 'r008.jpg', link: 'https://abzcoupon.com/track/clicks/5300/c627c2bc9b0425dcfe83ec23d62e9e44256f4cc163b2a0f90263b20571401de3c021e7e5593c99616c?t=https%253A%252F%252Fbuy.healthing.com.tw%252Fproducts%252F%25E3%2580%2590%25E7%25B4%2585%25E7%2589%259B%25E3%2580%2591%25E8%2581%25B0%25E5%258B%2581%25E8%259B%258B%25E7%2599%25BD%25E7%25A9%2580%25E8%2584%2586%25E7%25B2%259220g' },
+          { code: 'R010', name: '【紅牛】聰勁即溶乳清蛋白 (500g)', brand: '紅牛 RED COW', price: 699, img: 'r010.jpg', link: 'https://affclk.site/track/clicks/5300/c627c2bc9b0425dcfe83ec23d62e9e44256f4cc163b2a0f90263b20571401de3c021e7e5593c99616c?t=https%253A%252F%252Fbuy.healthing.com.tw%252Fproducts%252F%25E3%2580%2590%25E7%25B4%2585%25E7%2589%259B%25E3%2580%2591%25E8%2581%25B0%25E5%258B%2581%25E5%258D%25B3%25E6%25BA%25B6%25E4%25B9%25B3%25E6%25B8%2585%25E8%259B%258B%25E7%2599%25BD500g' },
+          { code: 'R011', name: '【紅牛】聰勁即溶乳清蛋白 (2磅)', brand: '紅牛 RED COW', price: 1185, img: 'r011.jpg', link: 'https://twcouponcenter.com/track/clicks/5300/c627c2bc9b0425dcfe83ec23d62e9e44256f4cc163b2a0f90263b20571401de3c021e7e5593c99616c?t=https%253A%252F%252Fbuy.healthing.com.tw%252Fproducts%252F%25E3%2580%2590%25E7%25B4%2585%25E7%2589%259B%25E3%2580%2591%25E8%2581%25B0%25E5%258B%2581%25E5%258D%25B3%25E6%25BA%25B6%25E4%25B9%25B3%25E6%25B8%2585%25E8%259B%258B%25E7%2599%25BD2%25E7%25A3%2585' },
+          { code: 'R013', name: '【紅牛】聰勁即溶分離乳清蛋白 (500g)', brand: '紅牛 RED COW', price: 799, img: 'r013.jpg', link: 'https://twshop4coupon.com/track/clicks/5300/c627c2bc9b0425dcfe83ec23d62e9e44256f4cc163b2a0f90263b20571401de3c021e7e5593c99616c?t=https%253A%252F%252Fbuy.healthing.com.tw%252Fproducts%252F%25E3%2580%2590%25E7%25B4%2585%25E7%2589%259B%25E3%2580%2591%25E8%2581%25B0%25E5%258B%2581%25E5%258D%25B3%25E6%25BA%25B6%25E5%2588%2586%25E9%259B%25A2%25E4%25B9%25B3%25E6%25B8%2585%25E8%259B%258B%25E7%2599%25BD500g' },
+          { code: 'R022', name: '【紅牛】紅牛聰勁能量飲-3種口味 (35ml*6包/盒)', brand: '紅牛 RED COW', price: 329, img: 'r022.jpg', link: 'https://affclkr.com/track/clicks/5300/c627c2bc9b0425dcfe83ec23d62e9e44256f4cc163b2a0f90263b20571401de3c021e7e5593c99616c?t=https%253A%252F%252Fbuy.healthing.com.tw%252Fproducts%252F%25E3%2580%2590%25E7%25B4%2585%25E7%2589%259B%25E3%2580%2591%25E7%25B4%2585%25E7%2589%259B%25E8%2581%25B0%25E5%258B%2581%25E8%2583%25BD%25E9%2587%258F%25E9%25A3%25B2-3%25E7%25A8%25AE%25E5%258F%25A3%25E5%2591%25B3' },
+          { code: 'R024', name: '【紅牛】聰勁BCAA 蔓越莓口味 (6.5g*4包/盒)', brand: '紅牛 RED COW', price: 179, img: 'r024.jpg', link: 'https://vbtrax.com/track/clicks/5300/c627c2bc9b0425dcfe83ec23d62e9e44256f4cc163b2a0f90263b20571401de3c021e7e5593c99616c?t=https%253A%252F%252Fbuy.healthing.com.tw%252Fproducts%252F%25E3%2580%2590%25E7%25B4%2585%25E7%2589%259B%25E3%2580%2591%25E8%2581%25B0%25E5%258B%2581bcaa%25E8%2594%2593%25E8%25B6%258A%25E8%258E%2593%25E5%258F%25A3%25E5%2591%25B365g' },
+          { code: 'R025', name: '【紅牛】聰勁BCAA 檸檬口味 (6.5g*4包/盒)', brand: '紅牛 RED COW', price: 179, img: 'r025.jpg', link: 'https://affclk.site/track/clicks/5300/c627c2bc9b0425dcfe83ec23d62e9e44256f4cc163b2a0f90263b20571401de3c021e7e5593c99616c?t=https%253A%252F%252Fbuy.healthing.com.tw%252Fproducts%252F%25E3%2580%2590%25E7%25B4%2585%25E7%2589%259B%25E3%2580%2591%25E8%2581%25B0%25E5%258B%2581bcaa%25E6%25AA%25B8%25E6%25AA%25AC%25E5%258F%25A3%25E5%2591%25B365g' },
+          { code: 'R026', name: '【紅牛】聰勁肌酸 (200g)', brand: '紅牛 RED COW', price: 599, img: 'r026.jpg', link: 'https://affone.site/track/clicks/5300/c627c2bc9b0425dcfe83ec23d62e9e44256f4cc163b2a0f90263b20571401de3c021e7e5593c99616c?t=https%253A%252F%252Fbuy.healthing.com.tw%252Fproducts%252F%25E3%2580%2590%25E7%25B4%2585%25E7%2589%259B%25E3%2580%2591%25E8%2581%25B0%25E5%258B%2581%25E8%2582%258C%25E9%2585%25B8200g' },
+          { code: 'T001', name: '【TERRA】戰神黑瑪卡3.0-EX', brand: 'TERRA', price: 698, img: 't001.jpg', link: 'https://afftck.com/track/clicks/9472/c627c2bc9b0425dcf18eec23d62e9e44256f4cc163b2a0f90e64b50771401de3c021e7e5593c99616c?t=https%253A%252F%252Fwww.terratw.com%252Fitem%252FAresMACA-EX-tw9iwi' },
+          { code: 'T002', name: '【TERRA】阿波羅加強版男性B群', brand: 'TERRA', price: 498, img: 't002.jpg', link: 'https://afftkr.site/track/clicks/9472/c627c2bc9b0425dcf18eec23d62e9e44256f4cc163b2a0f90e64b50771401de3c021e7e5593c99616c?t=https%253A%252F%252Fwww.terratw.com%252Fitem%252FApolloVitaminB' },
+          { code: 'T003', name: '【TERRA】睡神晚安酵素膠囊', brand: 'TERRA', price: 598, img: 't003.jpg', link: 'https://affclk.site/track/clicks/9472/c627c2bc9b0425dcf18eec23d62e9e44256f4cc163b2a0f90e64b50771401de3c021e7e5593c99616c?t=https%253A%252F%252Fwww.terratw.com%252Fitem%252FHypnosSleepEnzymes' }
+        ];
+
+        // Randomly pick 4 products
+        const shuffled = ALL_PRODUCTS.slice().sort(() => Math.random() - 0.5);
+        const featured = shuffled.slice(0, 4);
+        const fmt = n => 'NT$' + n.toLocaleString();
+
+        const grid = document.getElementById('featuredGrid');
+        grid.innerHTML = featured.map(p => `
+          <a href="${p.link}" target="_blank" rel="noopener noreferrer" class="store-card">
+            <div class="store-thumb">
+              <img src="${p.img}" alt="${p.name}" class="store-img" style="display:none;"
+                onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';"
+                onload="this.style.display='block'; if(this.nextElementSibling) this.nextElementSibling.style.display='none';">
+              <div class="store-placeholder" style="display:flex;">
+                <i class="far fa-image"></i>
+                <span class="store-placeholder-text">預留圖片位</span>
+              </div>
+            </div>
+            <div class="store-info">
+              <h3 class="store-name" title="${p.name}">${p.name}</h3>
+              <div class="store-price">${fmt(p.price)}</div>
+            </div>
+          </a>
+        `).join('');
+      })();
+    </script>
 
     <!-- ==========================================================================
          BRAND HEAD COACH INTRO SECTION (UNDER CAROUSEL BANNER)

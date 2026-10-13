@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Custom Styles -->
-  <link rel="stylesheet" href="styles.css?v=10">
+  <link rel="stylesheet" href="styles.css?v=11">
 </head>
 
 <body>
@@ -70,41 +70,32 @@
         <!-- Left: category sidebar -->
         <aside class="store-sidebar" id="storeSidebar">
           <ul class="cat-list">
+            <li><a class="cat-link active" data-cat="all">全部</a></li>
             <li class="cat-group open">
-              <a class="cat-link cat-toggle" data-cat="deal">優惠專區 <i class="fas fa-chevron-up"></i></a>
+              <a class="cat-link cat-toggle" data-cat="sport">運動補給 <i class="fas fa-chevron-up"></i></a>
               <ul class="cat-sub">
-                <li><a class="cat-link" data-cat="bundle">暢銷組合</a></li>
+                <li><a class="cat-link" data-cat="bcaa">BCAA</a></li>
+                <li><a class="cat-link" data-cat="creatine">肌酸</a></li>
+                <li><a class="cat-link" data-cat="energy">能量飲</a></li>
               </ul>
             </li>
-            <li><a class="cat-link" data-cat="sport">運動補給</a></li>
             <li class="cat-group open">
               <a class="cat-link cat-toggle" data-cat="protein">蛋白系列 <i class="fas fa-chevron-up"></i></a>
               <ul class="cat-sub">
                 <li><a class="cat-link" data-cat="whey">乳清蛋白</a></li>
                 <li><a class="cat-link" data-cat="plant">植物蛋白</a></li>
+                <li><a class="cat-link" data-cat="shake">蛋白奶昔</a></li>
+                <li><a class="cat-link" data-cat="snack">蛋白點心</a></li>
               </ul>
             </li>
-            <li class="cat-group open">
-              <a class="cat-link cat-toggle active" data-cat="health">保健食品 <i class="fas fa-chevron-up"></i></a>
-              <ul class="cat-sub">
-                <li><a class="cat-link" data-cat="health-basic">一般保健</a></li>
-                <li><a class="cat-link" data-cat="health-pro">專業保健</a></li>
-              </ul>
-            </li>
-            <li><a class="cat-link" data-cat="vegan">素食系列</a></li>
-            <li class="cat-group open">
-              <a class="cat-link cat-toggle" data-cat="gear">運動用品 <i class="fas fa-chevron-up"></i></a>
-              <ul class="cat-sub">
-                <li><a class="cat-link" data-cat="bottle">Blender Bottle <i class="fas fa-chevron-right"></i></a></li>
-              </ul>
-            </li>
+            <li><a class="cat-link" data-cat="other">其他補充</a></li>
           </ul>
         </aside>
 
         <!-- Right: toolbar + grid -->
         <div class="store-main">
           <div class="store-toolbar">
-            <h2 class="store-title"><span id="storeCatName">保健食品</span> <small id="storeCount">0 件商品</small></h2>
+            <h2 class="store-title"><span id="storeCatName">全部</span> <small id="storeCount">0 件商品</small></h2>
             <div class="store-controls">
               <label class="store-select"><i class="fas fa-sort-amount-down"></i>
                 <select id="storeSort" aria-label="商品排序">
@@ -124,37 +115,91 @@
 
     <script>
       (function () {
-        const PRODUCTS = [];
+        const PRODUCTS = [
+          { code: 'R001', name: '【紅牛】聰勁iD纖美蛋白奶昔-地瓜穀物風味 (45g/包)', brand: '紅牛 RED COW', price: 119, tag: '合作推廣', img: 'r001.jpg', tags: ['protein', 'shake'], link: 'https://afflnk.site/track/clicks/5300/c627c2bc9b0425dcfe83ec23d62e9e44256f4cc163b2a0f90263b20571401de3c021e7e5593c99616c?t=https%253A%252F%252Fbuy.healthing.com.tw%252Fproducts%252F%25E3%2580%2590%25E7%25B4%2585%25E7%2589%259B%25E3%2580%2591%25E8%2581%25B0%25E5%258B%2581id%25E7%25BA%2596%25E7%25BE%258E%25E8%259B%258B%25E7%2599%25BD%25E5%25A5%25B6%25E6%2598%2594-%25E5%259C%25B0%25E7%2593%259C%25E7%25A9%2580%25E7%2589%25A9%25E9%25A2%25A8%25E5%2591%25B3' },
+          { code: 'R002', name: '【紅牛】聰勁iD纖美蛋白奶昔-芝麻歐蕾風味 (45g/包)', brand: '紅牛 RED COW', price: 119, tag: '合作推廣', img: 'r002.jpg', tags: ['protein', 'shake'], link: 'https://afftkr.site/track/clicks/5300/c627c2bc9b0425dcfe83ec23d62e9e44256f4cc163b2a0f90263b20571401de3c021e7e5593c99616c?t=https%253A%252F%252Fbuy.healthing.com.tw%252Fproducts%252F%25E3%2580%2590%25E7%25B4%2585%25E7%2589%259B%25E3%2580%2591%25E8%2581%25B0%25E5%258B%2581id%25E7%25BA%2596%25E7%25BE%258E%25E8%259B%258B%25E7%2599%25BD%25E5%25A5%25B6%25E6%2598%2594-%25E8%258A%259D%25E9%25BA%25BB%25E6%25AD%2590%25E8%2595%25BE%25E9%25A2%25A8%25E5%2591%25B3' },
+          { code: 'R003', name: '【紅牛】聰勁iD纖美蛋白奶昔-咖啡那堤風味 (45g/包)', brand: '紅牛 RED COW', price: 119, tag: '合作推廣', img: 'r003.jpg', tags: ['protein', 'shake'], link: 'https://aftck.com/track/clicks/5300/c627c2bc9b0425dcfe83ec23d62e9e44256f4cc163b2a0f90263b20571401de3c021e7e5593c99616c?t=https%253A%252F%252Fbuy.healthing.com.tw%252Fproducts%252F%25E3%2580%2590%25E7%25B4%2585%25E7%2589%259B%25E3%2580%2591%25E8%2581%25B0%25E5%258B%2581id%25E7%25BA%2596%25E7%25BE%258E%25E8%259B%258B%25E7%2599%25BD%25E5%25A5%25B6%25E6%2598%2594-%25E5%2592%2596%25E5%2595%25A1%25E9%2582%25A3%25E5%25A0%25A4%25E9%25A2%25A8%25E5%2591%25B3' },
+          { code: 'R004', name: '【紅牛】聰勁iD纖美蛋白奶昔-珍珠奶茶風味 (45g/包)', brand: '紅牛 RED COW', price: 119, tag: '合作推廣', img: 'r004.jpg', tags: ['protein', 'shake'], link: 'https://afftck.site/track/clicks/5300/c627c2bc9b0425dcfe83ec23d62e9e44256f4cc163b2a0f90263b20571401de3c021e7e5593c99616c?t=https%253A%252F%252Fbuy.healthing.com.tw%252Fproducts%252F%25E3%2580%2590%25E7%25B4%2585%25E7%2589%259B%25E3%2580%2591%25E8%2581%25B0%25E5%258B%2581id%25E7%25BA%2596%25E7%25BE%258E%25E8%259B%258B%25E7%2599%25BD%25E5%25A5%25B6%25E6%2598%2594-%25E7%258F%258D%25E7%258F%25A0%25E5%25A5%25B6%25E8%258C%25B6%25E9%25A2%25A8%25E5%2591%25B3' },
+          { code: 'R005', name: '【紅牛】聰勁iD纖美蛋白奶昔-莓果牛奶風味 (45g/包)', brand: '紅牛 RED COW', price: 119, tag: '合作推廣', img: 'r005.jpg', tags: ['protein', 'shake'], link: 'https://affclkr.online/track/clicks/5300/c627c2bc9b0425dcfe83ec23d62e9e44256f4cc163b2a0f90263b20571401de3c021e7e5593c99616c?t=https%253A%252F%252Fbuy.healthing.com.tw%252Fproducts%252F%25E3%2580%2590%25E7%25B4%2585%25E7%2589%259B%25E3%2580%2591%25E8%2581%25B0%25E5%258B%2581id%25E7%25BA%2596%25E7%25BE%258E%25E8%259B%258B%25E7%2599%25BD%25E5%25A5%25B6%25E6%2598%2594-%25E8%258E%2593%25E6%259E%259C%25E7%2589%259B%25E5%25A5%25B6%25E9%25A2%25A8%25E5%2591%25B3' },
+          { code: 'R006', name: '【紅牛】聰勁iD纖美蛋白奶昔-巧克力布朗尼風味 (45g/包)', brand: '紅牛 RED COW', price: 119, tag: '合作推廣', img: 'r006.jpg', tags: ['protein', 'shake'], link: 'https://twshop4coupon.com/track/clicks/5300/c627c2bc9b0425dcfe83ec23d62e9e44256f4cc163b2a0f90263b20571401de3c021e7e5593c99616c?t=https%253A%252F%252Fbuy.healthing.com.tw%252Fproducts%252F%25E8%2581%25B0%25E5%258B%2581id%25E7%25BA%2596%25E7%25BE%258E%25E8%259B%258B%25E7%2599%25BD%25E5%25A5%25B6%25E6%2598%2594-%25E5%25B7%25A7%25E5%2585%258B%25E5%258A%259B%25E5%25B8%2583%25E6%259C%2597%25E5%25B0%25BC%25E9%25A2%25A8%25E5%2591%25B3' },
+          { code: 'R007', name: '【紅牛】聰勁蛋白威化餅 (23.5gx8包/盒)', brand: '紅牛 RED COW', price: 259, tag: '合作推廣', img: 'r007.jpg', tags: ['protein', 'snack'], link: 'https://afftck.site/track/clicks/5300/c627c2bc9b0425dcfe83ec23d62e9e44256f4cc163b2a0f90263b20571401de3c021e7e5593c99616c?t=https%253A%252F%252Fbuy.healthing.com.tw%252Fproducts%252F%25E3%2580%2590%25E7%25B4%2585%25E7%2589%259B%25E3%2580%2591%25E8%2581%25B0%25E5%258B%2581%25E8%259B%258B%25E7%2599%25BD%25E5%25A8%2581%25E5%258C%2596%25E9%25A4%258523g' },
+          { code: 'R008', name: '【紅牛】聰勁蛋白穀脆粒 (20g/10入)可可', brand: '紅牛 RED COW', price: 290, tag: '合作推廣', img: 'r008.jpg', tags: ['protein', 'snack'], link: 'https://abzcoupon.com/track/clicks/5300/c627c2bc9b0425dcfe83ec23d62e9e44256f4cc163b2a0f90263b20571401de3c021e7e5593c99616c?t=https%253A%252F%252Fbuy.healthing.com.tw%252Fproducts%252F%25E3%2580%2590%25E7%25B4%2585%25E7%2589%259B%25E3%2580%2591%25E8%2581%25B0%25E5%258B%2581%25E8%259B%258B%25E7%2599%25BD%25E7%25A9%2580%25E8%2584%2586%25E7%25B2%259220g' },
+          { code: 'R009', name: '【紅牛】聰勁蛋白穀脆粒 (20g/10入)紫薯', brand: '紅牛 RED COW', price: 290, tag: '合作推廣', img: 'r009.jpg', tags: ['protein', 'snack'], link: 'https://abzcoupon.com/track/clicks/5300/c627c2bc9b0425dcfe83ec23d62e9e44256f4cc163b2a0f90263b20571401de3c021e7e5593c99616c?t=https%253A%252F%252Fbuy.healthing.com.tw%252Fproducts%252F%25E3%2580%2590%25E7%25B4%2585%25E7%2589%259B%25E3%2580%2591%25E8%2581%25B0%25E5%258B%2581%25E8%259B%258B%25E7%2599%25BD%25E7%25A9%2580%25E8%2584%2586%25E7%25B2%259220g' },
+          { code: 'R010', name: '【紅牛】聰勁即溶乳清蛋白 (500g)', brand: '紅牛 RED COW', price: 699, tag: '合作推廣', img: 'r010.jpg', tags: ['protein', 'whey'], link: 'https://affclk.site/track/clicks/5300/c627c2bc9b0425dcfe83ec23d62e9e44256f4cc163b2a0f90263b20571401de3c021e7e5593c99616c?t=https%253A%252F%252Fbuy.healthing.com.tw%252Fproducts%252F%25E3%2580%2590%25E7%25B4%2585%25E7%2589%259B%25E3%2580%2591%25E8%2581%25B0%25E5%258B%2581%25E5%258D%25B3%25E6%25BA%25B6%25E4%25B9%25B3%25E6%25B8%2585%25E8%259B%258B%25E7%2599%25BD500g' },
+          { code: 'R011', name: '【紅牛】聰勁即溶乳清蛋白 (2磅)', brand: '紅牛 RED COW', price: 1185, tag: '合作推廣', img: 'r011.jpg', tags: ['protein', 'whey'], link: 'https://twcouponcenter.com/track/clicks/5300/c627c2bc9b0425dcfe83ec23d62e9e44256f4cc163b2a0f90263b20571401de3c021e7e5593c99616c?t=https%253A%252F%252Fbuy.healthing.com.tw%252Fproducts%252F%25E3%2580%2590%25E7%25B4%2585%25E7%2589%259B%25E3%2580%2591%25E8%2581%25B0%25E5%258B%2581%25E5%258D%25B3%25E6%25BA%25B6%25E4%25B9%25B3%25E6%25B8%2585%25E8%259B%258B%25E7%2599%25BD2%25E7%25A3%2585' },
+          { code: 'R012', name: '【紅牛】聰勁即溶乳清蛋白隨手包 (35g)', brand: '紅牛 RED COW', price: 55, tag: '合作推廣', img: 'r012.jpg', tags: ['protein', 'whey'], link: 'https://afftck.com/track/clicks/5300/c627c2bc9b0425dcfe83ec23d62e9e44256f4cc163b2a0f90263b20571401de3c021e7e5593c99616c?t=https%253A%252F%252Fbuy.healthing.com.tw%252Fproducts%252F%25E3%2580%2590%25E7%25B4%2585%25E7%2589%259B%25E3%2580%2591%25E8%2581%25B0%25E5%258B%2581%25E5%258D%25B3%25E6%25BA%25B6%25E4%25B9%25B3%25E6%25B8%2585%25E8%259B%258B%25E7%2599%25BD%25E9%259A%25A8%25E6%2589%258B%25E5%258C%258535g' },
+          { code: 'R013', name: '【紅牛】聰勁即溶分離乳清蛋白 (500g)', brand: '紅牛 RED COW', price: 799, tag: '合作推廣', img: 'r013.jpg', tags: ['protein', 'whey'], link: 'https://twshop4coupon.com/track/clicks/5300/c627c2bc9b0425dcfe83ec23d62e9e44256f4cc163b2a0f90263b20571401de3c021e7e5593c99616c?t=https%253A%252F%252Fbuy.healthing.com.tw%252Fproducts%252F%25E3%2580%2590%25E7%25B4%2585%25E7%2589%259B%25E3%2580%2591%25E8%2581%25B0%25E5%258B%2581%25E5%258D%25B3%25E6%25BA%25B6%25E5%2588%2586%25E9%259B%25A2%25E4%25B9%25B3%25E6%25B8%2585%25E8%259B%258B%25E7%2599%25BD500g' },
+          { code: 'R014', name: '【紅牛】聰勁即溶分離乳清蛋白 (2磅)', brand: '紅牛 RED COW', price: 1499, tag: '合作推廣', img: 'r014.jpg', tags: ['protein', 'whey'], link: 'https://afftck.site/track/clicks/5300/c627c2bc9b0425dcfe83ec23d62e9e44256f4cc163b2a0f90263b20571401de3c021e7e5593c99616c?t=https%253A%252F%252Fbuy.healthing.com.tw%252Fproducts%252F%25E3%2580%2590%25E7%25B4%2585%25E7%2589%259B%25E3%2580%2591%25E8%2581%25B0%25E5%258B%2581%25E5%258D%25B3%25E6%25BA%25B6%25E5%2588%2586%25E9%259B%25A2%25E4%25B9%25B3%25E6%25B8%2585%25E8%259B%258B%25E7%2599%25BD2%25E7%25A3%2585' },
+          { code: 'R015', name: '【紅牛】聰勁即溶分離乳清蛋白隨手包 (37g)', brand: '紅牛 RED COW', price: 65, tag: '合作推廣', img: 'r015.jpg', tags: ['protein', 'whey'], link: 'https://afftck.site/track/clicks/5300/c627c2bc9b0425dcfe83ec23d62e9e44256f4cc163b2a0f90263b20571401de3c021e7e5593c99616c?t=https%253A%252F%252Fbuy.healthing.com.tw%252Fproducts%252F%25E3%2580%2590%25E7%25B4%2585%25E7%2589%259B%25E3%2580%2591%25E8%2581%25B0%25E5%258B%2581%25E5%258D%25B3%25E6%25BA%25B6%25E5%2588%2586%25E9%259B%25A2%25E4%25B9%25B3%25E6%25B8%2585%25E8%259B%258B%25E7%2599%25BD%25E9%259A%25A8%25E6%2589%258B%25E5%258C%258537g' },
+          { code: 'R016', name: '【紅牛】紅牛聰勁分離植優蛋白隨手包 (35g)', brand: '紅牛 RED COW', price: 45, tag: '合作推廣', img: 'r016.jpg', tags: ['protein', 'plant'], link: 'https://abzcoupon.com/track/clicks/5300/c627c2bc9b0425dcfe83ec23d62e9e44256f4cc163b2a0f90263b20571401de3c021e7e5593c99616c?t=https%253A%252F%252Fbuy.healthing.com.tw%252Fproducts%252F%25E3%2580%2590%25E7%25B4%2585%25E7%2589%259B%25E3%2580%2591%25E7%25B4%2585%25E7%2589%259B%25E8%2581%25B0%25E5%258B%2581%25E5%2588%2586%25E9%259B%25A2%25E6%25A4%258D%25E5%2584%25AA%25E8%259B%258B%25E7%2599%25BD%25E9%259A%25A8%25E6%2589%258B%25E5%258C%258535g' },
+          { code: 'R017', name: '【紅牛】紅牛聰勁分離植優蛋白 (500g)', brand: '紅牛 RED COW', price: 450, tag: '合作推廣', img: 'r017.jpg', tags: ['protein', 'plant'], link: 'https://affclk.site/track/clicks/5300/c627c2bc9b0425dcfe83ec23d62e9e44256f4cc163b2a0f90263b20571401de3c021e7e5593c99616c?t=https%253A%252F%252Fbuy.healthing.com.tw%252Fproducts%252F%25E3%2580%2590%25E7%25B4%2585%25E7%2589%259B%25E3%2580%2591%25E7%25B4%2585%25E7%2589%259B%25E8%2581%25B0%25E5%258B%2581%25E5%2588%2586%25E9%259B%25A2%25E6%25A4%258D%25E5%2584%25AA%25E8%259B%258B%25E7%2599%25BD500g' },
+          { code: 'R018', name: '【紅牛】紅牛聰勁分離植優蛋白 (2磅)', brand: '紅牛 RED COW', price: 859, tag: '合作推廣', img: 'r018.jpg', tags: ['protein', 'plant'], link: 'https://tlcafftrax.com/track/clicks/5300/c627c2bc9b0425dcfe83ec23d62e9e44256f4cc163b2a0f90263b20571401de3c021e7e5593c99616c?t=https%253A%252F%252Fbuy.healthing.com.tw%252Fproducts%252F%25E3%2580%2590%25E7%25B4%2585%25E7%2589%259B%25E3%2580%2591%25E7%25B4%2585%25E7%2589%259B%25E8%2581%25B0%25E5%258B%2581%25E5%2588%2586%25E9%259B%25A2%25E6%25A4%258D%25E5%2584%25AA%25E8%259B%258B%25E7%2599%25BD2%25E7%25A3%2585' },
+          { code: 'R019', name: '【紅牛】聰勁iD即溶乳清蛋白-輕風味 (500g)', brand: '紅牛 RED COW', price: 699, tag: '合作推廣', img: 'r019.jpg', tags: ['protein', 'whey'], link: 'https://afflnk.site/track/clicks/5300/c627c2bc9b0425dcfe83ec23d62e9e44256f4cc163b2a0f90263b20571401de3c021e7e5593c99616c?t=https%253A%252F%252Fbuy.healthing.com.tw%252Fproducts%252F%25E3%2580%2590%25E7%25B4%2585%25E7%2589%259B%25E3%2580%2591%25E8%2581%25B0%25E5%258B%2581id%25E5%258D%25B3%25E6%25BA%25B6%25E4%25B9%25B3%25E6%25B8%2585%25E8%259B%258B%25E7%2599%25BD-%25E8%25BC%2595%25E9%25A2%25A8%25E5%2591%25B3500g' },
+          { code: 'R020', name: '【紅牛】聰勁iD即溶乳清蛋白-厚風味隨手包 (35g)', brand: '紅牛 RED COW', price: 60, tag: '合作推廣', img: 'r020.jpg', tags: ['protein', 'whey'], link: 'https://affckr.site/track/clicks/5300/c627c2bc9b0425dcfe83ec23d62e9e44256f4cc163b2a0f90263b20571401de3c021e7e5593c99616c?t=https%253A%252F%252Fbuy.healthing.com.tw%252Fproducts%252F%25E3%2580%2590%25E7%25B4%2585%25E7%2589%259B%25E3%2580%2591%25E8%2581%25B0%25E5%258B%2581id%25E5%258D%25B3%25E6%25BA%25B6%25E4%25B9%25B3%25E6%25B8%2585%25E8%259B%258B%25E7%2599%25BD-%25E5%258E%259A%25E9%25A2%25A8%25E5%2591%25B3%25E9%259A%25A8%25E6%2589%258B%25E5%258C%258535g' },
+          { code: 'R021', name: '【紅牛】聰勁iD即溶乳清蛋白-輕風味隨手包 (35g)', brand: '紅牛 RED COW', price: 60, tag: '合作推廣', img: 'r021.jpg', tags: ['protein', 'whey'], link: 'https://twcouponcenter.com/track/clicks/5300/c627c2bc9b0425dcfe83ec23d62e9e44256f4cc163b2a0f90263b20571401de3c021e7e5593c99616c?t=https%253A%252F%252Fbuy.healthing.com.tw%252Fproducts%252F%25E3%2580%2590%25E7%25B4%2585%25E7%2589%259B%25E3%2580%2591%25E8%2581%25B0%25E5%258B%2581id%25E5%258D%25B3%25E6%25BA%25B6%25E4%25B9%25B3%25E6%25B8%2585%25E8%259B%258B%25E7%2599%25BD-%25E8%25BC%2595%25E9%25A2%25A8%25E5%2591%25B3%25E9%259A%25A8%25E6%2589%258B%25E5%258C%258535g' },
+          { code: 'R022', name: '【紅牛】紅牛聰勁能量飲-3種口味 (35ml*6包/盒)', brand: '紅牛 RED COW', price: 329, tag: '合作推廣', img: 'r022.jpg', tags: ['sport', 'energy'], link: 'https://affclkr.com/track/clicks/5300/c627c2bc9b0425dcfe83ec23d62e9e44256f4cc163b2a0f90263b20571401de3c021e7e5593c99616c?t=https%253A%252F%252Fbuy.healthing.com.tw%252Fproducts%252F%25E3%2580%2590%25E7%25B4%2585%25E7%2589%259B%25E3%2580%2591%25E7%25B4%2585%25E7%2589%259B%25E8%2581%25B0%25E5%258B%2581%25E8%2583%25BD%25E9%2587%258F%25E9%25A3%25B2-3%25E7%25A8%25AE%25E5%258F%25A3%25E5%2591%25B3' },
+          { code: 'R023', name: '【紅牛】聰勁Energy Gel能量包10入(白葡萄口味)', brand: '紅牛 RED COW', price: 550, tag: '合作推廣', img: 'r023.jpg', tags: ['sport', 'energy'], link: 'https://affone.site/track/clicks/5300/c627c2bc9b0425dcfe83ec23d62e9e44256f4cc163b2a0f90263b20571401de3c021e7e5593c99616c?t=https%253A%252F%252Fbuy.healthing.com.tw%252Fproducts%252F%25E3%2580%2590%25E7%25B4%2585%25E7%2589%259B%25E3%2580%2591%25E8%2581%25B0%25E5%258B%2581energy-gel%25E8%2583%25BD%25E9%2587%258F%25E5%258C%258510%25E5%2585%25A5%25E7%2599%25BE%25E9%25A6%2599%25E6%259E%259C%25E5%258F%25A3%25E5%2591%25B3%25E8%2583%25BD%25E9%2587%258F%25E8%2586%25A0%25E3%2580%2581%25E5%2588%25BA%25E4%25BA%2594%25E5%258A%25A0%25E3%2580%2581%25E5%2592%2596%25E5%2595%25A1%25E5%259B%25A0%25E3%2580%2581%25E6%259E%259C%25E8%2586%25A0-1' },
+          { code: 'R024', name: '【紅牛】聰勁BCAA 蔓越莓口味 (6.5g*4包/盒)', brand: '紅牛 RED COW', price: 179, tag: '合作推廣', img: 'r024.jpg', tags: ['sport', 'bcaa'], link: 'https://vbtrax.com/track/clicks/5300/c627c2bc9b0425dcfe83ec23d62e9e44256f4cc163b2a0f90263b20571401de3c021e7e5593c99616c?t=https%253A%252F%252Fbuy.healthing.com.tw%252Fproducts%252F%25E3%2580%2590%25E7%25B4%2585%25E7%2589%259B%25E3%2580%2591%25E8%2581%25B0%25E5%258B%2581bcaa%25E8%2594%2593%25E8%25B6%258A%25E8%258E%2593%25E5%258F%25A3%25E5%2591%25B365g' },
+          { code: 'R025', name: '【紅牛】聰勁BCAA 檸檬口味 (6.5g*4包/盒)', brand: '紅牛 RED COW', price: 179, tag: '合作推廣', img: 'r025.jpg', tags: ['sport', 'bcaa'], link: 'https://affclk.site/track/clicks/5300/c627c2bc9b0425dcfe83ec23d62e9e44256f4cc163b2a0f90263b20571401de3c021e7e5593c99616c?t=https%253A%252F%252Fbuy.healthing.com.tw%252Fproducts%252F%25E3%2580%2590%25E7%25B4%2585%25E7%2589%259B%25E3%2580%2591%25E8%2581%25B0%25E5%258B%2581bcaa%25E6%25AA%25B8%25E6%25AA%25AC%25E5%258F%25A3%25E5%2591%25B365g' },
+          { code: 'R026', name: '【紅牛】聰勁肌酸 (200g)', brand: '紅牛 RED COW', price: 599, tag: '合作推廣', img: 'r026.jpg', tags: ['sport', 'creatine'], link: 'https://affone.site/track/clicks/5300/c627c2bc9b0425dcfe83ec23d62e9e44256f4cc163b2a0f90263b20571401de3c021e7e5593c99616c?t=https%253A%252F%252Fbuy.healthing.com.tw%252Fproducts%252F%25E3%2580%2590%25E7%25B4%2585%25E7%2589%259B%25E3%2580%2591%25E8%2581%25B0%25E5%258B%2581%25E8%2582%258C%25E9%2585%25B8200g' },
+          { code: 'T001', name: '【TERRA】戰神黑瑪卡3.0-EX', brand: 'TERRA', price: 698, tag: '合作推廣', img: 't001.jpg', tags: ['other'], link: 'https://afftck.com/track/clicks/9472/c627c2bc9b0425dcf18eec23d62e9e44256f4cc163b2a0f90e64b50771401de3c021e7e5593c99616c?t=https%253A%252F%252Fwww.terratw.com%252Fitem%252FAresMACA-EX-tw9iwi' },
+          { code: 'T002', name: '【TERRA】阿波羅加強版男性B群', brand: 'TERRA', price: 498, tag: '合作推廣', img: 't002.jpg', tags: ['other'], link: 'https://afftkr.site/track/clicks/9472/c627c2bc9b0425dcf18eec23d62e9e44256f4cc163b2a0f90e64b50771401de3c021e7e5593c99616c?t=https%253A%252F%252Fwww.terratw.com%252Fitem%252FApolloVitaminB' },
+          { code: 'T003', name: '【TERRA】睡神晚安酵素膠囊', brand: 'TERRA', price: 598, tag: '合作推廣', img: 't003.jpg', tags: ['other'], link: 'https://affclk.site/track/clicks/9472/c627c2bc9b0425dcf18eec23d62e9e44256f4cc163b2a0f90e64b50771401de3c021e7e5593c99616c?t=https%253A%252F%252Fwww.terratw.com%252Fitem%252FHypnosSleepEnzymes' }
+        ];
 
         const grid = document.getElementById('storeGrid');
         const nameEl = document.getElementById('storeCatName');
         const countEl = document.getElementById('storeCount');
         const sortEl = document.getElementById('storeSort');
-        let current = 'health';
+        let current = 'all';
         const fmt = n => 'NT$' + n.toLocaleString();
 
         function render() {
-          let list = PRODUCTS.filter(p => p.tags.includes(current));
+          let list = (current === 'all')
+            ? [...PRODUCTS]
+            : PRODUCTS.filter(p => p.tags && (
+                p.tags.includes(current) || 
+                (current === 'sport' && ['bcaa', 'creatine', 'energy'].some(t => p.tags.includes(t))) || 
+                (current === 'protein' && ['whey', 'plant', 'shake', 'snack'].some(t => p.tags.includes(t))) ||
+                (current === 'other' && ['other', 'supplement'].some(t => p.tags.includes(t)))
+              ));
           if (sortEl.value === 'price-asc') list.sort((a, b) => a.price - b.price);
           if (sortEl.value === 'price-desc') list.sort((a, b) => b.price - a.price);
           countEl.textContent = list.length + ' 件商品';
           grid.innerHTML = list.length ? list.map(p => `
-            <div class="store-card">
+            <a href="${p.link || 'javascript:void(0);'}" ${p.link ? 'target="_blank" rel="noopener noreferrer"' : ''} class="store-card" ${p.link ? '' : 'style="cursor: default;"'}>
               <div class="store-thumb">
-                ${p.tag ? `<span class="store-tag">${p.tag}</span>` : ''}
-                <span class="store-icon">${p.icon}</span>
-                <button class="store-cart-btn" onclick="addToCart('${p.name.replace(/'/g, "\\'")}')" aria-label="加入購物車"><i class="fas fa-cart-plus"></i></button>
+                <img src="${p.img}" alt="${p.name}" class="store-img" style="display:none;" onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='flex';" onload="this.style.display='block'; if(this.nextElementSibling) this.nextElementSibling.style.display='none';">
+                <div class="store-placeholder" style="display:flex;">
+                  <i class="far fa-image"></i>
+                  <span class="store-placeholder-text">預留圖片位</span>
+                </div>
               </div>
-              <h3 class="store-name">${p.name}</h3>
-              <div class="store-price">${fmt(p.price)}</div>
-              <div class="store-was">${fmt(p.was)}</div>
-            </div>`).join('') : '<div class="store-empty" style="grid-column: 1 / -1; text-align: center; color: var(--text-muted); padding: 5rem 1rem; font-size: 1.25rem; font-weight: 500;"><i class="fas fa-box-open" style="font-size: 3.5rem; margin-bottom: 1.25rem; color: #475569; display: block;"></i>尚無商品</div>';
+              <div class="store-info">
+                <h3 class="store-name" title="${p.name}">${p.name}</h3>
+                <div class="store-price">${fmt(p.price)}</div>
+              </div>
+            </a>`).join('') : '<div class="store-empty" style="grid-column: 1 / -1; text-align: center; color: var(--text-muted); padding: 5rem 1rem; font-size: 1.25rem; font-weight: 500;"><i class="fas fa-box-open" style="font-size: 3.5rem; margin-bottom: 1.25rem; color: #475569; display: block;"></i>此分類目前尚無商品</div>';
         }
+
+        const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
+        const groups = document.querySelectorAll('#storeSidebar .cat-group');
+        if (isMobile()) groups.forEach(g => g.classList.remove('open'));
 
         document.querySelectorAll('#storeSidebar .cat-link').forEach(a => {
           a.addEventListener('click', e => {
-            // clicking the chevron area of a group toggles its sub-list
-            if (a.classList.contains('cat-toggle') && e.target.tagName === 'I') {
+            if (isMobile()) {
+              // mobile: top-level tabs; 運動補給 / 蛋白系列 expand their sub-items
+              const group = a.closest('.cat-group');
+              if (a.classList.contains('cat-toggle')) {
+                const willOpen = !group.classList.contains('open');
+                groups.forEach(g => g.classList.remove('open'));
+                if (willOpen) group.classList.add('open');
+              } else if (!a.closest('.cat-sub')) {
+                groups.forEach(g => g.classList.remove('open'));
+              }
+            } else if (a.classList.contains('cat-toggle') && e.target.tagName === 'I') {
+              // desktop: clicking the chevron area of a group toggles its sub-list
               a.parentElement.classList.toggle('open');
               return;
             }
