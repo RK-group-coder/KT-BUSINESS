@@ -95,6 +95,14 @@
                 <li><a class="cat-link" data-cat="tops">上衣 / 外套</a></li>
               </ul>
             </li>
+            <li class="cat-group open">
+              <a class="cat-link cat-toggle" data-cat="equipment">健身用具 <i class="fas fa-chevron-up"></i></a>
+              <ul class="cat-sub">
+                <li><a class="cat-link" data-cat="belt">腰帶 / 護具</a></li>
+                <li><a class="cat-link" data-cat="strap">拉力帶 / 拉力器</a></li>
+                <li><a class="cat-link" data-cat="accessory">其他用具</a></li>
+              </ul>
+            </li>
           </ul>
         </aside>
 
@@ -161,7 +169,14 @@
           { code: 'TJ008', name: 'Joined® Mesh 拼接 七分袖 Jersey【紅/黑/白】', brand: 'TEAM JOINED', price: 1290, tag: '合作推廣', img: 'TJ008.png', tags: ['clothing', 'tops'], link: '' },
           { code: 'TJ009', name: 'Joined® Signature 寬版拼接運動夾克【黑/灰】', brand: 'TEAM JOINED', price: 2980, tag: '合作推廣', img: 'TJ009.png', tags: ['clothing', 'tops'], link: '' },
           { code: 'TJ010', name: 'Joined® Signature 寬版拼接運動夾克【藍/白】', brand: 'TEAM JOINED', price: 2980, tag: '合作推廣', img: 'TJ010.png', tags: ['clothing', 'tops'], link: '' },
-          { code: 'TJ011', name: 'Joined® Signature 寬版拼接運動夾克【寶藍/深藍】', brand: 'TEAM JOINED', price: 2980, tag: '合作推廣', img: 'TJ011.png', tags: ['clothing', 'tops'], link: '' }
+          { code: 'TJ011', name: 'Joined® Signature 寬版拼接運動夾克【寶藍/深藍】', brand: 'TEAM JOINED', price: 2980, tag: '合作推廣', img: 'TJ011.png', tags: ['clothing', 'tops'], link: '' },
+          { code: 'TJ012', name: 'Joined® 矩型健身腰帶【黑】【橘】', brand: 'TEAM JOINED', price: 1080, tag: '合作推廣', img: 'TJ012.png', tags: ['equipment', 'belt'], link: '' },
+          { code: 'TJ013', name: 'Joined® 三合一拉力帶', brand: 'TEAM JOINED', price: 1080, tag: '合作推廣', img: 'TJ013.png', tags: ['equipment', 'strap'], link: '' },
+          { code: 'TJ014', name: 'Joined® 二合一綁帶式護肘【黑】', brand: 'TEAM JOINED', price: 1490, tag: '合作推廣', img: 'TJ014.png', tags: ['equipment', 'belt'], link: '' },
+          { code: 'TJ015', name: 'Joined® 10 in 1 拉力器組合裝', brand: 'TEAM JOINED', price: 1290, tag: '合作推廣', img: 'TJ015.png', tags: ['equipment', 'strap'], link: '' },
+          { code: 'TJ016', name: 'Joined® BB 健身泡棉 12"/18"【紅條黑】', brand: 'TEAM JOINED', price: 680, tag: '合作推廣', img: 'TJ016.png', tags: ['equipment', 'accessory'], link: '' },
+          { code: 'TJ017', name: 'Joined® 快裝式止滑拉力帶【橘】', brand: 'TEAM JOINED', price: 490, tag: '合作推廣', img: 'TJ017.png', tags: ['equipment', 'strap'], link: '' },
+          { code: 'TJ018', name: 'Joined® 7MM SBR 深蹲護膝【紅/黑】', brand: 'TEAM JOINED', price: 790, tag: '合作推廣', img: 'TJ018.png', tags: ['equipment', 'belt'], link: '' }
         ];
 
         const grid = document.getElementById('storeGrid');
@@ -179,7 +194,8 @@
                 (current === 'sport' && ['bcaa', 'creatine', 'energy'].some(t => p.tags.includes(t))) || 
                 (current === 'protein' && ['whey', 'plant', 'shake', 'snack'].some(t => p.tags.includes(t))) ||
                 (current === 'other' && ['other', 'supplement'].some(t => p.tags.includes(t))) ||
-                (current === 'clothing' && ['clothing', 'tops', 'bottoms', 'accessories'].some(t => p.tags.includes(t)))
+                (current === 'clothing' && ['clothing', 'tops', 'bottoms', 'accessories'].some(t => p.tags.includes(t))) ||
+                (current === 'equipment' && ['equipment', 'belt', 'strap', 'accessory'].some(t => p.tags.includes(t)))
               ));
           if (sortEl.value === 'price-asc') list.sort((a, b) => a.price - b.price);
           if (sortEl.value === 'price-desc') list.sort((a, b) => b.price - a.price);
