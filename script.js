@@ -1,5 +1,5 @@
 /* ==========================================================================
-   KT FITNESS & NUTRITION - INTERACTIVE SCRIPT
+   JENZiQ FITNESS & NUTRITION - INTERACTIVE SCRIPT
    Calculators, Dynamic Filtering, Theme Toggle & Modals
    ========================================================================== */
 
@@ -1231,7 +1231,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         } else {
           // 若尚未填入 Google Sheets 網址，備用為開啟郵件客戶端
-          const subject = encodeURIComponent(`【KT Fitness 線上諮詢】${name} 的個人諮詢表單`);
+          const subject = encodeURIComponent(`【JENZiQ Fitness 線上諮詢】${name} 的個人諮詢表單`);
           const body = encodeURIComponent(
             `您好，我是 ${name}，以下是我的線上諮詢資料：\n\n` +
             `• 姓名：${name}\n` +
@@ -1314,7 +1314,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       drawer.innerHTML = `
         <div class="mobile-drawer-header">
-          <a href="index.html" class="mobile-drawer-logo">KT FITNESS</a>
+          <a href="index.html" class="mobile-drawer-logo">JENZiQ FITNESS</a>
           <button type="button" class="mobile-drawer-close" id="closeMobileNav" aria-label="關閉選單">
             <i class="fas fa-times"></i>
           </button>
@@ -1367,7 +1367,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <i class="fab fa-tiktok"></i>
             </a>
           </div>
-          <p class="mobile-drawer-copy">© 2026 KT FITNESS. All rights reserved.</p>
+          <p class="mobile-drawer-copy">© 2026 JENZiQ FITNESS. All rights reserved.</p>
         </div>
       `;
       document.body.appendChild(drawer);
